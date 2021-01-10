@@ -10,7 +10,7 @@ pd.set_option('display.width', 2000)
 
 
 
-local_corenlp_path = '../stanford-corenlp-4.0.0/stanford-corenlp-4.0.0'
+local_corenlp_path = '../stanford-corenlp-4.0.0'
 input = 'input.txt'
 target = 'target.txt'
 opinion = 'opinion.txt'
@@ -21,14 +21,14 @@ csv_opinion = '../csv/Opi.csv'
 
 
 sentences, target_polarity = processing_fileOriginale.trasforma_csv_in_df_colonne_to_list("../csv/Gold.csv")
-
+#da decommentare
 #propagation.propagation(sentences, local_corenlp_path)
 #processing.target_to_csv(target)
 #processing.opinion_to_csv(opinion)
 
 
 
-
+'''
 sentence, lista_target_estratti = processing.column_from_dfT(csv_target)
 lista_opinion_estratti = processing.column_from_dfO(csv_opinion)
 lista_polarity_estratta = processing.polarity_lista(lista_opinion_estratti, lexicon_positive, lexicon_negative)
@@ -85,6 +85,6 @@ df['Correct Polarity'] = lista_polarity_correct
 
 df.to_csv('../csv/Final.csv')
 
-
+'''
 
 

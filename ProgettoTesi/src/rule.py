@@ -31,8 +31,8 @@ def R1(local_corenlp_path, input):
   tok = np.array(toke)
   list_target = []
 
-  Op = 'opinion-lexicon-English/positive-words.txt'
-  On = 'opinion-lexicon-English/negative-words.txt'
+  Op = '../opinion-lexicon-English/positive-words.txt'
+  On = '../opinion-lexicon-English/negative-words.txt'
   val = ['JJ', 'JJS', 'JJR']
 
   for item in pos:
@@ -85,8 +85,8 @@ def R2(local_corenlp_path, input, file_target):
 
   tok = np.array(toke)
   val = ['NN', 'NNS']
-  Op = 'opinion-lexicon-English/positive-words.txt'
-  On = 'opinion-lexicon-English/negative-words.txt'
+  Op = '../opinion-lexicon-English/positive-words.txt'
+  On = '../opinion-lexicon-English/negative-words.txt'
 
   for item in pos:
     if item[1] in val:
