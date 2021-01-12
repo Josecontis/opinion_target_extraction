@@ -9,7 +9,7 @@ pd.set_option('display.max_columns', 2000)
 pd.set_option('display.width', 2000)
 
 local_corenlp_path = '../stanford-corenlp-4.2.0'
-input = 'input.txt'
+input_ = 'input.txt'
 target = 'target.txt'
 opinion = 'opinion.txt'
 lexicon_positive = '../opinion-lexicon-English/positive-words.txt'
@@ -20,97 +20,114 @@ csv_opinion = '../csv/Opi.csv'
 # sentences contiene la lista di frasi e target_polarity la lista di target con polarità di ogni frase
 sentences, target_polarity = processing_fileOriginale.trasforma_csv_in_df_colonne_to_list("../csv/Gold.csv")
 # da decommentare e INSERIRE CONTROLLO
-# algoritmo di doppia propagazione che prende in input la lista di frasi estratta dal csv e la libreria
-# propagation.propagation(sentences, local_corenlp_path)
-# converte il txt dei target in input nel csv Targ.csv inserendo le frasi corrispondenti
-# processing.target_to_csv(target)
-# converte il txt delle parole di opinione in input nel csv Opi.csv inserendo le frasi corrispondenti
-# processing.opinion_to_csv(opinion)
+a = 'y'
+while a == 'y':
 
-# a partire dal csv restituisce la lista delle parole di opinione separate relative alle frasi
-lista_opinion_estratti = processing.column_from_dfO(csv_opinion)
-# a partire dalla lista di parole di opinione estratte e i due lessici contenenti tutte le parole
-# di opinione possibili e immaginabili si estrae una lista di polarità delle parole di opinione
-lista_polarity_estratta = processing.polarity_lista(lista_opinion_estratti, lexicon_positive, lexicon_negative)
+    print("\nPossible choices:")
+    print("1) Double propagation to extract targets and opinion words"
+          "\n2) Process to add polarity to the targets and evaluate it"
+          "\n3) Quit")
 
-# INPUT: la lista dei target con le polarità unite ed estratte dal csv gold
-# OUTPUT: la lista dei target con le polarità separate
-list_target_polarity = processing_fileOriginale.process_list_target_polarity(target_polarity)
+    choice = input("What would you like to do? Put your choice: ")
 
-# INPUT: la lista dei target con le polarità separate
-# OUTPUT: solo la lista dei target di tutte le frasi
-lista_target_gold = processing_fileOriginale.listaTarget_from_listaTargetPolarity(list_target_polarity)
+    if choice == "1":
+        # algoritmo di doppia propagazione che prende in input la lista di frasi estratta dal csv e la libreria
+        propagation.propagation(sentences, local_corenlp_path)
+        # converte il txt dei target in input nel csv Targ.csv inserendo le frasi corrispondenti
+        # processing.target_to_csv(target)
+        # converte il txt delle parole di opinione in input nel csv Opi.csv inserendo le frasi corrispondenti
+        # processing.opinion_to_csv(opinion)
 
-# INPUT: la lista dei target con le polarità separate
-# OUTPUT: solo la lista delle polarità di tutte le frasi
-lista_polarity_gold = processing_fileOriginale.listaPolarity_from_listaTargetPolarity(list_target_polarity)
+    elif choice == "2":
+        # a partire dal csv restituisce la lista delle parole di opinione separate relative alle frasi
+        lista_opinion_estratti = processing.column_from_dfO(csv_opinion)
+        # a partire dalla lista di parole di opinione estratte e i due lessici contenenti tutte le parole
+        # di opinione possibili e immaginabili si estrae una lista di polarità delle parole di opinione
+        lista_polarity_estratta = processing.polarity_lista(lista_opinion_estratti, lexicon_positive, lexicon_negative)
 
-# INPUT: la lista dei target con SOLO le polarità [es. (+3),(-2)...]
-# OUTPUT: la lista delle polarità stringhe di tutte le frasi [es. (positive),(negative)...]
-lista_polarity_gold_mod = processing_fileOriginale.process_list_polarity_gold(lista_polarity_gold)
+        # INPUT: la lista dei target con le polarità unite ed estratte dal csv gold
+        # OUTPUT: la lista dei target con le polarità separate
+        list_target_polarity = processing_fileOriginale.process_list_target_polarity(target_polarity)
 
-# a partire dal csv restituisce la lista delle frasi e la lista dei target estratti relativi alle frasi
-sentence, lista_target_estratti = processing.column_from_dfT(csv_target)
+        # INPUT: la lista dei target con le polarità separate
+        # OUTPUT: solo la lista dei target di tutte le frasi
+        lista_target_gold = processing_fileOriginale.listaTarget_from_listaTargetPolarity(list_target_polarity)
 
-# ----------rende le due liste con dimensioni uguali per la
-# valutazione tramite intersezione degli elementi comuni------------
+        # INPUT: la lista dei target con le polarità separate
+        # OUTPUT: solo la lista delle polarità di tutte le frasi
+        lista_polarity_gold = processing_fileOriginale.listaPolarity_from_listaTargetPolarity(list_target_polarity)
 
-# INPUT: lista dei target estratti
-# OUTPUT: la lista dei target corretti di dimensione agggiungendo 'NA', ed n è
-# la lunghezza massima delle stringhe target estratti per una frase
-n, lista_target_estratti_P = processing.process_lista_target(lista_target_estratti)
+        # INPUT: la lista dei target con SOLO le polarità [es. (+3),(-2)...]
+        # OUTPUT: la lista delle polarità stringhe di tutte le frasi [es. (positive),(negative)...]
+        lista_polarity_gold_mod = processing_fileOriginale.process_list_polarity_gold(lista_polarity_gold)
 
-# INPUT: lista dei target gold e n la dimensione per correggere la lista dei target gold con i 'NA1'
-# OUTPUT: la lista dei target gold corretti di dimensione agggiungendo 'NA1'
-lista_target_gold_P = processing.process_lista_target_gold(lista_target_gold, n)
+        # a partire dal csv restituisce la lista delle frasi e la lista dei target estratti relativi alle frasi
+        sentence, lista_target_estratti = processing.column_from_dfT(csv_target)
 
-# INPUT: lista dei target estratti corretti e lista dei target gold corretti
-# OUTPUT: lista_target_correct è la lista di si e no, numero_corretti=48 è il numero
-# di target azzeccati, numero_totale=346 è il numero totale di frasi
-lista_target_correct, numero_corretti, numero_totale = processing.lista_correct_target(lista_target_estratti_P, lista_target_gold_P)
+        # ----------rende le due liste con dimensioni uguali per la
+        # valutazione tramite intersezione degli elementi comuni------------
 
-# stessa cosa precedente ma per la lista delle polarità estratte con la lista delle polarità gold
-n, lista_polarity_estratta_P = processing.process_lista_polarity(lista_polarity_estratta)
-lista_polarity_gold_P = processing.process_lista_target_gold(lista_polarity_gold_mod, n)
-lista_polarity_correct = processing.lista_corect_polarity(lista_polarity_estratta_P, lista_polarity_gold_P)
+        # INPUT: lista dei target estratti
+        # OUTPUT: la lista dei target corretti di dimensione agggiungendo 'NA', ed n è
+        # la lunghezza massima delle stringhe target estratti per una frase
+        n, lista_target_estratti_P = processing.process_lista_target(lista_target_estratti)
 
-#valutazione target estratti
-# INPUT: numero_corretti=48 è il numero di target azzeccati, numero_totale=346 è il numero totale di frasi
-# OUTPUT: percentuale dei target estratti correttamente
-percentuale_corretti = evaluation.percentuale_targetEstratti_correct(numero_corretti, numero_totale)
-# percentuale di correttezza dell' estrazione dei target con 2 cifre decimali
-print('percentuale target corretti: ', round(percentuale_corretti,2), '%')
+        # INPUT: lista dei target gold e n la dimensione per correggere la lista dei target gold con i 'NA1'
+        # OUTPUT: la lista dei target gold corretti di dimensione agggiungendo 'NA1'
+        lista_target_gold_P = processing.process_lista_target_gold(lista_target_gold, n)
 
-#valutazione polarità estratte
-# metodo che crea dei vettori binari che rappresentano la presenza(1) o assenza(0)
-# di ogni classe per ogni frase (dove le classi sono NA,positive e negative)
-mlb = MultiLabelBinarizer()
-lista_polarity_gold_mod_tr = mlb.fit_transform(lista_polarity_gold_mod)
-lista_polarity_estratta_tr = mlb.fit_transform(lista_polarity_estratta)
-classes = list(mlb.classes_) # classes contiene i possibili valori
+        # INPUT: lista dei target estratti corretti e lista dei target gold corretti
+        # OUTPUT: lista_target_correct è la lista di si e no, numero_corretti=48 è il numero
+        # di target azzeccati, numero_totale=346 è il numero totale di frasi
+        lista_target_correct, numero_corretti, numero_totale = processing.lista_correct_target(lista_target_estratti_P, lista_target_gold_P)
 
-#metodo che stampa i valori delle metriche:
-#               precision    recall  f1-score   support
-#     NA            n           n       n         n
-#     positive      n           n       n         n
-#     negative      n           n       n         n
-print(classification_report(lista_polarity_gold_mod_tr,lista_polarity_estratta_tr, target_names=classes))
+        # stessa cosa precedente ma per la lista delle polarità estratte con la lista delle polarità gold
+        n, lista_polarity_estratta_P = processing.process_lista_polarity(lista_polarity_estratta)
+        lista_polarity_gold_P = processing.process_lista_target_gold(lista_polarity_gold_mod, n)
+        lista_polarity_correct = processing.lista_corect_polarity(lista_polarity_estratta_P, lista_polarity_gold_P)
 
-# stampa l'accuratezza arrotondata a 2 cifre decimali del matching tra polarità estratte e polarità gold
-print('accuracy:', round(accuracy_score(lista_polarity_gold_mod_tr, lista_polarity_estratta_tr),2))
+        #valutazione target estratti
+        # INPUT: numero_corretti=48 è il numero di target azzeccati, numero_totale=346 è il numero totale di frasi
+        # OUTPUT: percentuale dei target estratti correttamente
+        percentuale_corretti = evaluation.percentuale_targetEstratti_correct(numero_corretti, numero_totale)
+        # percentuale di correttezza dell' estrazione dei target con 2 cifre decimali
+        print('percentuale target corretti: ', round(percentuale_corretti,2), '%')
 
-# visualizzazione della matrice di confusione
-evaluation.confusionMatrix(lista_polarity_gold_mod_tr.argmax(axis=1), lista_polarity_estratta_tr.argmax(axis=1), classes, name='Confusion Matrix')
+        #valutazione polarità estratte
+        # metodo che crea dei vettori binari che rappresentano la presenza(1) o assenza(0)
+        # di ogni classe per ogni frase (dove le classi sono NA,positive e negative)
+        mlb = MultiLabelBinarizer()
+        lista_polarity_gold_mod_tr = mlb.fit_transform(lista_polarity_gold_mod)
+        lista_polarity_estratta_tr = mlb.fit_transform(lista_polarity_estratta)
+        classes = list(mlb.classes_) # classes contiene i possibili valori
 
-#creazione del file .csv finale per visualizzare l'output
-df = pd.DataFrame()
-df['Sentence'] = sentences
-df['Target Estratti'] = lista_target_estratti
-df['Target Gold'] = lista_target_gold
-df['Correct Target'] = lista_target_correct
-df['Opinion Estratti'] = lista_opinion_estratti
-df['Polarity Estratta'] = lista_polarity_estratta
-df['Polarity Gold'] = lista_polarity_gold_mod
-df['Correct Polarity'] = lista_polarity_correct
+        #metodo che stampa i valori delle metriche:
+        #               precision    recall  f1-score   support
+        #     NA            n           n       n         n
+        #     positive      n           n       n         n
+        #     negative      n           n       n         n
+        print(classification_report(lista_polarity_gold_mod_tr,lista_polarity_estratta_tr, target_names=classes))
 
-df.to_csv('../csv/Final.csv')
+        # stampa l'accuratezza arrotondata a 2 cifre decimali del matching tra polarità estratte e polarità gold
+        print('accuracy:', round(accuracy_score(lista_polarity_gold_mod_tr, lista_polarity_estratta_tr),2))
+
+        # visualizzazione della matrice di confusione
+        evaluation.confusionMatrix(lista_polarity_gold_mod_tr.argmax(axis=1), lista_polarity_estratta_tr.argmax(axis=1), classes, name='Confusion Matrix')
+
+        #creazione del file .csv finale per visualizzare l'output
+        df = pd.DataFrame()
+        df['Sentence'] = sentences
+        df['Target Estratti'] = lista_target_estratti
+        df['Target Gold'] = lista_target_gold
+        df['Correct Target'] = lista_target_correct
+        df['Opinion Estratti'] = lista_opinion_estratti
+        df['Polarity Estratta'] = lista_polarity_estratta
+        df['Polarity Gold'] = lista_polarity_gold_mod
+        df['Correct Polarity'] = lista_polarity_correct
+
+        df.to_csv('../csv/Final.csv')
+
+    elif choice == "3":
+        break
+
+    a = input("\ndo you want to repeat the operations?  {y/n}  ")
