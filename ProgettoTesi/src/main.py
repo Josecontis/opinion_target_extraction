@@ -1,5 +1,5 @@
 import pandas as pd
-from src import processing_fileOriginale, evaluation, propagation, processing
+from src import processing_data_to_target_polarity, evaluation, propagation, processing, processing_data
 from sklearn.preprocessing import MultiLabelBinarizer
 from sklearn.metrics import classification_report, accuracy_score
 
@@ -9,16 +9,16 @@ pd.set_option('display.max_columns', 2000)
 pd.set_option('display.width', 2000)
 
 local_corenlp_path = '../stanford-corenlp-4.2.0'
-input_ = 'input.txt'
-target = 'target.txt'
-opinion = 'opinion.txt'
+input_ = '../input.txt'
+target = '../target.txt'
+opinion = '../opinion.txt'
 lexicon_positive = '../opinion-lexicon-English/positive-words.txt'
 lexicon_negative = '../opinion-lexicon-English/negative-words.txt'
 csv_target = '../csv/Targ.csv'
 csv_opinion = '../csv/Opi.csv'
 
 # sentences contiene la lista di frasi e target_polarity la lista di target con polarità di ogni frase
-sentences, target_polarity = processing_fileOriginale.trasforma_csv_in_df_colonne_to_list("../csv/Gold.csv")
+sentences, target_polarity = processing_data.trasforma_csv_in_df_colonne_to_list("../csv/Gold.csv")
 # da decommentare e INSERIRE CONTROLLO
 a = 'y'
 while a == 'y':
@@ -47,19 +47,19 @@ while a == 'y':
 
         # INPUT: la lista dei target con le polarità unite ed estratte dal csv gold
         # OUTPUT: la lista dei target con le polarità separate
-        list_target_polarity = processing_fileOriginale.process_list_target_polarity(target_polarity)
+        list_target_polarity = processing_data_to_target_polarity.process_list_target_polarity(target_polarity)
 
         # INPUT: la lista dei target con le polarità separate
         # OUTPUT: solo la lista dei target di tutte le frasi
-        lista_target_gold = processing_fileOriginale.listaTarget_from_listaTargetPolarity(list_target_polarity)
+        lista_target_gold = processing_data_to_target_polarity.listaTarget_from_listaTargetPolarity(list_target_polarity)
 
         # INPUT: la lista dei target con le polarità separate
         # OUTPUT: solo la lista delle polarità di tutte le frasi
-        lista_polarity_gold = processing_fileOriginale.listaPolarity_from_listaTargetPolarity(list_target_polarity)
+        lista_polarity_gold = processing_data_to_target_polarity.listaPolarity_from_listaTargetPolarity(list_target_polarity)
 
         # INPUT: la lista dei target con SOLO le polarità [es. (+3),(-2)...]
         # OUTPUT: la lista delle polarità stringhe di tutte le frasi [es. (positive),(negative)...]
-        lista_polarity_gold_mod = processing_fileOriginale.process_list_polarity_gold(lista_polarity_gold)
+        lista_polarity_gold_mod = processing_data_to_target_polarity.process_list_polarity_gold(lista_polarity_gold)
 
         # a partire dal csv restituisce la lista delle frasi e la lista dei target estratti relativi alle frasi
         sentence, lista_target_estratti = processing.column_from_dfT(csv_target)
