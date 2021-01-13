@@ -18,7 +18,9 @@ csv_target = '../csv/Targ.csv'
 csv_opinion = '../csv/Opi.csv'
 
 # sentences contiene la lista di frasi e target_polarity la lista di target con polarità di ogni frase
-sentences, target_polarity = processing_data.trasforma_csv_in_df_colonne_to_list("../csv/Gold.csv")
+processing_data.replace_symbols("../csv/GOLD_723_limit(100).csv")
+sentences, target_polarity = processing_data.csv_to_column_list("../processing_fileOriginale/GOLD_723_limit(100)_processed.csv", 'mydeveloper_comment', 'myanger_direction')
+print(sentences)
 # da decommentare e INSERIRE CONTROLLO
 a = 'y'
 while a == 'y':

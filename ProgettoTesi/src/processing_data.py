@@ -4,16 +4,16 @@ import numpy as np
 # ------------------- OPERAZIONI PER CREARE GOLD.CSV A PARTIRE DEL DATASET NIKON COOLPIX 4300 --------------------
 
 # metodo per estrapolare le colonne da un file csv
-def trasforma_csv_in_df_colonne_to_list(file_csv):
+def csv_to_column_list(file_csv, sentence_col, polarity_col):
     dfP = pd.read_csv(file_csv) # lettura file csv delle polarità
-    sentence = dfP['Sentence'].tolist() # sentence contiene una lista di frasi estrapolate
-    target_polarity = dfP['Target-Polarity'].tolist() # target_polarity contiene una lista di target con polarità estrapolate
+    sentence = dfP[sentence_col].tolist() # sentence contiene una lista di frasi estrapolate
+    target_polarity = dfP[polarity_col].tolist() # target_polarity contiene una lista di target con polarità estrapolate
     # per ogni elemento della lista di target con polarità vengono rimpiazzati i valori nan con 'NA1'
     new_target_polarity = ['NA1' if x is np.nan else x for x in target_polarity]
     return sentence, new_target_polarity # restituisce la lista di frasi e la lista di target con polarità di ogni frase
 
-# ------ non utilizzato nel main -----
-def rimpiazza_caratteri_inutili(file_Originale):
+
+def replace_symbols(file_Originale):
     # Read in the file
     with open(file_Originale, 'r') as file: # apre il file originale in lettura
         filedata = file.read() # salva il contenuto in filedata
@@ -23,15 +23,24 @@ def rimpiazza_caratteri_inutili(file_Originale):
     filedata = filedata.replace('!', '.')
     filedata = filedata.replace('%', '')
     filedata = filedata.replace(';', '')
-    filedata = filedata.replace(',', '')
+    filedata = filedata.replace('*', '')
+    filedata = filedata.replace('/', '')
+    filedata = filedata.replace('(', '')
+    filedata = filedata.replace(')', '')
+    filedata = filedata.replace('-', '')
+    filedata = filedata.replace('@', '')
+    filedata = filedata.replace('\\', '')
     filedata = filedata.replace(':', '.')
     filedata = filedata.replace('"', '')
+    filedata = filedata.replace('  ', ' ')
+    filedata = filedata.replace('   ', ' ')
+    filedata = filedata.replace('    ', ' ')
 
     # scrive il file precedente in un altro privato dei caratteri rimpiazzati
-    with open('../processing_fileOriginale/Nikon coolpix 4300-Copia.txt', 'w') as file:
+    with open('../processing_fileOriginale/GOLD_723_limit(100)_processed.csv', 'w') as file:
         file.write(filedata)
 
-
+'''
 # ------ non utilizzato nel main -----
 def rimozione_titoli_t(file_originale_caratteri_rimpiazzati):
     # rimuove le righe dal file che rappresenano i titoli denominati con [t]
@@ -59,7 +68,7 @@ def trasforma_in_csv(file_originale_processato):
 # ------ non utilizzato nel main -----
 # metodo che scrive le frasi in un .txt da un .csv
 def scrivere_sentence_file(file, file_csv):
-    sentence, target_polarity = trasforma_csv_in_df_colonne_to_list(file_csv) # estrapola colonna frasi e target con le polarità
+    sentence, target_polarity = csv_to_column_list(file_csv) # estrapola colonna frasi e target con le polarità
     with open(file, 'w') as f: # con il file .txt aperto in scrittura
         for item in sentence: # itera sulle frasi
             f.write("%s\n" % item) # scrive nel file .txt la frase
@@ -80,11 +89,10 @@ file_originale_processato_csv = '../csv/Gold.csv'
 input = '../input.txt'
 file_prova = '../processing_fileOriginale/Nikon coolpix 4300.Copia2 - Copia.txt'
 
+'''
 
-rimpiazza_caratteri_inutili(file_Originale)
-rimozione_titoli_t(file_originale_caratteri_rimpiazzati)
-process_file(file_originale_processato)
-trasforma_in_csv(file_prova)
-trasforma_csv_in_df_colonne_to_list(file_originale_processato_csv)
-scrivere_sentence_file(input, file_originale_processato_csv)
+#rimozione_titoli_t(file_originale_caratteri_rimpiazzati)
+#process_file(file_originale_processato)
+#trasforma_in_csv(file_prova)
+#scrivere_sentence_file(input, file_originale_processato_csv)
 
