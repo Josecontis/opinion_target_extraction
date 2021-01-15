@@ -1,7 +1,100 @@
-companies,
-screen,
-iPod, player,
 
-lens,
 
-accessory, player,
+classes, 
+engineer, 
+
+
+
+months, 
+rule, 
+
+way, 
+
+
+
+way, days, 
+everyone, 
+
+
+foundations, 
+
+score, case, class, 
+apology, 
+
+nothing, 
+dir, 
+patch, 
+Matt, idiot, 
+
+nothing, 
+
+patch, 
+
+Shit, name, 
+
+
+
+
+something, 
+
+
+bug, 
+
+idiot, 
+while, 
+hairball, idiot, config, capability, 
+mojo, diags.log, 
+
+
+case, 
+
+
+maven, 
+sed, patch, 
+
+jira, 
+
+chars, 
+
+way, 
+
+
+
+setup, 
+
+
+
+bug, 
+
+
+
+error, 
+design, 
+
+
+
+Thrift, 
+hell, 
+realise, 
+
+
+
+
+work, 
+
+
+
+
+criticalblocker, fixes, bug, 
+companies, 
+
+Blooper, 
+
+
+
+
+JBSEAM3742, fix, 
+dependencies, 
+
+
+

@@ -4,7 +4,7 @@ import numpy as np
 
 # metodo per estrapolare le colonne da un file csv
 def csv_to_column_list(file_csv, sentence_col, polarity_col):
-    dfP = pd.read_csv(file_csv) # lettura file csv delle polarità
+    dfP = pd.read_csv(file_csv, encoding = "ISO-8859-1") # lettura file csv delle polarità
     sentence = dfP[sentence_col].tolist() # sentence contiene una lista di frasi estrapolate
     target_polarity = dfP[polarity_col].tolist() # target_polarity contiene una lista di target con polarità estrapolate
     # per ogni elemento della lista di target con polarità vengono rimpiazzati i valori nan con 'NA1'

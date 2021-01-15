@@ -18,8 +18,8 @@ csv_target = '../csv/Targ.csv'
 csv_opinion = '../csv/Opi.csv'
 
 # sentences contiene la lista di frasi e target_polarity la lista di target con polarità di ogni frase
-processing_data.replace_symbols("../csv/GOLD_723.csv")
-sentences, target_polarity = processing_data.csv_to_column_list("../csv/Gold.csv", 'Sentence', 'Target-Polarity')
+# processing_data.replace_symbols("../csv/GOLD_723.csv")
+sentences, target_polarity = processing_data.csv_to_column_list("../processing_fileOriginale/GOLD_723_processed.csv", 'mydeveloper_comment', 'myanger_direction')
 
 a = 'y'
 while a == 'y':
