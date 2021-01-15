@@ -1,4 +1,3 @@
-import csv
 import pandas as pd
 import numpy as np
 # ------------------- OPERAZIONI PER CREARE GOLD.CSV A PARTIRE DEL DATASET NIKON COOLPIX 4300 --------------------
@@ -31,13 +30,18 @@ def replace_symbols(file_Originale):
     filedata = filedata.replace('@', '')
     filedata = filedata.replace('\\', '')
     filedata = filedata.replace(':', '.')
+    filedata = filedata.replace('#', '')
+    filedata = filedata.replace('$', '')
+    filedata = filedata.replace('^', '.')
     filedata = filedata.replace('"', '')
+    filedata = filedata.replace('~', '')
+    filedata = filedata.replace('>>>', '')
     filedata = filedata.replace('  ', ' ')
     filedata = filedata.replace('   ', ' ')
     filedata = filedata.replace('    ', ' ')
 
     # scrive il file precedente in un altro privato dei caratteri rimpiazzati
-    with open('../processing_fileOriginale/GOLD_723_limit(100)_processed.csv', 'w') as file:
+    with open('../processing_fileOriginale/GOLD_723_processed.csv', 'w') as file:
         file.write(filedata)
 
 '''

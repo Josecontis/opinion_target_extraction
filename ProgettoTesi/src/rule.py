@@ -6,7 +6,7 @@ import numpy as np
 def SC(local_corenlp_path, input):  # in input la libreria e la frase da esaminare
   # in input la libreria, quiet se falso fa visualizzare i messaggi di info del server durante l'esecuzione
   # logging_level indica il modo per ottenere i log dalle funzioni remote
-  nlp = StanfordCoreNLP(local_corenlp_path, quiet=True, logging_level=logging.DEBUG) # nlp è il "processo" server
+  nlp = StanfordCoreNLP(local_corenlp_path, quiet=True) # nlp è il "processo" server
 
   Tokenize = nlp.word_tokenize(input)  # tokenizer per suddividere le singole parole della frase input
   POS = nlp.pos_tag(input)  # assegno i tag pos(jj aggettivo, NN nome ecc..) alle singole parole della frase input
