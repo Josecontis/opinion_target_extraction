@@ -98,3 +98,303 @@ dependencies,
 
 
 
+
+price, 
+
+Bug, buggy, 
+attempt, 
+
+experinces, 
+load, 
+
+NPE, strik, 
+
+
+encapsulation, package, 
+groups, 
+can, 
+
+bug, 
+bug, 
+format, 
+
+
+guys, 
+bq, dyslexia, 
+format, 
+
+problem, 
+
+
+
+idea, 
+instances, QuorumOpMonitor, 
+
+Ahhh, 
+acronyms, 
+acronyms, 
+Explorer, charm, 
+
+esp, 
+
+idiot, 
+
+
+
+decimal, 
+allowing, comment, FIRST_SEARCHER, 
+comment, newSrchr, NEW_SEARCHER, attributes, 
+
+
+
+
+
+Problem, 
+comment, 
+
+mistake, 
+days, 
+years, 
+
+itches, source, 
+users, 
+Vadim, resolution, 
+
+requests, 
+fix, 
+cassandra, data, default, 
+case, 
+anything, functionality, 
+anything, years, 
+
+analysis, 
+idiot, 
+
+type, idiot, 
+querytime, indextime, she, 
+code, RA, 
+
+way, 
+nevermind, 
+
+
+shell, 
+
+something, 
+
+
+mistake, v2, 
+permissions, 
+
+Object, PersistentBag.addObject, 
+fieldnumbers, 
+case, class, score, 
+
+Whoops, values, 
+people, 
+changes, place, 
+people, migration, 
+people, commentary, 
+hacks, 
+release, 
+
+model, 
+common, object, 
+
+default, thing, 
+fragmentation, 
+
+head, thead.element, tElement, writer.getDocument, Workaround, 
+
+
+
+
+loop, death, 
+queries, capability, 
+annotation, method, 
+fix, 
+fix, users, drivers, 
+one, ideas, 
+time, 
+BUG, descriptions, 
+motivations, suggest, effect, connection, 
+
+
+
+failures, 
+Linux, 
+4.2.1, 
+
+
+regression, class, containers, bunch, 
+processes, cluster, identifier, 
+issue, 
+annoying, 
+annotation, 
+methodnames, 
+
+anything, issue, 
+api, 
+system, 
+
+doable, failures, 
+shame, Linux, expansion, thing, 
+nontrivial, change, workaround, 
+appears, 
+something, 
+methods, files, 
+classpath, Solr, lots, 
+
+thing, 
+
+
+looks, 
+time, 
+term, workaround, 
+idea, 
+
+problem, 
+
+typing, 
+xmlbeans, thing, 
+usecase, code, 
+length, transcoder, characters, buffer, 
+couple, bug, 
+
+error, 
+bug, 
+bug, version, 
+trunk, Subversion, XalanJ, bug, 
+case, 
+
+stuff, 
+
+hack, solution, support, 
+provide, size, 
+
+DebateDebacle, W3C, attention, Advice, 
+hat, 
+object, Document, performance, 
+fix, 
+check, 
+mistake, 
+environment, 
+
+
+hack, workaround, 
+hack, workaround, patch, issue, 
+space, 
+
+Selenium, 
+
+confusion, OgnlValueStack, ActionContext, fix, 
+fix, annoying, 
+form, APIs, 
+error, 
+search, MySQL, 
+end, MySQL, bug, support, 
+style, situations, exceptions, ORM, 
+
+break, 
+
+
+require, XML, name, onField, 
+connection, thing, 
+behavior, compatibility, 
+something, issues, 
+bug, 
+bug, 
+Maven, example, 
+example, experience, 
+
+part, 
+Ugly, 
+declarations, 
+problems, 
+bug, fix, 
+check, launchContext.getUser.equalstokenId.getApplicationSubmitter, 
+behavior, 
+flag, piece, 
+zones, days, time, things, 
+
+
+keys, way, 
+dependencies, part, 
+nothing, hack, 
+nothing, 
+complexity, value, 
+
+deescaping, thing, spaces, implementation, 
+spaces, older, 
+
+stop, mistake, 
+Part, something, 
+
+had, 
+
+code, option, 
+oversight, 
+exception, 
+
+c, Animal, 
+Cat, bug, 
+
+case, fixes, time, file, 
+
+bug, 
+
+object, 
+
+Oracle, 10g, problem, 
+Alexandrino, unable, problem, 
+idea, 
+JIRA, comment, 
+rule, 
+API, 
+worth, change, 
+
+Lob, Basicfetch, people, time, 
+people, avoid, 
+result, 
+getters, fields, 
+setters, getters, fields, something, 
+discriminator, 
+
+
+
+url, 
+url, code, trace, 
+hack, 
+mistake, 
+mistake, 
+get, overhaul, 
+
+
+ant, sry, 
+proposal, 
+mapping, 
+change, 
+
+
+mistake, 
+modules, 
+gah, diff, 
+
+
+
+
+Jason, time, 
+code, 
+problem, 
+books, 
+
+mapping, 
+servlet, bug, 
+
+
+reason, dependencies, 
+
+seems, detail, 
+
+
+
