@@ -1,5 +1,7 @@
 import pandas as pd
 import numpy as np
+import csv
+
 # ------------------- OPERAZIONI PER CREARE GOLD.CSV A PARTIRE DEL DATASET NIKON COOLPIX 4300 --------------------
 
 # metodo per estrapolare le colonne da un file csv
@@ -10,6 +12,17 @@ def csv_to_column_list(file_csv, sentence_col, polarity_col):
     # per ogni elemento della lista di target con polarità vengono rimpiazzati i valori nan con 'NA1'
     new_target_polarity = ['NA1' if x is np.nan else x for x in target_polarity]
     return sentence, new_target_polarity # restituisce la lista di frasi e la lista di target con polarità di ogni frase
+
+# metodo per convertire txt to csv
+def target_to_csv(words_extracted, sentences):
+    with open(words_extracted, 'r') as in_file: # apertura file in lettura
+        lines = (line.split("\n") for line in in_file) # lines è un vettore con es. (frase, target)...
+        print(lines)
+        with open('../csv/Targ.csv', 'w', newline='') as out_file: # apre file Targ.csv in scrittura
+            writer = csv.writer(out_file) # copia il contenuto in writer
+            writer.writerow(('Sentences', 'Targets')) # scrive la prima riga per indicare le colonne
+            row = zip(sentences, lines)
+            writer.writerows(row) # scrive le linee restanti
 
 
 def replace_symbols(file_Originale):

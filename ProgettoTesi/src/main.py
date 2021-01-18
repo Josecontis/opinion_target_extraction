@@ -9,7 +9,7 @@ pd.set_option('display.max_columns', 2000)
 pd.set_option('display.width', 2000)
 
 local_corenlp_path = '../stanford-corenlp-4.2.0'
-input_ = '../input.txt'
+csv = '../processing_fileOriginale/GOLD_723_processed.csv'
 target = '../target.txt'
 opinion = '../opinion.txt'
 lexicon_positive = '../opinion-lexicon-English/positive-words.txt'
@@ -26,8 +26,9 @@ while a == 'y':
 
     print("\nPossible choices:")
     print("1) Double propagation to extract targets and opinion words"
-          "\n2) Process to add polarity to the targets and evaluate it"
-          "\n3) Quit")
+          "\n2) Setting results of extraction on original csv file"
+          "\n3) Process to add polarity to the targets and evaluate it"
+          "\n4) Quit")
 
     choice = input("What would you like to do? Put your choice: ")
 
@@ -40,6 +41,12 @@ while a == 'y':
         # processing.opinion_to_csv(opinion)
 
     elif choice == "2":
+        processing_data.target_to_csv(target, sentences)
+        #opinions_list = processing_data.txt_to_list(opinion)
+        #print(targets_list)
+        #processing_data.list_to_csv(csv)
+
+    elif choice == "3":
         # a partire dal csv restituisce la lista delle parole di opinione separate relative alle frasi
         lista_opinion_estratti = processing.column_from_dfO(csv_opinion)
         # a partire dalla lista di parole di opinione estratte e i due lessici contenenti tutte le parole
@@ -128,7 +135,7 @@ while a == 'y':
 
         df.to_csv('../csv/Final.csv')
 
-    elif choice == "3":
+    elif choice == "4":
         break
 
     a = input("\ndo you want to repeat the operations?  {y/n}  ")
