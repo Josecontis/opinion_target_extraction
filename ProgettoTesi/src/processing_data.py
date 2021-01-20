@@ -13,16 +13,22 @@ def csv_to_column_list(file_csv, sentence_col, polarity_col):
     new_target_polarity = ['NA1' if x is np.nan else x for x in target_polarity]
     return sentence, new_target_polarity # restituisce la lista di frasi e la lista di target con polarità di ogni frase
 
+
 # metodo per convertire txt to csv
-def target_to_csv(words_extracted, sentences):
-    with open(words_extracted, 'r') as in_file: # apertura file in lettura
-        lines = (line.split("\n") for line in in_file) # lines è un vettore con es. (frase, target)...
-        print(lines)
-        with open('../csv/Targ.csv', 'w', newline='') as out_file: # apre file Targ.csv in scrittura
-            writer = csv.writer(out_file) # copia il contenuto in writer
-            writer.writerow(('Sentences', 'Targets')) # scrive la prima riga per indicare le colonne
-            row = zip(sentences, lines)
-            writer.writerows(row) # scrive le linee restanti
+def target_to_csv(targets_extracted):
+    t = open(targets_extracted, 'r').readlines() # apertura file in lettura
+    list = [x.replace('\n', '').replace(' ', '').replace(',', '') for x in t]
+    df = pd.read_csv('../processing_fileOriginale/GOLD_723_processed.csv', encoding = "ISO-8859-1") # apre file Targ.csv in scrittura
+    df['Targets'] = list
+    df.to_csv('../csv/Targ.csv', index=False)
+
+# metodo per convertire txt to csv
+def opinion_to_csv(opinions_extracted):
+    o = open(opinions_extracted, 'r').readlines() # apertura file in lettura
+    list = [x.replace('\n', '').replace(' ', '').replace(',', '') for x in o]
+    df = pd.read_csv('../processing_fileOriginale/GOLD_723_processed.csv', encoding = "ISO-8859-1") # apre file Targ.csv in scrittura
+    df['Opinions'] = list
+    df.to_csv('../csv/Opi.csv', index=False)
 
 
 def replace_symbols(file_Originale):

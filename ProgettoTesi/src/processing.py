@@ -3,28 +3,6 @@ import pandas as pd
 import numpy as np
 
 
-# metodo per convertire txt to csv
-def target_to_csv(target):
-    with open(target, 'r') as in_file: # apertura file in lettura
-        stripped = (line.strip() for line in in_file) # non fa niente è inutile
-        lines = (line.split("#") for line in stripped if line) # lines è un vettore con es. (frase, target)...
-        with open('../csv/Targ.csv', 'w') as out_file: # apre file Targ.csv in scrittura
-            writer = csv.writer(out_file) # copia il contenuto in writer
-            writer.writerow(('Sentence', 'Target')) # scrive la prima riga per indicare le colonne
-            writer.writerows(lines) # scrive le linee restanti
-
-
-# metodo per convertire txt to csv
-def opinion_to_csv(opinion):
-    with open(opinion, 'r') as in_file: # apertura file in lettura
-        stripped = (line.strip() for line in in_file) # non fa niente è inutile
-        lines = (line.split("#") for line in stripped if line) # lines è un vettore con es. (frase, target)...
-        with open('../csv/Opi.csv', 'w') as out_file: # apre file Targ.csv in scrittura
-            writer = csv.writer(out_file) # copia il contenuto in writer
-            writer.writerow(('Sentence', 'Opinion')) # scrive la prima riga per indicare le colonne
-            writer.writerows(lines) # scrive le linee restanti
-
-
 def column_from_dfT(csv_target): # csv_target contiene il percorso del file targ.csv
     tar = [] # lista vuota
     dfT = pd.read_csv(csv_target) # dataframe risultante dalla lettura del csv

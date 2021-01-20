@@ -26,7 +26,7 @@ while a == 'y':
 
     print("\nPossible choices:")
     print("1) Double propagation to extract targets and opinion words"
-          "\n2) Setting results of extraction on original csv file"
+          "\n2) Setting results of extraction into two csv file"
           "\n3) Process to add polarity to the targets and evaluate it"
           "\n4) Quit")
 
@@ -35,16 +35,10 @@ while a == 'y':
     if choice == "1":
         # algoritmo di doppia propagazione che prende in input la lista di frasi estratta dal csv e la libreria
         propagation.propagation(sentences, local_corenlp_path)
-        # converte il txt dei target in input nel csv Targ.csv inserendo le frasi corrispondenti
-        # processing.target_to_csv(target)
-        # converte il txt delle parole di opinione in input nel csv Opi.csv inserendo le frasi corrispondenti
-        # processing.opinion_to_csv(opinion)
 
     elif choice == "2":
-        processing_data.target_to_csv(target, sentences)
-        #opinions_list = processing_data.txt_to_list(opinion)
-        #print(targets_list)
-        #processing_data.list_to_csv(csv)
+        processing_data.target_to_csv(target)
+        processing_data.opinion_to_csv(opinion)
 
     elif choice == "3":
         # a partire dal csv restituisce la lista delle parole di opinione separate relative alle frasi
