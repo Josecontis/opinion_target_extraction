@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-import csv
+import re
 
 
 # metodo per estrapolare le colonne da un file csv
@@ -31,12 +31,17 @@ def opinion_to_csv(opinions_extracted):
     df.to_csv('../csv/Opi.csv', index=False)
 
 
-def replace_symbols(file_Originale):
+def replace_symbols(Original_file):
     # Read in the file
-    with open(file_Originale, 'r') as file: # apre il file originale in lettura
+    with open(Original_file, 'r') as file: # apre il file originale in lettura
         filedata = file.read() # salva il contenuto in filedata
 
-    # rimpiazza i diversi caratteri, non utili in fileadta
+    m = re.findall(r'[@]\w+', filedata)  # trova i termini con il tag @
+    for i in m:
+        # sostituisco i termini con il tag @ con gli stessi ma con il primo carattere maiuscolo
+        filedata = filedata.replace(i, i.title())
+
+    # rimpiazza i diversi caratteri, non utili in filedata
     filedata = filedata.replace('?', '.')
     filedata = filedata.replace('!', '.')
     filedata = filedata.replace('%', '')
