@@ -17,30 +17,38 @@ lexicon_negative = '../opinion-lexicon-English/negative-words.txt'
 csv_target = '../csv/Targ.csv'
 csv_opinion = '../csv/Opi.csv'
 
-# sentences contiene la lista di frasi e target_polarity la lista di target con polarità di ogni frase
-# processing_data.replace_symbols("../csv/GOLD_723.csv")
-sentences, target_polarity = processing_data.csv_to_column_list("../processing_fileOriginale/GOLD_723_processed.csv", 'mydeveloper_comment', 'myanger_direction')
 
 a = 'y'
 while a == 'y':
 
     print("\nPossible choices:")
-    print("1) Double propagation to extract targets and opinion words"
-          "\n2) Setting results of extraction into two csv file"
-          "\n3) Process to add polarity to the targets and evaluate it"
-          "\n4) Quit")
+    print("1) create opinion lexicon"
+          "\n2) data processing and sentence capture"
+          "\n3) Double propagation to extract targets and opinion words"
+          "\n4) Setting results of extraction into two csv file"
+          "\n5) Process to add polarity to the targets and evaluate it"
+          "\n6) Quit")
 
     choice = input("What would you like to do? Put your choice: ")
 
     if choice == "1":
+        # creo il file del lessico di opinione
+        processing_data.merge_txt(lexicon_positive, lexicon_negative)
+
+    elif choice == "2":
+        processing_data.replace_symbols("../csv/GOLD_723.csv")
+        # sentences contiene la lista di frasi e target_polarity la lista di target con polarità di ogni frase
+        sentences, target_polarity = processing_data.csv_to_column_list("../processing_fileOriginale/GOLD_723_processed.csv", 'mydeveloper_comment', 'myanger_direction')
+
+    elif choice == "3":
         # algoritmo di doppia propagazione che prende in input la lista di frasi estratta dal csv e la libreria
         propagation.propagation(sentences, local_corenlp_path)
 
-    elif choice == "2":
+    elif choice == "4":
         processing_data.target_to_csv(target)
         processing_data.opinion_to_csv(opinion)
 
-    elif choice == "3":
+    elif choice == "5":
         # a partire dal csv restituisce la lista delle parole di opinione separate relative alle frasi
         lista_opinion_estratti = processing.column_from_dfO(csv_opinion)
         # a partire dalla lista di parole di opinione estratte e i due lessici contenenti tutte le parole
@@ -129,7 +137,7 @@ while a == 'y':
 
         df.to_csv('../csv/Final.csv')
 
-    elif choice == "4":
+    elif choice == "6":
         break
 
     a = input("\ndo you want to repeat the operations?  {y/n}  ")

@@ -2,31 +2,31 @@ import pandas as pd
 import numpy as np
 import csv
 
-# ------------------- OPERAZIONI PER CREARE GOLD.CSV A PARTIRE DEL DATASET NIKON COOLPIX 4300 --------------------
 
 # metodo per estrapolare le colonne da un file csv
 def csv_to_column_list(file_csv, sentence_col, polarity_col):
-    dfP = pd.read_csv(file_csv, encoding = "ISO-8859-1") # lettura file csv delle polarità
-    sentence = dfP[sentence_col].tolist() # sentence contiene una lista di frasi estrapolate
-    target_polarity = dfP[polarity_col].tolist() # target_polarity contiene una lista di target con polarità estrapolate
+    dfP = pd.read_csv(file_csv, encoding = "ISO-8859-1")  # lettura file csv delle polarità
+    sentence = dfP[sentence_col].tolist()  # sentence contiene una lista di frasi estrapolate
+    target_polarity = dfP[polarity_col].tolist()  # target_polarity contiene una lista di target con polarità estrapolate
     # per ogni elemento della lista di target con polarità vengono rimpiazzati i valori nan con 'NA1'
     new_target_polarity = ['NA1' if x is np.nan else x for x in target_polarity]
-    return sentence, new_target_polarity # restituisce la lista di frasi e la lista di target con polarità di ogni frase
+    return sentence, new_target_polarity  # restituisce la lista di frasi e la lista di target con polarità di ogni frase
 
 
 # metodo per convertire txt to csv
 def target_to_csv(targets_extracted):
-    t = open(targets_extracted, 'r').readlines() # apertura file in lettura
+    t = open(targets_extracted, 'r').readlines()  # apertura file in lettura
     list = [x.replace('\n', '').replace(',', '') for x in t]
-    df = pd.read_csv('../processing_fileOriginale/GOLD_723_processed.csv', encoding = "ISO-8859-1") # apre file Targ.csv in scrittura
+    df = pd.read_csv('../processing_fileOriginale/GOLD_723_processed.csv', encoding = "ISO-8859-1")  # apre file Targ.csv in scrittura
     df['Targets'] = list
     df.to_csv('../csv/Targ.csv', index=False)
 
+
 # metodo per convertire txt to csv
 def opinion_to_csv(opinions_extracted):
-    o = open(opinions_extracted, 'r').readlines() # apertura file in lettura
+    o = open(opinions_extracted, 'r').readlines()  # apertura file in lettura
     list = [x.replace('\n', '').replace(',', '') for x in o]
-    df = pd.read_csv('../processing_fileOriginale/GOLD_723_processed.csv', encoding = "ISO-8859-1") # apre file Targ.csv in scrittura
+    df = pd.read_csv('../processing_fileOriginale/GOLD_723_processed.csv', encoding = "ISO-8859-1")  # apre file Targ.csv in scrittura
     df['Opinions'] = list
     df.to_csv('../csv/Opi.csv', index=False)
 
@@ -62,6 +62,20 @@ def replace_symbols(file_Originale):
     # scrive il file precedente in un altro privato dei caratteri rimpiazzati
     with open('../processing_fileOriginale/GOLD_723_processed.csv', 'w') as file:
         file.write(filedata)
+
+
+# metodo per unire il contenuto di due documenti di testo
+def merge_txt(neg_file, pos_file):
+
+    # creo la lista dei file da esaminare
+    filenames = [neg_file, pos_file]
+
+    # apro il file di output in scrittura
+    with open('../opinion-lexicon-English/Opinion-lexicon.txt', 'w') as outfile:
+        for names in filenames:
+            with open(names) as infile:
+                # leggo il contenuto del primo file di input e lo scrivo nel file di output
+                outfile.write(infile.read())
 
 '''
 # ------ non utilizzato nel main -----
