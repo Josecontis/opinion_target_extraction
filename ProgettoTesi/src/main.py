@@ -1,4 +1,6 @@
 import pandas as pd
+from pyreadline.console import event
+
 from src import processing_data_to_target_polarity, evaluation, propagation, processing, processing_data
 from sklearn.preprocessing import MultiLabelBinarizer
 from sklearn.metrics import classification_report, accuracy_score
@@ -25,9 +27,10 @@ while a == 'y':
     print("1) create opinion lexicon"
           "\n2) data processing and sentence capture"
           "\n3) Double propagation to extract targets and opinion words"
-          "\n4) Setting results of extraction into two csv file"
-          "\n5) Process to add polarity to the targets and evaluate it"
-          "\n6) Quit")
+          "\n4) Setting results of extraction into two csv files"
+          "\n5) evaluate extraction process"
+          "\n6) Process to add polarity to the targets and evaluate it"
+          "\n7) Quit")
 
     choice = input("What would you like to do? Put your choice: ")
 
@@ -49,6 +52,10 @@ while a == 'y':
         processing_data.opinion_to_csv(opinion)
 
     elif choice == "5":
+        evaluation.tf_idf_extracted_words('../opinion.txt', 'TF-opinion-words')
+        evaluation.tf_idf_extracted_words('../target.txt', 'TF-targets')
+
+    elif choice == "6":
         # a partire dal csv restituisce la lista delle parole di opinione separate relative alle frasi
         lista_opinion_estratti = processing.column_from_dfO(csv_opinion)
         # a partire dalla lista di parole di opinione estratte e i due lessici contenenti tutte le parole
@@ -137,7 +144,7 @@ while a == 'y':
 
         df.to_csv('../csv/Final.csv')
 
-    elif choice == "6":
+    elif choice == "7":
         break
 
     a = input("\ndo you want to repeat the operations?  {y/n}  ")
