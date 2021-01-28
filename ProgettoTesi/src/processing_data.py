@@ -41,28 +41,54 @@ def replace_symbols(Original_file):
         # sostituisco i termini con il tag @ con gli stessi ma con il primo carattere maiuscolo
         filedata = filedata.replace(i, i.title())
 
-    # rimpiazza i diversi caratteri, non utili in filedata
-    filedata = filedata.replace('?', '.')
-    filedata = filedata.replace('!', '.')
+    # sostituisco le short words
+    filedata = re.sub(r"won't", "will not", filedata)
+    filedata = re.sub(r"can\'t", "can not", filedata)
+
+    filedata = re.sub(r"\'re ", " are ", filedata)
+    filedata = re.sub(r"\'s ", " is ", filedata)
+    filedata = re.sub(r"\'d ", " would ", filedata)
+    filedata = re.sub(r"\'ll ", " will ", filedata)
+    filedata = re.sub(r"\'ve ", " have ", filedata)
+    filedata = re.sub(r"\'m ", " am ", filedata)
+
+    # rimozione dei caratteri inutili in filedata
     filedata = filedata.replace('%', '')
     filedata = filedata.replace(';', '')
     filedata = filedata.replace('*', '')
-    filedata = filedata.replace('/', '')
-    filedata = filedata.replace('(', '')
-    filedata = filedata.replace(')', '')
-    filedata = filedata.replace('-', '')
     filedata = filedata.replace('@', '')
     filedata = filedata.replace('\\', '')
-    filedata = filedata.replace(':', '.')
     filedata = filedata.replace('#', '')
     filedata = filedata.replace('$', '')
     filedata = filedata.replace('^', '.')
     filedata = filedata.replace('"', '')
     filedata = filedata.replace('~', '')
+    filedata = filedata.replace('--', '')
     filedata = filedata.replace('>>>', '')
-    filedata = filedata.replace('  ', ' ')
-    filedata = filedata.replace('   ', ' ')
+    filedata = filedata.replace('///', '')
+    filedata = filedata.replace('<=', '')
+    # rimozione di parentesi {} che non hanno una chiusura o apertura
+    filedata = filedata.replace('{ ', '')
+    filedata = filedata.replace(' }', '')
+    filedata = filedata.replace('(', '')
+    filedata = filedata.replace(')', '')
+    filedata = filedata.replace(':', '')
+    # rimozione carattere di punto elenco ma non di mezzi termini (che non hanno gli spazi)
+    filedata = filedata.replace('- ', '')
+
+    filedata = re.sub(r"<[^>]*>", "", filedata)  # rimuove XML tags
+    filedata = re.sub(r"{[^}]*}", "", filedata)  # rimuove codici tra parentesi {}
+    filedata = re.sub(r"[\[].*?[\]]", "", filedata)  # rimuove nomi e operazioni tra parentesi []
+    filedata = re.sub(r"http\S+", "", filedata)  # rimuove codici URL
+    filedata = re.sub(r"https\S+", "", filedata)  # rimuove codici URL
+    filedata = filedata.replace('>', '')
+    filedata = filedata.replace('}', '')
+
+    filedata = re.sub(r"n't ", " not ", filedata)
+    # rimozione spazi vuoti lasciati
     filedata = filedata.replace('    ', ' ')
+    filedata = filedata.replace('   ', ' ')
+    filedata = filedata.replace('  ', ' ')
 
     # scrive il file precedente in un altro privato dei caratteri rimpiazzati
     with open('../processing_fileOriginale/GOLD_723_processed.csv', 'w') as file:
