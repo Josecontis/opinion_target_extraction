@@ -41,9 +41,9 @@ def R1(local_corenlp_path, input, file_opinion):  # in input la libreria e la fr
   tar_constraint = ['NN', 'NNS', 'NNP', 'NNPS', 'PP', 'PP$']  # array di vincoli per la parola di opinione da estrarre
   # NN nome, NNS nome plurale, NNP nome proprio, NNPS nome proprio plurale, PP pronome personale, PPS pronome possessivo
 
-  MR = ['amod', 'advmod', 'rcmod']  # MR è l'array delle relazioni modifier [amod aggettivo riferito a un nome,
+  MR = ['amod', 'advmod', 'npadvmod', 'rcmod']  # MR è l'array delle relazioni modifier [amod aggettivo riferito a un nome,
   # advmod aggettivo riferito a un avverbio, rcmod aggettivo riferito a un nome ma sottoforma di verbo
-  # (es. il libro è stato scritto -> [libro,scritto])]
+  # (es. il libro è stato scritto -> [libro,scritto])], npadvmod è un avverbio riferito a un nome in una frase nominale
 
   # R11
   for items in depe:  # analizzando la i-esima tripla [('amod', 6, 4)]
@@ -51,9 +51,10 @@ def R1(local_corenlp_path, input, file_opinion):  # in input la libreria e la fr
       opinion = items[2]  # allora mi salvo la posizione della parola di opinione dalla tripla [opinion=4]
       target = items[1]  # e mi salvo anche la posizione del target dalla tripla [target=6]
       with open(file_opinion) as myfile:  # apre il file op
-        if opinion in myfile.read():  # se l'aggettivo della frase è presente nel lessico di opinione positivo
+        if tok[opinion-1] in myfile.read():  # se l'aggettivo della frase è presente nel lessico di opinione positivo
           # per la regola R11 se il target è un nome allora estrai la parola target [('player', 'NN') in pos[6-1]]
-          if pos[target-1] in tar_constraint:  # verifica che il termine target è un nome [in questo caso lo è]
+          if pos[target-1].__contains__('NN') or pos[target-1].__contains__('NNS') or pos[target-1].__contains__('NNP')\
+                  or pos[target-1].__contains__('NNPS') or pos[target-1].__contains__('PP') or pos[target-1].__contains__('PP$'):  # verifica che il termine target è un nome [in questo caso lo è]
             o = tok[opinion-1]  # salvo la parola di opinione tok[3]=best
             # può essere commentato perchè la R1 non estrae parole di opinione
             t = tok[target-1]  # salvo la parola target tok[5]=player
@@ -65,7 +66,8 @@ def R1(local_corenlp_path, input, file_opinion):  # in input la libreria e la fr
               if items[0] == 'nsubj':  # se il tag della prima tripla è un nsubj [lo è]
                 if items[1] == target:  # verifica la dipendenza del target ovvero: [6 è uguale a target=6]
                   target = items[2]  # aggiorna il target con l'altro target collegato poichè nsubj collega 2 target [target=1]
-                  if pos[target - 1] in tar_constraint:  # verifica che il termine target è un nome [('iPod', 'NN') lo è]
+                  if pos[target - 1].__contains__('NN') or pos[target - 1].__contains__('NNS') or pos[target - 1].__contains__('NNP') \
+                          or pos[target - 1].__contains__('NNPS') or pos[target - 1].__contains__('PP') or pos[target - 1].__contains__('PP$'):  # verifica che il termine target è un nome [in questo caso lo è]
                     t = tok[target-1]  # salvo la parola target tok[1-1]
                     list_target.append(t)  # concateno alla lista dei target 'iPod'
                     #O-->O-dep-->H<--T-dep<--T
@@ -95,9 +97,9 @@ def R2(local_corenlp_path, input, file_target):  # in input la libreria, la fras
   opi_constraint = ['JJ', 'JJS', 'JJR', 'RB', 'RBS', 'RBR']  # array di vincoli per la parola di opinione da estrarre
   # JJ aggettivo, JJS aggettivo superlativo, JJR aggettivo comparativo, RB avverbio, RBS avverbio superlativo, RBR avverbio comparativo
 
-  MR = ['amod', 'advmod', 'rcmod']  # MR è l'array delle relazioni modifier [amod aggettivo riferito a un nome,
+  MR = ['amod', 'advmod', 'npadvmod', 'rcmod']  # MR è l'array delle relazioni modifier [amod aggettivo riferito a un nome,
   # advmod aggettivo riferito a un avverbio, rcmod aggettivo riferito a un nome ma sottoforma di verbo
-  # (es. il libro è stato scritto -> [libro,scritto])]
+  # (es. il libro è stato scritto -> [libro,scritto])], npadvmod è un avverbio riferito a un nome in una frase nominale
 
   # R21
   for items in depe:  # analizzando la i-esima tripla [('amod', 6, 4)]
@@ -105,8 +107,9 @@ def R2(local_corenlp_path, input, file_target):  # in input la libreria, la fras
       opinion = items[2]  # allora mi salvo la posizione della parola di opinione dalla tripla [opinion=4]
       target = items[1]  # e mi salvo anche la posizione del target dalla tripla [target=6]
       with open(file_target) as myfile:  # apre il file dei target estratti in precedenza
-        if target in myfile.read():  # se il sostantivo della frase è presente nel file dei target estratti in precedenza
-          if pos[opinion - 1] in opi_constraint:
+        if tok[target-1] in myfile.read():  # se il sostantivo della frase è presente nel file dei target estratti in precedenza
+          if pos[opinion - 1].__contains__('JJ') or pos[opinion - 1].__contains__('JJS') or pos[opinion - 1].__contains__('JJR')\
+                  or pos[opinion - 1].__contains__('RB') or pos[opinion - 1].__contains__('RBS') or pos[opinion - 1].__contains__('RBR'):  # verifica che il termine target è un nome [in questo caso lo è]
             # per la regola R21 se la parola di opinione è un aggettivo allora estrai la parola di opinione [('enthusiastic', 'JJ') in pos[7-1]]
             o = tok[opinion-1]  # salvo la parola di opinione tok[3]=best
             t = tok[target-1]  # salvo la parola target tok[5]=player
@@ -119,7 +122,8 @@ def R2(local_corenlp_path, input, file_target):  # in input la libreria, la fras
               if items[0] == 'nsubj':  # se il tag della prima tripla è un nsubj [lo è]
                 if items[1] == target:  # verifica la dipendenza del target ovvero: [6 è uguale a target=6]
                   target = items[2] # aggiorna il target con l'altro target collegato poichè nsubj collega 2 target [target=1]
-                  if pos[opinion-1] in opi_constraint: # verifica che la parola di opinione è un aggettivo
+                  if pos[opinion - 1].__contains__('JJ') or pos[opinion - 1].__contains__('JJS') or pos[opinion - 1].__contains__('JJR') \
+                          or pos[opinion - 1].__contains__('RB') or pos[opinion - 1].__contains__('RBS') or pos[opinion - 1].__contains__('RBR'):  # verifica che il termine target è un nome [in questo caso lo è]
                     o = tok[opinion - 1] # salvo la parola di opinione tok[3]=best
                     list_opinion.append(o) # concateno alla lista delle parole di opinione il termine
                     # O-->O-dep-->H<--T-dep<--T
@@ -158,7 +162,8 @@ def R3(local_corenlp_path, input, file_target):  # in input la libreria, la fras
         if n in myfile.read():   # se il termine n fa parte di quella lista dei target estratti [non fa parte!!]
           t = item[2]  # allora mi salvo la posizione della seconda parola che partecipa alla congiunzione in t=13
           for item in pos:  # controllo se esiste il tag NN in pos
-            if item[1] in tar_constraint:
+            if item[1].__contains__('NN') or item[1].__contains__('NNS') or item[1].__contains__('NNP') \
+                    or item[1].__contains__('NNPS') or item[1].__contains__('PP') or item[1].__contains__('PP$'):  # verifica che il termine target è un nome [in questo caso lo è]
               target = tok[t-1]  # tok[12]=target=purse estraendo 'purse'
               list_target.append(target)  # aggiungo il termine target trovato alla lista dei target
 
@@ -168,7 +173,8 @@ def R3(local_corenlp_path, input, file_target):  # in input la libreria, la fras
       if items[0] == items2[0]:  # se il tag della prima tripla è uguale al tag di una tripla che sto scorrendo
         if items[1] == items2[1]:  # verifica che le pos. delle parole di opinone delle due triple siano uguali: [es. [item=(mod,3,2) ed item2=(mod,3,6)]]
           target = items2[2]  # poichè 3=3, aggiorna il target con l'altro collegato da mod [target=6]
-          if pos[target-1] in tar_constraint and items != items2:  # verifica che il termine target è un nome e che le due triple siano diverse per evitare falsi
+          if (pos[target-1].__contains__('NN') or pos[target-1].__contains__('NNS') or pos[target-1].__contains__('NNP')\
+                  or pos[target-1].__contains__('NNPS') or pos[target-1].__contains__('PP') or pos[target-1].__contains__('PP$')) and items != items2:  # verifica che il termine target è un nome e che le due triple siano diverse per evitare falsi
             t = tok[target-1]  # salvo la parola target tok[6-1]
             list_target.append(t)  # concateno alla lista il target trovato
             #Ti-->Ti-Dep-->H<--Tj-Dep<--Tj
@@ -206,7 +212,8 @@ def R4(local_corenlp_path, input, file_opinion):  # in input la libreria, la fra
         if a in myfile.read():  # se il termine a fa parte di quella lista delle parole di opinione estratte [non fa parte!!]
           o = item[2]  # allora mi salvo la posizione della seconda parola che partecipa alla congiunzione in o=13
           for item in pos:  # controllo se esiste il tag JJ in pos
-            if item[1] in opi_constraint:
+            if item[1].__contains__('JJ') or item[1].__contains__('JJS') or item[1].__contains__('JJR') \
+                    or item[1].__contains__('RB') or item[1].__contains__('RBS') or item[1].__contains__('RBR'):  # verifica che il termine target è un nome [in questo caso lo è]
               opinion = tok[o-1]  # tok[12]=target=purse estraendo 'purse'
               list_opinion.append(opinion)  # aggiungo la parola di opinione estratta alla lista delle parole di opinione
   # R42
@@ -215,7 +222,8 @@ def R4(local_corenlp_path, input, file_opinion):  # in input la libreria, la fra
       if items[0] == items2[0]:  # se il tag della prima tripla è uguale al tag di una tripla che sto scorrendo
         if items[2] == items2[2]:  # verifica che le pos. dei target delle due triple siano uguali: [es. [item=(mod,3,2) ed item2=(mod,3,6)]]
           opinion = items2[1]  # poichè 3=3, aggiorna la parola di opinione con l'altra collegata da mod [opinion=6]
-          if pos[opinion-1] in opi_constraint and items != items2:  # verifica che il termine opinione è un aggettivo e che le due triple siano diverse per evitare falsi
+          if (pos[opinion - 1].__contains__('JJ') or pos[opinion - 1].__contains__('JJS') or pos[opinion - 1].__contains__('JJR') \
+                  or pos[opinion - 1].__contains__('RB') or pos[opinion - 1].__contains__('RBS') or pos[opinion - 1].__contains__('RBR')) and items != items2:  # verifica che il termine opinione è un aggettivo e che le due triple siano diverse per evitare falsi
             o = tok[opinion-1]  # salvo la parola di opinione tok[6-1]
             list_opinion.append(o)  # concateno alla lista il target trovato
             #Oi-->Oi-Dep-->H<--Oj-Dep<--Oj

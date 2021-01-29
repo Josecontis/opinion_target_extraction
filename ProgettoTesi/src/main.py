@@ -39,11 +39,12 @@ while a == 'y':
         processing_data.merge_txt(lexicon_positive, lexicon_negative)
 
     elif choice == "2":
+        # processing del file csv in input
         processing_data.replace_symbols("../csv/GOLD_723.csv")
-        # sentences contiene la lista di frasi e target_polarity la lista di target con polarità di ogni frase
-        sentences, target_polarity = processing_data.csv_to_column_list("../processing_fileOriginale/GOLD_723_processed.csv", 'mydeveloper_comment', 'myanger_direction')
 
     elif choice == "3":
+        # sentences contiene la lista di frasi e target_polarity la lista di target con polarità di ogni frase
+        sentences, target_polarity = processing_data.csv_to_column_list("../processing_fileOriginale/GOLD_723_processed.csv", 'mydeveloper_comment', 'myanger_direction')
         # algoritmo di doppia propagazione che prende in input la lista di frasi estratta dal csv e la libreria
         propagation.propagation(sentences, local_corenlp_path)
 
