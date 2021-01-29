@@ -19,7 +19,7 @@ def SC(local_corenlp_path, input):  # in input la libreria e la frase da esamina
 
 
 
-def R1(local_corenlp_path, input, file_opinion):  # in input la libreria e la frase da esaminare
+def R1(local_corenlp_path, input, op):  # in input la libreria e la frase da esaminare
 
   toke, pos, depe = SC(local_corenlp_path, input)  # richiamo metodo per tokenizer tag pos e albero delle dipendenze
   # esempio di frase: iPod is the best mp3 player.
@@ -38,39 +38,39 @@ def R1(local_corenlp_path, input, file_opinion):  # in input la libreria e la fr
   tok = np.array(toke)  # tok è l'array di singole parole in una frase
   list_target = []  # lista vuota che conterrà i target
 
-  tar_constraint = ['NN', 'NNS', 'NNP', 'NNPS', 'PP', 'PP$']  # array di vincoli per la parola di opinione da estrarre
-  # NN nome, NNS nome plurale, NNP nome proprio, NNPS nome proprio plurale, PP pronome personale, PPS pronome possessivo
+  val = ['JJ', 'JJS', 'JJR'] # array di vincoli da far rispettare alla parola di opinione (per R1 AGGETTIVI)
+  # JJ aggettivo, JJS aggettivo superlativo, JJR aggettivo comparativo
 
-  MR = ['amod', 'advmod', 'npadvmod', 'rcmod']  # MR è l'array delle relazioni modifier [amod aggettivo riferito a un nome,
-  # advmod aggettivo riferito a un avverbio, rcmod aggettivo riferito a un nome ma sottoforma di verbo
-  # (es. il libro è stato scritto -> [libro,scritto])], npadvmod è un avverbio riferito a un nome in una frase nominale
+  for item in pos:  # scandisce i tag trovati dalla frase
+    if item[1] in val:  # se il tag pos dela prima parola è presente nel vettore val
+      agg = item[0]  # a agg assegno il termine (l'aggettivo)
+      with open(op) as myfile:  # apre il file on
+        if agg in myfile.read():  # se l'aggettivo della frase è presente nel lessico di opinione negativo
+          MR = ['amod', 'advmod', 'rcmod']  # MR è l'array delle relazioni modifier [amod aggettivo riferito a un nome,
+          # advmod aggettivo riferito a un avverbio, rcmod aggettivo riferito a un nome ma sottoforma di verbo
+          # (es. il libro è stato scritto -> [libro,scritto])]
+          # R11
+          for items in depe:  # analizzando la i-esima tripla [('amod', 6, 4)]
+            if items[0] in MR:  # se il tag della prima tripla è un MR [amod è in MR]
+              opinion = items[2]  # allora mi salvo la posizione della parola di opinione dalla tripla [opinion=4]
+              target = items[1]  # e mi salvo anche la posizione del target dalla tripla [target=6]
+              # per la regola R11 se il target è un nome allora estrai la parola target [('player', 'NN') in pos[6-1]]
+              if pos[target-1].__contains__('NN') or pos[target-1].__contains__('NNS') or pos[target-1].__contains__('NNP') or pos[target-1].__contains__('NNPS'):  # verifica che il termine target è un nome [in questo caso lo è]
+                o = tok[opinion-1]  # salvo la parola di opinione tok[3]=best
+                # può essere commentato perchè la R1 non estrae parole di opinione
+                t = tok[target-1]  # salvo la parola target tok[5]=player
+                list_target.append(t)  # concateno alla lista dei target 'player'
+                #O-->O-dep-->T
 
-  # R11
-  for items in depe:  # analizzando la i-esima tripla [('amod', 6, 4)]
-    if items[0] in MR:  # se il tag della prima tripla è un MR [amod è in MR]
-      opinion = items[2]  # allora mi salvo la posizione della parola di opinione dalla tripla [opinion=4]
-      target = items[1]  # e mi salvo anche la posizione del target dalla tripla [target=6]
-      with open(file_opinion) as myfile:  # apre il file op
-        if tok[opinion-1] in myfile.read():  # se l'aggettivo della frase è presente nel lessico di opinione positivo
-          # per la regola R11 se il target è un nome allora estrai la parola target [('player', 'NN') in pos[6-1]]
-          if pos[target-1].__contains__('NN') or pos[target-1].__contains__('NNS') or pos[target-1].__contains__('NNP')\
-                  or pos[target-1].__contains__('NNPS') or pos[target-1].__contains__('PP') or pos[target-1].__contains__('PP$'):  # verifica che il termine target è un nome [in questo caso lo è]
-            o = tok[opinion-1]  # salvo la parola di opinione tok[3]=best
-            # può essere commentato perchè la R1 non estrae parole di opinione
-            t = tok[target-1]  # salvo la parola target tok[5]=player
-            list_target.append(t)  # concateno alla lista dei target 'player'
-            #O-->O-dep-->T
-
-            # R12
-            for items in depe:  # analizzando la i-esima tripla [('nsubj', 6, 1)]
-              if items[0] == 'nsubj':  # se il tag della prima tripla è un nsubj [lo è]
-                if items[1] == target:  # verifica la dipendenza del target ovvero: [6 è uguale a target=6]
-                  target = items[2]  # aggiorna il target con l'altro target collegato poichè nsubj collega 2 target [target=1]
-                  if pos[target - 1].__contains__('NN') or pos[target - 1].__contains__('NNS') or pos[target - 1].__contains__('NNP') \
-                          or pos[target - 1].__contains__('NNPS') or pos[target - 1].__contains__('PP') or pos[target - 1].__contains__('PP$'):  # verifica che il termine target è un nome [in questo caso lo è]
-                    t = tok[target-1]  # salvo la parola target tok[1-1]
-                    list_target.append(t)  # concateno alla lista dei target 'iPod'
-                    #O-->O-dep-->H<--T-dep<--T
+                # R12
+                for items in depe:  # analizzando la i-esima tripla [('nsubj', 6, 1)]
+                  if items[0] == 'nsubj':  # se il tag della prima tripla è un nsubj [lo è]
+                    if items[1] == target:  # verifica la dipendenza del target ovvero: [6 è uguale a target=6]
+                      target = items[2]  # aggiorna il target con l'altro target collegato poichè nsubj collega 2 target [target=1]
+                      if pos[target-1].__contains__('NN') or pos[target-1].__contains__('NNS') or pos[target-1].__contains__('NNP') or pos[target-1].__contains__('NNPS'):  # verifica che il termine target è un nome [('iPod', 'NN') lo è]
+                        t = tok[target-1]  # salvo la parola target tok[1-1]
+                        list_target.append(t)  # concateno alla lista dei target 'iPod'
+                        #O-->O-dep-->H<--T-dep<--T
 
   return set(list_target)  # restituisce la lista dei target estratti per ogni frase (alla seconda chiamata del metodo verranno concatenati altri target)
 
@@ -94,39 +94,42 @@ def R2(local_corenlp_path, input, file_target):  # in input la libreria, la fras
   tok = np.array(toke)  # tok è l'array di singole parole in una frase
   list_opinion = []  # lista vuota che conterrà le parole di opinione
 
-  opi_constraint = ['JJ', 'JJS', 'JJR', 'RB', 'RBS', 'RBR']  # array di vincoli per la parola di opinione da estrarre
-  # JJ aggettivo, JJS aggettivo superlativo, JJR aggettivo comparativo, RB avverbio, RBS avverbio superlativo, RBR avverbio comparativo
+  val = ['NN', 'NNS']  # array di vincoli da far rispettare al target (per R2 SOSTANTIVI)
+  # NN nome singolare, NNS nome plurale
 
-  MR = ['amod', 'advmod', 'npadvmod', 'rcmod']  # MR è l'array delle relazioni modifier [amod aggettivo riferito a un nome,
-  # advmod aggettivo riferito a un avverbio, rcmod aggettivo riferito a un nome ma sottoforma di verbo
-  # (es. il libro è stato scritto -> [libro,scritto])], npadvmod è un avverbio riferito a un nome in una frase nominale
+  for item in pos:  # scandisce i tag trovati dalla frase
+    if item[1] in val:  # se il tag pos dela prima parola è presente nel vettore val
+      sost = item[0]  # a sost assegno il termine (il sostantivo)
 
-  # R21
-  for items in depe:  # analizzando la i-esima tripla [('amod', 6, 4)]
-    if items[0] in MR:  # se il tag della prima tripla è un MR [amod è in MR]
-      opinion = items[2]  # allora mi salvo la posizione della parola di opinione dalla tripla [opinion=4]
-      target = items[1]  # e mi salvo anche la posizione del target dalla tripla [target=6]
       with open(file_target) as myfile:  # apre il file dei target estratti in precedenza
-        if tok[target-1] in myfile.read():  # se il sostantivo della frase è presente nel file dei target estratti in precedenza
-          if pos[opinion - 1].__contains__('JJ') or pos[opinion - 1].__contains__('JJS') or pos[opinion - 1].__contains__('JJR')\
-                  or pos[opinion - 1].__contains__('RB') or pos[opinion - 1].__contains__('RBS') or pos[opinion - 1].__contains__('RBR'):  # verifica che il termine target è un nome [in questo caso lo è]
-            # per la regola R21 se la parola di opinione è un aggettivo allora estrai la parola di opinione [('enthusiastic', 'JJ') in pos[7-1]]
-            o = tok[opinion-1]  # salvo la parola di opinione tok[3]=best
-            t = tok[target-1]  # salvo la parola target tok[5]=player
-            # può essere commentato perchè la R2 non estrae target
-            list_opinion.append(o)  # concateno alla lista delle parole di opinione 'best'
-            # O-->O-dep-->T
+        if sost in myfile.read():  # se il sostantivo della frase è presente nel file dei target estratti in precedenza
+          MR = ['amod', 'advmod', 'rcmod']  # MR è l'array delle relazioni modifier [amod aggettivo riferito a un nome,
+          # advmod aggettivo riferito a un avverbio, rcmod aggettivo riferito a un nome ma sottoforma di verbo
+          # (es. il libro è stato scritto -> [libro,scritto])]
+          # R21
+          for items in depe:  # analizzando la i-esima tripla [('amod', 6, 4)]
+            if items[0] in MR:  # se il tag della prima tripla è un MR [amod è in MR]
+              opinion = items[2]  # allora mi salvo la posizione della parola di opinione dalla tripla [opinion=4]
+              target = items[1]  # e mi salvo anche la posizione del target dalla tripla [target=6]
+              if pos[opinion - 1].__contains__('JJ') or pos[opinion - 1].__contains__('JJS') \
+                      or pos[opinion - 1].__contains__('JJR'):
+                # per la regola R21 se la parola di opinione è un aggettivo allora estrai la parola di opinione [('enthusiastic', 'JJ') in pos[7-1]]
+                o = tok[opinion-1]  # salvo la parola di opinione tok[3]=best
+                t = tok[target-1]  # salvo la parola target tok[5]=player
+                # può essere commentato perchè la R2 non estrae target
+                list_opinion.append(o)  # concateno alla lista delle parole di opinione 'best'
+                # O-->O-dep-->T
 
-            # R22
-            for items in depe:  # analizzando la i-esima tripla [('nsubj', 6, 1)]
-              if items[0] == 'nsubj':  # se il tag della prima tripla è un nsubj [lo è]
-                if items[1] == target:  # verifica la dipendenza del target ovvero: [6 è uguale a target=6]
-                  target = items[2] # aggiorna il target con l'altro target collegato poichè nsubj collega 2 target [target=1]
-                  if pos[opinion - 1].__contains__('JJ') or pos[opinion - 1].__contains__('JJS') or pos[opinion - 1].__contains__('JJR') \
-                          or pos[opinion - 1].__contains__('RB') or pos[opinion - 1].__contains__('RBS') or pos[opinion - 1].__contains__('RBR'):  # verifica che il termine target è un nome [in questo caso lo è]
-                    o = tok[opinion - 1] # salvo la parola di opinione tok[3]=best
-                    list_opinion.append(o) # concateno alla lista delle parole di opinione il termine
-                    # O-->O-dep-->H<--T-dep<--T
+              # R22
+              for items in depe:  # analizzando la i-esima tripla [('nsubj', 6, 1)]
+                if items[0] == 'nsubj':  # se il tag della prima tripla è un nsubj [lo è]
+                  if items[1] == target:  # verifica la dipendenza del target ovvero: [6 è uguale a target=6]
+                    target = items[2] # aggiorna il target con l'altro target collegato poichè nsubj collega 2 target [target=1]
+                    if pos[opinion-1].__contains__('JJ') or pos[opinion-1].__contains__('JJS') \
+                            or pos[opinion-1].__contains__('JJR'): # verifica che la parola di opinione è un aggettivo
+                      o = tok[opinion - 1] # salvo la parola di opinione tok[3]=best
+                      list_opinion.append(o) # concateno alla lista delle parole di opinione il termine
+                      # O-->O-dep-->H<--T-dep<--T
 
   return set(list_opinion)  # restituisce la lista delle parole di opinione estratte per ogni frase
                             # (alla seconda chiamata del metodo verranno concatenati altre parole di opinione)
@@ -148,24 +151,20 @@ def R3(local_corenlp_path, input, file_target):  # in input la libreria, la fras
   print("Dependency Parse: ", depe)
   print('\n')
 
-  tok = np.array(toke)  # tok è l'array delle singole parole di una frase
-  list_target = []  # lista vuota che conterrà i target
-
-  tar_constraint = ['NN', 'NNS', 'NNP', 'NNPS', 'PP', 'PP$']  # array di vincoli per la parola di opinione da estrarre
-  # NN nome, NNS nome plurale, NNP nome proprio, NNPS nome proprio plurale, PP pronome personale, PPS pronome possessivo
-
-  # R31
-  for item in depe:  # analizzando la i-esima tripla [('conj', 11, 13)]
-    if item[0] == 'conj':  # se il tag della prima tripla è un conj [lo è]
-      n = tok[item[1]-1]  # tok[10]=n='pocket' che sarebbe il primo termine che partecipa alla congiunzione
-      with open(file_target) as myfile:  # apre il file dei target estratti in precedenza
-        if n in myfile.read():   # se il termine n fa parte di quella lista dei target estratti [non fa parte!!]
-          t = item[2]  # allora mi salvo la posizione della seconda parola che partecipa alla congiunzione in t=13
-          for item in pos:  # controllo se esiste il tag NN in pos
-            if item[1].__contains__('NN') or item[1].__contains__('NNS') or item[1].__contains__('NNP') \
-                    or item[1].__contains__('NNPS') or item[1].__contains__('PP') or item[1].__contains__('PP$'):  # verifica che il termine target è un nome [in questo caso lo è]
-              target = tok[t-1]  # tok[12]=target=purse estraendo 'purse'
-              list_target.append(target)  # aggiungo il termine target trovato alla lista dei target
+  list_target=[]
+  tok = np.array(toke)
+  for item in depe:
+    if item[0] == 'conj':
+      n = tok[item[1]-1]
+      print(n)
+      with open(file_target) as myfile:
+        if n in myfile.read():
+          t = item[2]
+          for item1 in pos:
+            if item1[0] == tok[t-1]:
+              if item1[1].__contains__('NN') or item1[1].__contains__('NNS') or item1[1].__contains__('NNP') or item1[1].__contains__('NNPS') :
+                target = tok[t-1]
+                list_target.append(target)
 
   # R32
   for items in depe:  # fisso la 1° tripla e la controllo con le altre
@@ -173,8 +172,8 @@ def R3(local_corenlp_path, input, file_target):  # in input la libreria, la fras
       if items[0] == items2[0]:  # se il tag della prima tripla è uguale al tag di una tripla che sto scorrendo
         if items[1] == items2[1]:  # verifica che le pos. delle parole di opinone delle due triple siano uguali: [es. [item=(mod,3,2) ed item2=(mod,3,6)]]
           target = items2[2]  # poichè 3=3, aggiorna il target con l'altro collegato da mod [target=6]
-          if (pos[target-1].__contains__('NN') or pos[target-1].__contains__('NNS') or pos[target-1].__contains__('NNP')\
-                  or pos[target-1].__contains__('NNPS') or pos[target-1].__contains__('PP') or pos[target-1].__contains__('PP$')) and items != items2:  # verifica che il termine target è un nome e che le due triple siano diverse per evitare falsi
+          if (pos[target-1].__contains__('NN') or pos[target-1].__contains__('NNS') or pos[target-1].__contains__('NNP') or pos[target-1].__contains__('NNPS'))\
+                  and items != items2:  # verifica che il termine target è un nome e che le due triple siano diverse per evitare falsi
             t = tok[target-1]  # salvo la parola target tok[6-1]
             list_target.append(t)  # concateno alla lista il target trovato
             #Ti-->Ti-Dep-->H<--Tj-Dep<--Tj
@@ -198,32 +197,28 @@ def R4(local_corenlp_path, input, file_opinion):  # in input la libreria, la fra
   print("Dependency Parse: ", depe)
   print('\n')
 
-  tok = np.array(toke)  # tok è l'array di singole parole in una frase
   list_opinion = []  # lista vuota che conterrà le parole di opinione
-
-  opi_constraint = ['JJ', 'JJS', 'JJR', 'RB', 'RBS', 'RBR']  # array di vincoli per la parola di opinione da estrarre
-  # JJ aggettivo, JJS aggettivo superlativo, JJR aggettivo comparativo, RB avverbio, RBS avverbio superlativo, RBR avverbio comparativo
-
-  # R41
-  for item in depe:  # analizzando la i-esima tripla [('conj', 11, 13)]
-    if item[0] == 'conj':  # se il tag della prima tripla è un conj [lo è]
-      a = tok[item[1]-1]  # tok[10]=n='pocket' che sarebbe il primo termine che partecipa alla congiunzione
-      with open(file_opinion) as myfile:  # apre il file delle parole di opinione estratte in precedenza
-        if a in myfile.read():  # se il termine a fa parte di quella lista delle parole di opinione estratte [non fa parte!!]
-          o = item[2]  # allora mi salvo la posizione della seconda parola che partecipa alla congiunzione in o=13
-          for item in pos:  # controllo se esiste il tag JJ in pos
-            if item[1].__contains__('JJ') or item[1].__contains__('JJS') or item[1].__contains__('JJR') \
-                    or item[1].__contains__('RB') or item[1].__contains__('RBS') or item[1].__contains__('RBR'):  # verifica che il termine target è un nome [in questo caso lo è]
-              opinion = tok[o-1]  # tok[12]=target=purse estraendo 'purse'
-              list_opinion.append(opinion)  # aggiungo la parola di opinione estratta alla lista delle parole di opinione
+  tok = np.array(toke)
+  for item in depe:
+    if item[0] == 'conj':
+      a = tok[item[1]-1]
+      with open(file_opinion) as myfile:
+        if a in myfile.read():
+          o = item[2]
+          for item1 in pos:
+            if item1[0] == tok[o-1]:
+              if item1[1].__contains__('JJ') or item1[1].__contains__('JJS') \
+                      or item1[1].__contains__('JJR'):
+                opinion = tok[o-1]
+                list_opinion.append(opinion)
   # R42
   for items in depe:  # fisso la 1° tripla e la controllo con le altre
     for items2 in depe:  # altre triple che scorrono
       if items[0] == items2[0]:  # se il tag della prima tripla è uguale al tag di una tripla che sto scorrendo
         if items[2] == items2[2]:  # verifica che le pos. dei target delle due triple siano uguali: [es. [item=(mod,3,2) ed item2=(mod,3,6)]]
           opinion = items2[1]  # poichè 3=3, aggiorna la parola di opinione con l'altra collegata da mod [opinion=6]
-          if (pos[opinion - 1].__contains__('JJ') or pos[opinion - 1].__contains__('JJS') or pos[opinion - 1].__contains__('JJR') \
-                  or pos[opinion - 1].__contains__('RB') or pos[opinion - 1].__contains__('RBS') or pos[opinion - 1].__contains__('RBR')) and items != items2:  # verifica che il termine opinione è un aggettivo e che le due triple siano diverse per evitare falsi
+          if (pos[opinion-1].__contains__('JJ') or pos[opinion-1].__contains__('JJS') or pos[opinion-1].__contains__('JJR'))\
+                  and items != items2:  # verifica che il termine opinione è un aggettivo e che le due triple siano diverse per evitare falsi
             o = tok[opinion-1]  # salvo la parola di opinione tok[6-1]
             list_opinion.append(o)  # concateno alla lista il target trovato
             #Oi-->Oi-Dep-->H<--Oj-Dep<--Oj
