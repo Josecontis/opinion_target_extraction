@@ -156,7 +156,6 @@ def R3(local_corenlp_path, input, file_target):  # in input la libreria, la fras
   for item in depe:
     if item[0] == 'conj':
       n = tok[item[1]-1]
-      print(n)
       with open(file_target) as myfile:
         if n in myfile.read():
           t = item[2]
