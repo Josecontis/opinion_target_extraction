@@ -1,5 +1,4 @@
 import pandas as pd
-from pyreadline.console import event
 
 from src import processing_data_to_target_polarity, evaluation, propagation, processing, processing_data
 from sklearn.preprocessing import MultiLabelBinarizer
@@ -53,8 +52,10 @@ while a == 'y':
         processing_data.opinion_to_csv(opinion)
 
     elif choice == "5":
-        evaluation.tf_idf_extracted_words('../opinion.txt', 'TF-opinion-words')
-        evaluation.tf_idf_extracted_words('../target.txt', 'TF-targets')
+        # evaluation.tf_idf_extracted_words('../opinion.txt', 'TF-opinion-words')
+        # evaluation.tf_idf_extracted_words('../target.txt', 'TF-targets')
+        evaluation.diff_files('../csv/Results/TF OW.txt', '../csv/Results/TF 2 OW.txt', '../csv/Results/Op_differences.txt')
+        evaluation.diff_files('../csv/Results/TF target.txt', '../csv/Results/TF 2 target.txt', '../csv/Results/Tar_differences.txt')
 
     elif choice == "6":
         # a partire dal csv restituisce la lista delle parole di opinione separate relative alle frasi

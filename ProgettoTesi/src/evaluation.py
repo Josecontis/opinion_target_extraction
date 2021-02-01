@@ -1,8 +1,8 @@
 from sklearn import metrics
 import seaborn as sns
 import pandas as pd
+import difflib
 import matplotlib.pyplot as plt
-from sklearn.feature_extraction.text import CountVectorizer
 
 
 def tf_idf_extracted_words(file, title):
@@ -20,6 +20,16 @@ def tf_idf_extracted_words(file, title):
     print(title)
     for key, value in freq.items():
         print("% s : % d" % (key, value))
+
+
+def diff_files(files1, files2, output):
+
+    text1 = open(files1).readlines()
+    text2 = open(files2).readlines()
+
+    with open(output, 'w') as file_out:
+        for line in difflib.unified_diff(text1, text2):
+            file_out.write(line)
 
 
     # in input numero dei target estratti corretti e il numero dei target estratti totali

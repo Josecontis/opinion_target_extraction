@@ -1,0 +1,766 @@
+--- 
++++ 
+@@ -1,83 +1,84 @@
+ TF-targets
+-classes :  2
++NaN :  1
+ engineer :  1
+ months :  1
+ rule :  2
+-way :  15
+-days :  3
++way :  12
++days :  4
++Linux :  3
++Internet :  1
++Windows :  2
+ everyone :  1
++Unix :  1
++hell :  2
+ foundations :  1
+-class :  4
+-case :  7
+-score :  2
++mid-1990 :  1
+ apology :  1
++Someone :  1
+ nothing :  4
+ dir :  1
+ patch :  13
++idiot :  5
+ Matt :  1
+-idiot :  6
+ Shit :  1
+ name :  4
+-something :  8
++something :  10
+ bug :  23
+ while :  2
+ hairball :  1
+-config :  1
++Idiot :  1
+ capability :  2
++stick :  1
++diags.log :  1
+ mojo :  1
+-diags.log :  1
+-maven :  1
+-sed :  1
+-jira :  1
++case :  5
++Jira :  1
+ chars :  1
+-setup :  1
+-error :  5
++autoboxing :  1
++reason :  3
++shit :  2
++error :  7
+ design :  1
+ Thrift :  2
+-hell :  1
+-realise :  1
+ work :  4
+-criticalblocker :  1
++blocker :  2
+ fixes :  2
+-companies :  1
+ Blooper :  1
+-JBSEAM3742 :  1
+-fix :  10
+-dependencies :  3
++fix :  7
++JBSEAM :  1
+ price :  1
+ Bug :  1
+ buggy :  1
+ attempt :  1
+ experinces :  1
+-load :  1
++Derby :  1
+ strik :  1
+-NPE :  1
++encapsulation :  1
+ package :  1
+-encapsulation :  1
+-groups :  1
+ can :  1
+-format :  2
++format :  1
+ guys :  1
+ bq :  1
+ dyslexia :  1
+ problem :  11
+-idea :  4
++tool :  2
++plugin :  2
++idea :  5
++QuorumOpMonitor :  1
+ instances :  1
+-QuorumOpMonitor :  1
+ Ahhh :  1
+ acronyms :  2
+-Explorer :  1
++Explorer :  2
+ charm :  1
+-esp :  1
+-decimal :  1
+-allowing :  1
++code :  17
+ FIRST_SEARCHER :  1
+-comment :  4
+ NEW_SEARCHER :  1
+-newSrchr :  1
++static :  2
++String :  1
+ attributes :  1
+ Problem :  1
+-mistake :  18
++comment :  2
++Integer.MAX_VALUE :  1
+ years :  2
+ source :  2
+ itches :  1
+@@ -88,181 +89,181 @@
+ data :  2
+ cassandra :  1
+ default :  2
+-anything :  3
+-functionality :  1
++anything :  2
+ analysis :  1
+ type :  3
+-querytime :  1
+-she :  1
+-indextime :  1
+-RA :  1
+-code :  17
+ nevermind :  1
++script :  1
+ shell :  1
++mistake :  15
+ v2 :  1
+ permissions :  1
+ Object :  1
+ PersistentBag.addObject :  1
+-fieldnumbers :  1
+-Whoops :  1
++Whoops :  2
+ values :  3
+-people :  7
++people :  6
++changes :  2
+ place :  2
+-changes :  2
++Lucene4 :  1
+ migration :  1
+ commentary :  1
+ hacks :  1
+ release :  2
+ model :  1
+-common :  1
+ object :  4
++ContainerRequest :  1
++nmtokens :  1
++config :  1
+ thing :  11
+ fragmentation :  1
+-thead.element :  1
+-head :  1
+-tElement :  1
+-writer.getDocument :  1
++Asset :  1
++Path :  2
++beginRender :  2
++tDocument :  1
++d.find :  1
++prototype.js :  1
++prototypeJs.toClientURL :  1
++MarkupWriter :  1
++Exception :  1
+ Workaround :  1
++html :  1
+ loop :  2
+ death :  1
+ queries :  1
++getTerminalIds :  1
+ annotation :  2
+-method :  1
++method :  4
+ drivers :  1
+ ideas :  1
+-one :  4
+-time :  16
++time :  17
++descriptions :  1
+ BUG :  1
+-descriptions :  1
+ motivations :  1
+-suggest :  1
++connection :  3
+ effect :  2
+-connection :  3
+ failures :  2
+-Linux :  2
++shame :  5
+ 4.2.1 :  1
++bunch :  1
++containers :  1
+ regression :  1
+-containers :  1
+-bunch :  1
++class :  2
++cluster :  1
+ processes :  1
+-cluster :  1
+ identifier :  1
+-issue :  13
+-annoying :  4
+-methodnames :  1
++INVALID :  1
++issue :  12
++AbstractService :  1
+ api :  2
+ system :  2
+-doable :  1
+-shame :  4
+-expansion :  1
+-nontrivial :  1
+-change :  5
+ workaround :  7
+-appears :  1
++change :  3
+ files :  1
+ methods :  1
+-classpath :  1
+ Solr :  1
+ lots :  1
++classpath :  1
+ looks :  1
+-term :  1
+-typing :  1
+-xmlbeans :  1
++term :  2
++Macros :  1
++fAposRef :  1
++getCharRefcount :  1
+ usecase :  1
++length :  1
++buffer :  1
+ transcoder :  1
+-length :  1
+ characters :  2
+-buffer :  1
+-couple :  1
++couple :  2
+ version :  2
+ trunk :  1
+-Subversion :  1
+-XalanJ :  1
+-stuff :  1
+-support :  3
+-solution :  10
+-hack :  7
+-provide :  1
++J :  1
++MetaAttribute :  1
++solution :  11
++hack :  8
++support :  2
+ size :  1
+-DebateDebacle :  1
+-Advice :  1
+-W3C :  1
++Debacle :  1
+ attention :  1
++Debate :  1
++Namespace :  1
+ hat :  1
+ performance :  1
+ Document :  1
+ check :  2
+ environment :  2
++-1 :  2
+ space :  1
+ Selenium :  1
+ OgnlValueStack :  1
++confusion :  1
+ ActionContext :  1
+-confusion :  1
+ form :  3
+ APIs :  1
+-MySQL :  2
+-search :  3
+-end :  2
++bugs :  2
++BIT :  1
++No :  1
++MySQL :  1
++situations :  1
++style :  1
+ exceptions :  1
+-style :  1
+-situations :  1
+ ORM :  1
+-break :  2
+ XML :  1
+-require :  1
+ onField :  1
++compatibility :  1
+ behavior :  4
+-compatibility :  1
+ issues :  3
+-Maven :  1
+-example :  3
++Maven :  2
++constraint :  1
++example :  2
++value :  3
+ experience :  1
+ part :  2
+-Ugly :  1
++SNAPSHOT :  1
+ declarations :  1
+-problems :  4
+-launchContext.getUser.equalstokenId.getApplicationSubmitter :  1
++problems :  3
+ piece :  2
+ flag :  2
++zones :  2
+ things :  1
+-zones :  2
+ keys :  2
+-value :  2
++dependencies :  1
+ complexity :  1
+ spaces :  2
++de-escaping :  1
+ implementation :  1
+-deescaping :  1
+-older :  1
+-stop :  1
+ Part :  1
+-had :  1
+ option :  1
+ oversight :  1
+ exception :  5
++Animal :  1
+ c :  1
+-Animal :  1
++Dog :  1
+ Cat :  1
+-file :  3
++file :  4
+ Oracle :  1
+ 10g :  1
+ Alexandrino :  1
+-unable :  1
+ JIRA :  1
+ API :  3
+-worth :  1
++tomorrow :  1
++Lob :  1
+ Basicfetch :  1
+-Lob :  1
+-avoid :  1
+-result :  1
++result :  2
++getters :  2
+ fields :  3
+-getters :  2
+ setters :  1
+-discriminator :  1
++set :  1
++field :  1
++kind :  1
+ url :  2
+ trace :  2
+-get :  2
+ overhaul :  1
+-ant :  1
++Dsrcwss4j_wss108trunkbuild :  1
++reports :  1
++Dsrcwss4j_wss108trunkbuildtest :  1
++ant :  2
++directory :  1
+ sry :  1
+ proposal :  2
+ mapping :  2
+@@ -271,66 +272,66 @@
+ diff :  2
+ Jason :  1
+ books :  1
++merge :  1
++tiles :  1
+ servlet :  1
+-reason :  3
+-seems :  2
++email :  2
+ detail :  1
+ times :  1
+-stung :  1
++quality :  1
++QE :  1
++person :  2
+ engineering :  1
+-person :  2
+-QE :  1
+-quality :  1
+-project :  3
++project :  4
+ parsers :  1
+ PANGAEA :  1
+ configuration :  1
+-errorpage :  1
++page :  1
+ messages :  2
+ typo :  2
+-tool :  1
+ component :  2
+ ones :  2
+-restriction :  1
+ return :  1
+-list :  3
++-87 :  1
+ JSP :  1
+-tag :  2
+-then :  1
+-lines :  3
++tag :  3
++lines :  2
++hashcode :  2
++override :  1
++int :  1
++GetHashCode :  1
+ upload :  1
+-theme :  1
+-SMARTDOCSIGNATURESSignatureSignedInfoCanonicalizationMethodAlgori :  1
+-doc :  1
++SignedInfo :  1
++thm :  1
++CanonicalizationMethod :  1
++Signature :  1
+ XPathAPI :  1
+ report :  1
+ Urghhhhh :  2
+ DOM :  1
++requirement :  2
+ handling :  1
+-requirement :  2
++situation :  3
++hostname :  1
+ tunnel :  1
+-situation :  2
+ difference :  1
+-documentation :  3
++documentation :  2
+ thousands :  1
+ objects :  1
+-found :  1
+ rules :  1
+ types :  2
+ variants :  1
++breaks :  1
+ attachment :  1
+-linebreaks :  1
+ future :  2
+-serverside :  1
+ state :  2
+-consider :  1
++side :  1
++editors :  2
+ notation :  2
+ tools :  1
+-editors :  2
+ fan :  1
+ C :  1
+ logic :  1
+-shit :  1
+ MMap :  1
+ supporter :  1
+ paths :  1
+@@ -347,50 +348,49 @@
+ components :  2
+ popups :  1
+ results :  1
+-output :  4
++INFO :  1
++Startup :  1
+ Jonathan :  1
+ lot :  1
+ John :  1
++one :  3
+ cases :  1
+ structure :  2
++Gora :  1
++message :  2
+ burden :  1
+-message :  2
+-markup :  2
++markup :  1
+ patterns :  1
+-solrdev :  2
+-opinions :  1
+ Thomas :  1
+ AJAX :  1
+ images :  1
+-Windows :  1
+ bit :  1
+-critical :  1
+-initDISIQueue :  1
+-call :  3
+-environments :  1
++RequestProcessor :  1
++call :  5
++position :  2
++operation :  3
+ line :  3
+-operation :  3
+ NOTHING :  1
+-number :  2
++impls :  1
++number :  1
+ solvers :  1
+-bugs :  1
+-impls :  1
+ question :  2
++configure :  1
+ imo :  1
+-configure :  1
+ configure.ac :  1
+-level :  2
++PropertyState :  1
++level :  5
+ read :  1
+-write :  1
+-generate :  1
++classes :  1
+ post :  1
+ suggestion :  1
+ 0.10.x :  1
++details :  1
+ thinking :  1
+-details :  1
+ moment :  1
++MemoryIndex :  1
+ serverAddressToServerInfo :  1
+-Eclipse :  1
++twins :  2
+ Thilo :  1
+ drain :  1
+ Guys :  1
+@@ -399,33 +399,30 @@
+ words :  1
+ sound :  1
+ schemas :  1
+-they :  1
+ Felix :  1
+-nono :  1
+ reply :  1
+ namespace :  1
+-do :  1
+ block :  2
+ incarnations :  1
++dislike :  1
+ distraction :  1
+-dislike :  1
+ lint :  1
+-strutshtml.tld :  1
+ 340K :  1
+-browser :  1
++html.tld :  1
+ explanation :  1
+ committer :  2
+ feelings :  1
++output :  3
+ guess :  1
+-toplevel :  1
++practice :  3
++config.h :  1
++branch :  2
+ overhead :  2
+-branch :  2
++git :  1
++list :  1
++fact :  3
+ web :  1
+-git :  1
+-having :  1
+-fact :  3
+-contructor :  1
+-copypaste :  1
++paste :  2
+ MultipleFormSupport :  1
+ FormSupportImpl :  1
+ subclass :  1
+@@ -433,119 +430,127 @@
+ comments :  2
+ luck :  1
+ ss :  1
+-typos :  1
++search :  2
++typos :  2
+ bundles :  1
+-failok :  1
++Dependency :  1
+ entries :  2
+ manifest :  1
+-trust :  1
+ favor :  1
+ Jesse :  1
+-implementations :  1
+-testing :  1
++common/core/ForEachSupport.java :  1
++hours :  2
++ApacheCon :  1
++provider :  1
++'Re :  1
++Provider :  1
+ OpenID :  1
+-Provider :  1
+-'Re :  1
+ Partitioner :  1
++DHAVE_INTTYPES_H :  2
++Linaro :  1
++autoconf :  1
++gcc :  1
++automake :  1
+ GNU :  1
+-automake :  1
+-Autoconf :  1
+-ubuntu3 :  1
+-ubuntu :  1
++resource :  2
+ bundle :  1
+ translation :  1
+-leave :  1
+ crypter :  1
++status :  1
+ section :  1
+-status :  1
++filenames :  1
+ Robert :  1
++PageLink :  1
+ ActionLink :  1
+-PageLink :  1
+ log :  1
+ client :  2
+ test :  1
+ complaint :  1
++reference :  1
++Play :  1
+ weeks :  1
+-lack :  2
+-Shame :  2
+ formatter :  1
++lack :  1
++parts :  1
+ application :  1
+ use :  2
+ tapestry :  1
+-make :  1
+ michael :  1
+-https.cwiki.apache.orgUIMAbuildingeclipsepluginswithmavenbundlepluginandfriends.html :  1
+-information :  1
++textmarker :  1
++ep :  1
++uimaj :  1
++compression :  1
+ GZIP :  1
+-compression :  1
++portions :  1
+ voice :  1
+-portions :  1
+ desk :  2
+ surprises :  1
+ trouble :  1
+ bugfixes :  1
+-hate :  1
+-questions :  1
+-and :  1
+-CORRECTIONADDENDUM :  1
++questions :  2
+ apps :  2
+ resources :  1
+ book :  2
+ text :  2
+ automata :  2
+ dependency :  1
++errors :  1
+ inspite :  2
+-errors :  1
+-terrible :  1
+ omg :  1
++Traceback :  1
++File :  2
+ dict :  1
++d1 :  1
++TypeError :  1
++dicta :  1
++ways :  1
+ testprogramm :  1
+-ways :  1
++profile :  1
++ATM :  1
+ user :  2
+-profile :  1
+ admin :  1
+-andor :  1
+ fault :  1
+ member :  1
+ cast :  2
+ try :  2
+-practice :  1
+ catch :  1
+-email :  1
+ investigation :  1
+ security :  1
+ m2eclipse :  1
+-interactions :  1
++TOKEN :  1
+ X :  1
+ refusal :  1
+ upgrade :  1
+ 4703_20081120_0.18 :  1
+-edit :  1
+ help :  1
+ JmsTemplate102 :  1
+ hour :  1
++pom :  1
+ versions :  1
+-projectpom :  1
+ listings :  1
+-commentsquestions :  2
++job :  1
++MapReduce :  1
+ azz :  1
+ sake :  1
+ string :  1
+ svn :  1
++setAccessibletrue :  1
++repo :  1
+ startup :  1
+-repo :  1
+ Synapse :  1
+ debug :  1
+ NPEs :  1
+-hosters :  1
+ bytes :  1
+-copypastewithonenewlinetoomuch :  1
++bandwidth :  1
+ icons :  2
+-DIV.tpalettecontrols :  1
+-I :  1
++product :  1
++palette :  1
++controls :  1
++end :  1
++DIV.t :  1
++BUTTON :  1
+ Editor :  1
+ servers :  1
+-agree :  1
+ constructors :  1
+-submission :  1
+ JavaScript :  1
++submission :  1
