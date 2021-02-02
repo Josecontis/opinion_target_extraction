@@ -39,7 +39,7 @@ while a == 'y':
 
     elif choice == "2":
         # processing del file csv in input
-        processing_data.replace_symbols("../csv/GOLD_723.csv")
+        processing_data.replace_symbols("../csv/target_annotation_dataset.csv")
 
     elif choice == "3":
         # sentences contiene la lista di frasi e target_polarity la lista di target con polarità di ogni frase
