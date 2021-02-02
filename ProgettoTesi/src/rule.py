@@ -45,7 +45,7 @@ def R1(local_corenlp_path, input, op):  # in input la libreria e la frase da esa
     if item[1] in val:  # se il tag pos dela prima parola è presente nel vettore val
       agg = item[0]  # a agg assegno il termine (l'aggettivo)
       with open(op) as myfile:  # apre il file on
-        if agg in myfile.read():  # se l'aggettivo della frase è presente nel lessico di opinione negativo
+        if agg.lower() in myfile.read():  # se l'aggettivo della frase è presente nel lessico di opinione negativo
           MR = ['amod', 'advmod', 'rcmod']  # MR è l'array delle relazioni modifier [amod aggettivo riferito a un nome,
           # advmod aggettivo riferito a un avverbio, rcmod aggettivo riferito a un nome ma sottoforma di verbo
           # (es. il libro è stato scritto -> [libro,scritto])]
@@ -117,6 +117,7 @@ def R2(local_corenlp_path, input, file_target):  # in input la libreria, la fras
                 o = tok[opinion-1]  # salvo la parola di opinione tok[3]=best
                 t = tok[target-1]  # salvo la parola target tok[5]=player
                 # può essere commentato perchè la R2 non estrae target
+                o = o.lower()
                 list_opinion.append(o)  # concateno alla lista delle parole di opinione 'best'
                 # O-->O-dep-->T
 
@@ -128,6 +129,7 @@ def R2(local_corenlp_path, input, file_target):  # in input la libreria, la fras
                     if pos[opinion-1].__contains__('JJ') or pos[opinion-1].__contains__('JJS') \
                             or pos[opinion-1].__contains__('JJR'): # verifica che la parola di opinione è un aggettivo
                       o = tok[opinion - 1] # salvo la parola di opinione tok[3]=best
+                      o = o.lower()
                       list_opinion.append(o) # concateno alla lista delle parole di opinione il termine
                       # O-->O-dep-->H<--T-dep<--T
 
@@ -202,13 +204,14 @@ def R4(local_corenlp_path, input, file_opinion):  # in input la libreria, la fra
     if item[0] == 'conj':
       a = tok[item[1]-1]
       with open(file_opinion) as myfile:
-        if a in myfile.read():
+        if a.lower() in myfile.read():
           o = item[2]
           for item1 in pos:
             if item1[0] == tok[o-1]:
               if item1[1].__contains__('JJ') or item1[1].__contains__('JJS') \
                       or item1[1].__contains__('JJR'):
                 opinion = tok[o-1]
+                opinion = opinion.lower()
                 list_opinion.append(opinion)
   # R42
   for items in depe:  # fisso la 1° tripla e la controllo con le altre
@@ -219,6 +222,7 @@ def R4(local_corenlp_path, input, file_opinion):  # in input la libreria, la fra
           if (pos[opinion-1].__contains__('JJ') or pos[opinion-1].__contains__('JJS') or pos[opinion-1].__contains__('JJR'))\
                   and items != items2:  # verifica che il termine opinione è un aggettivo e che le due triple siano diverse per evitare falsi
             o = tok[opinion-1]  # salvo la parola di opinione tok[6-1]
+            o = o.lower()
             list_opinion.append(o)  # concateno alla lista il target trovato
             #Oi-->Oi-Dep-->H<--Oj-Dep<--Oj
 
