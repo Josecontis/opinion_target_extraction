@@ -22,7 +22,7 @@ non-profit,
 public, 
 
 
-original, 
+
 wrong, 
 
 
@@ -49,8 +49,8 @@ bad,
 special, 
 
 
-
-Original, 
+damn, 
+original, 
 
 
 
@@ -90,9 +90,9 @@ critical,
 
 
 
+stupid, 
 
-
-Damn, 
+damn, 
 
 
 
@@ -112,7 +112,7 @@ evil,
 
 bad, silly, 
 
-whole, new,
+
 
 stupid, 
 
@@ -120,7 +120,7 @@ stupid,
 
 
 
-Damn, 
+damn, 
 binary, 
 
 fucking, 
@@ -131,7 +131,7 @@ stupid,
 
 
 
-Damn, 
+damn, 
 stupid, 
 
 
@@ -142,7 +142,7 @@ stupid,
 
 
 
-public, final, petty, 
+public, final, 
 
 
 
@@ -152,7 +152,7 @@ public, final, petty,
 
 last, 
 
-
+stupid, 
 sure, 
 last, 
 
@@ -160,7 +160,7 @@ own, open,
 
 wrong, 
 
-Synchronous, 
+synchronous, 
 kludgey, 
 
 
@@ -183,7 +183,7 @@ external,
 stupid, 
 
 
-previous, stupid, sorry, 
+sorry, previous, stupid, 
 correct, 
 
 
@@ -192,9 +192,9 @@ central,
 
 negative, pretty, 
 stupid, 
-better, major, 
+
 sannegrinovero, much, 
-insulting, useless, 
+insulting, 
 ugly, 
 new, 
 
@@ -203,21 +203,21 @@ dumb,
 much, 
 annoying, 
 much, 
-approachable, private, boolean, 
+boolean, approachable, private, 
 
 quick, 
 
 
 
-horrible, inner, 
+inner, horrible, 
 complex, 
-annoying, Transient, More, following, public, null, 
+transient, annoying, more, public, following, null, 
 good, 
-faulty, many, 
+many, faulty, 
 good, 
 same, arrogant, 
-above, annoying, 
-own, annoying, 
+annoying, above, 
+annoying, own, 
 
 
 
@@ -226,7 +226,7 @@ same,
 
 
 
-large, non-locality-constrained, annoying, multiple, 
+large, annoying, non-locality-constrained, multiple, 
 horrible, 
 serious, annoying, 
 
@@ -258,7 +258,7 @@ ugly,
 much, 
 annoying, 
 unusual, much, 
-certain, dumb, 
+dumb, certain, 
 stupid, 
 annoying, 
 dumb, 
@@ -267,17 +267,17 @@ current, annoying,
 nasty, 
 
 
-
-
-better, native, long, ugly, 
 stupid, 
-Great, much, 
+
+long, native, better, ugly, 
+stupid, 
+great, much, 
 
 dumb, 
-full, horrible, entire, 
+full, entire, horrible, 
 possible, 
 worthless, 
-Stupid, 
+stupid, 
 
 
 
@@ -289,18 +289,18 @@ annoying, single,
 
 urgent, 
 
-nice, free, 
+free, nice, 
 dumb, 
-desesperate, boolean, many, other, ugly, 
+boolean, desesperate, other, many, ugly, 
 
-new, horrible, many, 
+many, horrible, new, 
 
 
 
 unfriendly, 
-good, onField, 
+good, onfield, 
 annoying, concurrent, many, 
-backward, previous, 
+previous, backward, 
 classloading, stupid, 
 related, 
 
@@ -315,57 +315,57 @@ annoying, simple,
 worthless, 
 good, 
 sequential, ugly, 
-several, small, different, much, 
+different, small, several, much, 
 
 
 individual, terrible, 
-transitive, annoying, only, 
+annoying, only, transitive, 
 nice, ugly, 
 
 little, much, 
 
-more, same, dumb, older, 
+same, more, dumb, older, 
 
 
 stupid, 
 basic, 
 
-ugly, 
+
 annoying, 
-much, duplicate, only, 
-Stupid, 
+duplicate, only, much, 
+stupid, 
 ugly, 
 much, 
 new, stupid, 
-annoying, same, 
+same, annoying, 
 
-false, Next, proper, much, 
+false, proper, next, much, 
 
 nasty, 
 
-Null, 
+null, 
 annoying, 
 same, unable, 
 
-Stupid, 
-Stupid, long, 
-enough, vague, stupid, 
+stupid, 
+long, stupid, 
+vague, enough, stupid, 
 public, worth, 
 incompatible, 
 
-LAZY, next, 
+next, lazy, 
 
 correct, 
-composite, key, 
+key, composite, 
 
 public, 
 
 
 
 
-original, whole, 
+whole, original, 
 ugly, 
-Dumb, 
+dumb, 
 
 complete, 
 
@@ -376,9 +376,9 @@ new,
 
 
 confusing, 
-Stupid, 
 stupid, 
-Stupid, 
+stupid, 
+stupid, 
 
 
 
@@ -394,12 +394,12 @@ annoying,
 
 nodejs, 
 
-useful, short, 
+short, useful, 
 
 
 
 several, 
-good, long, 
+long, good, 
 
 annoying, 
 unused, non-solr, 
@@ -412,17 +412,17 @@ plain,
 
 disturbing, 
 stupid, 
-other, fun, 
+fun, other, 
 stupid, 
 
 
 current, 
 only, 
-current, annoying, simple, 
+simple, current, annoying, 
 same, annoying, 
 
 
-1st, 2nd, 
+2nd, 1st, 
 annoying, 
 
 
@@ -435,7 +435,7 @@ nasty,
 empty, 
 
 
-good, long, 
+long, good, 
 nasty, 
 horrible, 
 
@@ -444,7 +444,7 @@ ugly, big,
 
 stupid, 
 annoying, 
-exact, big, 
+big, exact, 
 
 
 scalable, 
@@ -456,17 +456,17 @@ scalable,
 
 
 
-different, separate, ugly, 
+separate, different, ugly, 
 annoying, 
 fragile, 
 new, 
 
 new, 
-new, extra, annoying, 
+new, annoying, extra, 
 next, 
 
 dumb, 
-enough, Hungarian, dumb, modern, big, 
+enough, hungarian, dumb, modern, big, 
 old, 
 horrible, 
 
@@ -484,35 +484,35 @@ annoying,
 confusing, 
 
 more, 
-Sorry, 
+sorry, 
 dumb, bigger, 
-good, different, more, 
+good, more, different, 
 previous, non-security, 
 good, bad, more, 
 ugly, 
-same, ugly, 
-overall, ugly, 
-old, ugly, 
+ugly, same, 
+ugly, overall, 
+ugly, old, 
 stupid, 
 ugly, 
 right, 
-certain, previous, 
+previous, certain, 
 terrible, 
 
 
-unreasonable, good, 
-terrible, correct, 
+good, unreasonable, 
+correct, terrible, 
 horrible, 
 
 
 critical, 
-little, simple, 
-next, due, ugly, first, due, 
-correct, first, 
-other, square, 
-great, disturbing, many, hard, 
+simple, little, 
+ugly, first, next, due, due, 
+first, correct, 
+square, other, 
+disturbing, many, great, hard, 
 
-Stupid, 
+stupid, 
 annoying, 
 stupid, 
 ugly, 
@@ -526,11 +526,11 @@ bad,
 
 
 stupid, 
-new, explicit, additional, ugly, old, 
-stupid, first, 
+ugly, new, old, additional, explicit, 
+first, stupid, 
 unacceptable, 
 
-technical, much, 
+much, technical, 
 multiple, annoying, 
 
 dumb, 
@@ -540,9 +540,9 @@ horrible,
 terrible, 
 more, 
 
-other, dumb, 
+dumb, other, 
 
-other, unrelated, 
+unrelated, other, 
 original, 
 complex, 
 
@@ -555,63 +555,63 @@ proper,
 
 annoying, 
 
-Terrible, 
+terrible, 
 
 
 ugly, 
 sweeping, 
 dumb, 
 stupid, 
-same, several, local, stupid, 
+local, stupid, several, same, 
 
 
 
-personal, Interesting, 
+personal, interesting, 
 
 
-hot, complete, minimal, 
+minimal, complete, hot, 
 
 
 good, 
 top, dumb, 
 much, 
 
-same, annoying, 
+annoying, same, 
 more, ongoing, 
 
-other, new, ugly, 
+new, ugly, other, 
 total, 
 great, 
-weird, terrible, several, 
+weird, several, terrible, 
 
 dumb, 
-other, annoying, current, 
+current, annoying, other, 
 ugly, 
-Stupid, 
+stupid, 
 
-least, ugly, 
+ugly, least, 
 other, 
 
-extra, manifest, 
+manifest, extra, 
 
 other, 
 
 bad, 
 silent, 
-more, pre-HttpServletWrapper, stupid, 
+stupid, more, pre-httpservletwrapper, 
 
 
-few, more, enough, current, 
+current, few, more, enough, 
 much, 
-own, stupid, 
+stupid, own, 
 ugly, 
 right, stupid, 
 stupid, 
-Same, 
-ugly, original, simple, 
-stupid, current, 
+same, 
+simple, ugly, original, 
+current, stupid, 
 terrible, 
-Available, important, 
+important, available, 
 more, possible, 
 stupid, 
 
@@ -620,7 +620,7 @@ annoying,
 future, bad, own, 
 
 enough, 
-harmless, frequent, 
+frequent, harmless, 
 
 ugly, 
 main, 
@@ -643,81 +643,81 @@ little, different,
 stupid, 
 
 
-same, more, 
+more, same, 
 dumb, 
 stupid, 
 
-close, dumb, such, 
+close, such, dumb, 
 other, 
 
 normal, 
-positive, stupid, false, 
+false, stupid, positive, 
 
 
 stupid, 
 horrible, circular, 
-such, other, stupid, 
+such, stupid, other, 
 
 
 annoying, 
 
 ugly, 
-last, recent, unhashable, only, 
+recent, only, last, unhashable, 
 little, similar, 
-plain, other, own, ugly, 
+plain, ugly, other, own, 
 
-additional, ugly, 
+ugly, additional, 
 super, 
 ugly, 
 stupid, 
-empty, terrible, 
-original, more, stupid, 
+terrible, empty, 
+stupid, more, original, 
 real, 
 stupid, 
-terrible, PLAIN, SIMPLE, 
+simple, plain, terrible, 
 
-Stupid, 
+stupid, 
 ugly, aggregate, 
 
 graceful, 
 
 temporary, 
 annoying, 
-horrible, better, much, 
+much, horrible, better, 
 
 annoying, 
 stupid, 
 
-different, ugly, 
+ugly, different, 
 
-few, ugly, DFSClient, 
+dfsclient, ugly, few, 
 dumb, 
 other, 
-annoying, single, unreleased, 
-Select, necessary, 
+unreleased, annoying, single, 
+select, necessary, 
 stupid, 
 
 ugly, 
 dumb, 
-Best, annoying, 
+best, annoying, 
 stupid, 
-only, possible, new, first, 
-terrible, wrong, 
-own, dumb, 
+new, only, first, possible, 
+wrong, terrible, 
+dumb, own, 
 
 low, worthless, 
 stupid, 
 
 
 simple, 
-only, commercial, ugly, latter, 
+commercial, ugly, only, latter, 
 different, 
-broken, such, 
+such, broken, 
 stupid, 
 ugly, 
 ugly, 
 
 disturbing, 
 
-ugly, 
+
 super, 

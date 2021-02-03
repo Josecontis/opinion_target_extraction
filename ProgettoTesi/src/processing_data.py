@@ -5,7 +5,7 @@ import re
 
 # metodo per estrapolare le colonne da un file csv
 def csv_to_column_list(file_csv, sentence_col, polarity_col):
-    dfP = pd.read_csv(file_csv, encoding = "ISO-8859-1")  # lettura file csv delle polarità
+    dfP = pd.read_csv(file_csv, encoding ='ISO-8859-1')  # lettura file csv delle polarità
     sentence = dfP[sentence_col].tolist()  # sentence contiene una lista di frasi estrapolate
     target_polarity = dfP[polarity_col].tolist()  # target_polarity contiene una lista di target con polarità estrapolate
     # per ogni elemento della lista di target con polarità vengono rimpiazzati i valori nan con 'NA1'
@@ -17,7 +17,7 @@ def csv_to_column_list(file_csv, sentence_col, polarity_col):
 def target_to_csv(targets_extracted):
     t = open(targets_extracted, 'r').readlines()  # apertura file in lettura
     list = [x.replace('\n', '').replace(',', '') for x in t]
-    df = pd.read_csv('../processing_fileOriginale/GOLD_723_processed.csv', encoding = "ISO-8859-1")  # apre file Targ.csv in scrittura
+    df = pd.read_csv('../processing_fileOriginale/Target_Annotation_Processed.csv', encoding = "ISO-8859-1")  # apre file Targ.csv in scrittura
     df['Targets'] = list
     df.to_csv('../csv/Targ.csv', index=False)
 
@@ -26,14 +26,14 @@ def target_to_csv(targets_extracted):
 def opinion_to_csv(opinions_extracted):
     o = open(opinions_extracted, 'r').readlines()  # apertura file in lettura
     list = [x.replace('\n', '').replace(',', '') for x in o]
-    df = pd.read_csv('../processing_fileOriginale/GOLD_723_processed.csv', encoding = "ISO-8859-1")  # apre file Targ.csv in scrittura
+    df = pd.read_csv('../processing_fileOriginale/Target_Annotation_Processed.csv', encoding = "ISO-8859-1")  # apre file Targ.csv in scrittura
     df['Opinions'] = list
     df.to_csv('../csv/Opi.csv', index=False)
 
 
 def replace_symbols(Original_file):
     # Read in the file
-    with open(Original_file, 'r') as file: # apre il file originale in lettura
+    with open(Original_file, 'r', encoding="utf8") as file: # apre il file originale in lettura
         filedata = file.read() # salva il contenuto in filedata
 
     m = re.findall(r'[@]\w+', filedata)  # trova i termini con il tag @
@@ -91,7 +91,7 @@ def replace_symbols(Original_file):
     filedata = filedata.replace('  ', ' ')
 
     # scrive il file precedente in un altro privato dei caratteri rimpiazzati
-    with open('../processing_fileOriginale/GOLD_723_processed.csv', 'w') as file:
+    with open('../processing_fileOriginale/Target_Annotation_Processed.csv', 'w') as file:
         file.write(filedata)
 
 
