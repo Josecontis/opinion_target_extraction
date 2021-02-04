@@ -10,7 +10,7 @@ pd.set_option('display.max_columns', 2000)
 pd.set_option('display.width', 2000)
 
 local_corenlp_path = '../stanford-corenlp-4.2.0'
-csv = '../processing_fileOriginale/GOLD_723_processed.csv'
+csv = '../processing_file_originale/GOLD_723_processed.csv'
 target = '../target.txt'
 opinion = '../opinion.txt'
 lexicon_positive = '../opinion-lexicon-English/positive-words.txt'
@@ -38,12 +38,15 @@ while a == 'y':
         processing_data.merge_txt(lexicon_positive, lexicon_negative)
 
     elif choice == "2":
-        # processing del file csv in input
-        processing_data.replace_symbols("../csv/target_annotation_dataset.csv")
+        # processing delle frasi del file csv in input
+        processing_data.replace_symbols("../csv/target_annotation_dataset.csv", 'mydeveloper_comment')
+        # processing dei target per le direzioni del file csv in input
+        processing_data.replace_symbols("../processing_file_originale/Target_Annotation_Processed.csv", 'Target')
 
     elif choice == "3":
         # sentences contiene la lista di frasi e target_polarity la lista di target con polarità di ogni frase
-        sentences, target_polarity = processing_data.csv_to_column_list("../processing_fileOriginale/Target_Annotation_Processed.csv", 'mydeveloper_comment', 'myanger_direction')
+        sentences, target_polarity = processing_data.csv_to_column_list(
+            "../processing_file_originale/Target_Annotation_Processed.csv", 'mydeveloper_comment', 'myanger_direction')
         # algoritmo di doppia propagazione che prende in input la lista di frasi estratta dal csv e la libreria
         propagation.propagation(sentences, local_corenlp_path)
 

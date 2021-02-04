@@ -17,7 +17,7 @@ def csv_to_column_list(file_csv, sentence_col, polarity_col):
 def target_to_csv(targets_extracted):
     t = open(targets_extracted, 'r').readlines()  # apertura file in lettura
     list = [x.replace('\n', '').replace(',', '') for x in t]
-    df = pd.read_csv('../processing_fileOriginale/Target_Annotation_Processed.csv', encoding = "ISO-8859-1")  # apre file Targ.csv in scrittura
+    df = pd.read_csv('../processing_file_originale/Target_Annotation_Processed.csv', encoding ="ISO-8859-1")  # apre file Targ.csv in scrittura
     df['Targets'] = list
     df.to_csv('../csv/Targ.csv', index=False)
 
@@ -26,74 +26,85 @@ def target_to_csv(targets_extracted):
 def opinion_to_csv(opinions_extracted):
     o = open(opinions_extracted, 'r').readlines()  # apertura file in lettura
     list = [x.replace('\n', '').replace(',', '') for x in o]
-    df = pd.read_csv('../processing_fileOriginale/Target_Annotation_Processed.csv', encoding = "ISO-8859-1")  # apre file Targ.csv in scrittura
+    df = pd.read_csv('../processing_file_originale/Target_Annotation_Processed.csv', encoding ="ISO-8859-1")  # apre file Targ.csv in scrittura
     df['Opinions'] = list
     df.to_csv('../csv/Opi.csv', index=False)
 
 
-def replace_symbols(Original_file):
+def replace_symbols(Original_file, col):
     # Read in the file
-    with open(Original_file, 'r', encoding="utf8") as file: # apre il file originale in lettura
-        filedata = file.read() # salva il contenuto in filedata
+    file = pd.read_csv(Original_file, encoding="utf8")
+    list_input = []
+    list_output = []
+    for x in file[col]:
+        list_input.append(str(x))
+    print(list_input)
+    for phrase in list_input:
+        m = re.findall(r'[@]\w+', phrase)  # trova i termini con il tag @
+        for i in m:
+            # sostituisco i termini con il tag @ con gli stessi ma con il primo carattere maiuscolo
+            phrase = phrase.replace(i, i.title())
 
-    m = re.findall(r'[@]\w+', filedata)  # trova i termini con il tag @
-    for i in m:
-        # sostituisco i termini con il tag @ con gli stessi ma con il primo carattere maiuscolo
-        filedata = filedata.replace(i, i.title())
+        # sostituisco le short words
+        phrase = re.sub(r"won't", "will not", phrase)
+        phrase = re.sub(r"can\'t", "can not", phrase)
 
-    # sostituisco le short words
-    filedata = re.sub(r"won't", "will not", filedata)
-    filedata = re.sub(r"can\'t", "can not", filedata)
+        phrase = re.sub(r"\'re ", " are ", phrase)
+        phrase = re.sub(r"\'s ", " is ", phrase)
+        phrase = re.sub(r"\'d ", " would ", phrase)
+        phrase = re.sub(r"\'ll ", " will ", phrase)
+        phrase = re.sub(r"\'ve ", " have ", phrase)
+        phrase = re.sub(r"\'m ", " am ", phrase)
 
-    filedata = re.sub(r"\'re ", " are ", filedata)
-    filedata = re.sub(r"\'s ", " is ", filedata)
-    filedata = re.sub(r"\'d ", " would ", filedata)
-    filedata = re.sub(r"\'ll ", " will ", filedata)
-    filedata = re.sub(r"\'ve ", " have ", filedata)
-    filedata = re.sub(r"\'m ", " am ", filedata)
 
-    # rimozione dei caratteri inutili in filedata
-    filedata = filedata.replace('%', '')
-    filedata = filedata.replace(';', '')
-    filedata = filedata.replace('*', '')
-    filedata = filedata.replace('@', '')
-    filedata = filedata.replace('\\', '')
-    filedata = filedata.replace('#', '')
-    filedata = filedata.replace('$', '')
-    filedata = filedata.replace('^', '.')
-    filedata = filedata.replace('"', '')
-    filedata = filedata.replace('~', '')
-    filedata = filedata.replace('--', '')
-    filedata = filedata.replace('>>>', '')
-    filedata = filedata.replace('///', '')
-    filedata = filedata.replace('<=', '')
-    # rimozione di parentesi {} che non hanno una chiusura o apertura
-    filedata = filedata.replace('{ ', '')
-    filedata = filedata.replace(' }', '')
-    filedata = filedata.replace('(', '')
-    filedata = filedata.replace(')', '')
-    filedata = filedata.replace(':', '')
-    # rimozione carattere di punto elenco ma non di mezzi termini (che non hanno gli spazi)
-    filedata = filedata.replace('- ', '')
+        #print(filedata[col])
+        # rimozione dei caratteri inutili in filedata
+        phrase = phrase.replace('%', '')
+        phrase = phrase.replace(';', '')
+        phrase = phrase.replace('*', '')
+        phrase = phrase.replace('@', '')
+        phrase = phrase.replace('\\', '')
+        phrase = phrase.replace('#', '')
+        phrase = phrase.replace('$', '')
+        phrase = phrase.replace('^', '.')
+        phrase = phrase.replace('"', '')
+        phrase = phrase.replace('~', '')
+        phrase = phrase.replace('--', '')
+        phrase = phrase.replace('>>>', '')
+        phrase = phrase.replace('///', '')
+        phrase = phrase.replace('<=', '')
+        # rimozione di parentesi {} che non hanno una chiusura o apertura
+        phrase = phrase.replace('{ ', '')
+        phrase = phrase.replace(' }', '')
+        if col=='mydeveloper_comment':
+            phrase = phrase.replace('(', '')
+            phrase = phrase.replace(')', '')
+        phrase = phrase.replace(':', '')
+        # rimozione carattere di punto elenco ma non di mezzi termini (che non hanno gli spazi)
+        phrase = phrase.replace('- ', '')
 
-    filedata = re.sub(r"<[^>]*>", "", filedata)  # rimuove XML tags
-    filedata = re.sub(r"{[^}]*}", "", filedata)  # rimuove codici tra parentesi {}
-    filedata = re.sub(r"[\[].*?[\]]", "", filedata)  # rimuove nomi e operazioni tra parentesi []
-    filedata = re.sub(r"http\S+", "", filedata)  # rimuove codici URL
-    filedata = re.sub(r"https\S+", "", filedata)  # rimuove codici URL
-    filedata = filedata.replace('>', '')
-    filedata = filedata.replace('}', '')
+        phrase = re.sub(r"<[^>]*>", "", phrase)  # rimuove XML tags
+        phrase = re.sub(r"{[^}]*}", "", phrase)  # rimuove codici tra parentesi {}
+        phrase = re.sub(r"[\[].*?[\]]", "", phrase)  # rimuove nomi e operazioni tra parentesi []
+        phrase = re.sub(r"http\S+", "", phrase)  # rimuove codici URL
+        phrase = re.sub(r"https\S+", "", phrase)  # rimuove codici URL
 
-    filedata = re.sub(r"n't ", " not ", filedata)
-    # rimozione spazi vuoti lasciati
-    filedata = filedata.replace('    ', ' ')
-    filedata = filedata.replace('   ', ' ')
-    filedata = filedata.replace('  ', ' ')
+        phrase = phrase.replace('>', '')
+        phrase = phrase.replace('}', '')
+        phrase = phrase.replace('//', ' ')
+        phrase = phrase.replace(',', ' ')
 
-    # scrive il file precedente in un altro privato dei caratteri rimpiazzati
-    with open('../processing_fileOriginale/Target_Annotation_Processed.csv', 'w') as file:
-        file.write(filedata)
+        phrase = re.sub(r"n't ", " not ", phrase)  # rimuove codici URL
 
+        # rimozione spazi vuoti lasciati
+        phrase = phrase.replace('    ', ' ')
+        phrase = phrase.replace('   ', ' ')
+        phrase = phrase.replace('  ', ' ')
+
+        list_output.append(phrase)
+
+    file[col] = list_output
+    file.to_csv('../processing_file_originale/Target_Annotation_Processed.csv', index=False)
 
 # metodo per unire il contenuto di due documenti di testo
 def merge_txt(neg_file, pos_file):
@@ -113,7 +124,7 @@ def merge_txt(neg_file, pos_file):
 def rimozione_titoli_t(file_originale_caratteri_rimpiazzati):
     # rimuove le righe dal file che rappresenano i titoli denominati con [t]
     file1 = open(file_originale_caratteri_rimpiazzati) # apre file da modificare
-    file2 = open('../processing_fileOriginale/Nikon coolpix 4300.Copia2.txt', 'w') # crea nuovo file per l'output
+    file2 = open('../processing_file_originale/Nikon coolpix 4300.Copia2.txt', 'w') # crea nuovo file per l'output
 
     for line in file1.readlines(): # per ogni riga del file da modificare
         if not (line.startswith('[t]')): # se la linea non inizia con '[t]'
@@ -150,12 +161,12 @@ def process_file(file_originale_processato):
                 f1.write(re.sub(r'([]])([a-z])', r'\1 \2', line))
 
 
-file_Originale = '../processing_fileOriginale/Nikon coolpix 4300.txt'
-file_originale_caratteri_rimpiazzati = '../processing_fileOriginale/Nikon coolpix 4300-Copia.txt'
-file_originale_processato = '../processing_fileOriginale/Nikon coolpix 4300.Copia2.txt'
+file_Originale = '../processing_file_originale/Nikon coolpix 4300.txt'
+file_originale_caratteri_rimpiazzati = '../processing_file_originale/Nikon coolpix 4300-Copia.txt'
+file_originale_processato = '../processing_file_originale/Nikon coolpix 4300.Copia2.txt'
 file_originale_processato_csv = '../csv/Gold.csv'
 input = '../input.txt'
-file_prova = '../processing_fileOriginale/Nikon coolpix 4300.Copia2 - Copia.txt'
+file_prova = '../processing_file_originale/Nikon coolpix 4300.Copia2 - Copia.txt'
 
 '''
 
