@@ -55,7 +55,7 @@ def R1(local_corenlp_path, input, op):  # in input la libreria e la frase da esa
               opinion = items[2]  # allora mi salvo la posizione della parola di opinione dalla tripla [opinion=4]
               target = items[1]  # e mi salvo anche la posizione del target dalla tripla [target=6]
               # per la regola R11 se il target è un nome allora estrai la parola target [('player', 'NN') in pos[6-1]]
-              if pos[target-1].__contains__('NN') or pos[target-1].__contains__('NNS') or pos[target-1].__contains__('NNP') or pos[target-1].__contains__('NNPS'):  # verifica che il termine target è un nome [in questo caso lo è]
+              if pos[target-1].__contains__('PRP') or pos[target-1].__contains__('PRP$'):  # verifica che il termine target è un nome [in questo caso lo è]
                 o = tok[opinion-1]  # salvo la parola di opinione tok[3]=best
                 # può essere commentato perchè la R1 non estrae parole di opinione
                 t = tok[target-1]  # salvo la parola target tok[5]=player
@@ -67,7 +67,7 @@ def R1(local_corenlp_path, input, op):  # in input la libreria e la frase da esa
                   if items[0] == 'nsubj':  # se il tag della prima tripla è un nsubj [lo è]
                     if items[1] == target:  # verifica la dipendenza del target ovvero: [6 è uguale a target=6]
                       target = items[2]  # aggiorna il target con l'altro target collegato poichè nsubj collega 2 target [target=1]
-                      if pos[target-1].__contains__('NN') or pos[target-1].__contains__('NNS') or pos[target-1].__contains__('NNP') or pos[target-1].__contains__('NNPS'):  # verifica che il termine target è un nome [('iPod', 'NN') lo è]
+                      if pos[target-1].__contains__('PRP') or pos[target-1].__contains__('PRP$'):  # verifica che il termine target è un nome [('iPod', 'NN') lo è]
                         t = tok[target-1]  # salvo la parola target tok[1-1]
                         list_target.append(t)  # concateno alla lista dei target 'iPod'
                         #O-->O-dep-->H<--T-dep<--T
@@ -163,7 +163,7 @@ def R3(local_corenlp_path, input, file_target):  # in input la libreria, la fras
           t = item[2]
           for item1 in pos:
             if item1[0] == tok[t-1]:
-              if item1[1].__contains__('NN') or item1[1].__contains__('NNS') or item1[1].__contains__('NNP') or item1[1].__contains__('NNPS') :
+              if item1[1].__contains__('PRP') or item1[1].__contains__('PRP$'):
                 target = tok[t-1]
                 list_target.append(target)
 
@@ -173,8 +173,7 @@ def R3(local_corenlp_path, input, file_target):  # in input la libreria, la fras
       if items[0] == items2[0]:  # se il tag della prima tripla è uguale al tag di una tripla che sto scorrendo
         if items[1] == items2[1]:  # verifica che le pos. delle parole di opinone delle due triple siano uguali: [es. [item=(mod,3,2) ed item2=(mod,3,6)]]
           target = items2[2]  # poichè 3=3, aggiorna il target con l'altro collegato da mod [target=6]
-          if (pos[target-1].__contains__('NN') or pos[target-1].__contains__('NNS') or pos[target-1].__contains__('NNP') or pos[target-1].__contains__('NNPS'))\
-                  and items != items2:  # verifica che il termine target è un nome e che le due triple siano diverse per evitare falsi
+          if (pos[target-1].__contains__('PRP') or pos[target-1].__contains__('PRP$')) and items != items2:  # verifica che il termine target è un nome e che le due triple siano diverse per evitare falsi
             t = tok[target-1]  # salvo la parola target tok[6-1]
             list_target.append(t)  # concateno alla lista il target trovato
             #Ti-->Ti-Dep-->H<--Tj-Dep<--Tj
