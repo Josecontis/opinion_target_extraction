@@ -1,7 +1,91 @@
 
 
 
-other, 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -12,127 +96,37 @@ stupid,
 
 
 
-right, 
 
 
 
-non-profit, 
 
 
-public, 
 
 
 
-wrong, 
 
 
-wrong, 
 
 
 
-stupid, 
 
 
 
 
-stupid, 
 
 
-bad, 
 
-total, 
-good, 
-old, 
-bad, 
 
 
-special, 
 
 
-damn, 
-original, 
 
 
 
-random, 
 
-bad, 
-
-
-
-same, exact, 
-
-
-
-awful, 
-
-
-
-same, stupid, 
-bad, 
-
-
-
-
-irritated, 
-
-
-
-
-
-bad, 
-
-
-
-critical, 
-
-
-
-
-
-stupid, 
-
-damn, 
-
-
-
-
-
-
-reasonable, 
-
-
-sad, 
-
-other, 
-
-
-evil, 
-
-
-bad, silly, 
-
-
-
-stupid, 
-
-
-
-
-
-damn, 
-binary, 
-
-fucking, 
 
 
 slow, 
-stupid, 
-
-
-
-damn, 
-stupid, 
 
 
 
@@ -142,7 +136,13 @@ stupid,
 
 
 
-public, final, 
+
+
+
+
+
+
+petty, 
 
 
 
@@ -150,301 +150,301 @@ public, final,
 
 
 
-last, 
-
-stupid, 
-sure, 
-last, 
-
-own, open, 
-
-wrong, 
-
-synchronous, 
-kludgey, 
 
 
-basic, 
 
 
-actionable, 
 
 
-different, 
-same, 
 
 
-same, 
-stupid, 
 
 
-external, 
-
-stupid, 
 
 
-sorry, previous, stupid, 
-correct, 
 
 
-synced, global, 
-central, 
 
-negative, pretty, 
-stupid, 
 
-sannegrinovero, much, 
-insulting, 
-ugly, 
-new, 
 
-terrible, 
-dumb, 
-much, 
-annoying, 
-much, 
-boolean, approachable, private, 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+private, approachable, boolean, 
 
 quick, 
 
 
 
-inner, horrible, 
-complex, 
-transient, annoying, more, public, following, null, 
-good, 
-many, faulty, 
-good, 
-same, arrogant, 
-annoying, above, 
-annoying, own, 
-
-
-
-same, 
 
 
 
 
-large, annoying, non-locality-constrained, multiple, 
-horrible, 
-serious, annoying, 
+
+
+arrogant, 
+
+
+
+
+
+
+
+
+
+
+
 
 annoying, 
-inner, 
 
-stupid, 
-other, 
-modular, stupid, 
+annoying, 
+
+
+
+
+
 doable, 
+
+
+
+
+
+
+
 same, 
-annoying, only, 
-suitable, ugly, 
-
-stupid, 
-binary, horrible, 
-
-same, 
-stupid, 
 
 
-horrible, 
-enough, enough, 
-stopword, ugly, 
-stupid, 
 
-ugly, 
 
-much, 
+enough, 
+
+
+
+
+
+
+
+
+
+
 annoying, 
-unusual, much, 
-dumb, certain, 
-stupid, 
-annoying, 
-dumb, 
-annoying, 
-current, annoying, 
-nasty, 
-
-
-stupid, 
-
-long, native, better, ugly, 
-stupid, 
-great, much, 
-
-dumb, 
-full, entire, horrible, 
-possible, 
-worthless, 
-stupid, 
 
 
 
-annoying, awkward, 
-annoying, simple, 
-annoying, single, 
 
 
 
-urgent, 
 
-free, nice, 
-dumb, 
-boolean, desesperate, other, many, ugly, 
 
-many, horrible, new, 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 unfriendly, 
-good, onfield, 
-annoying, concurrent, many, 
-previous, backward, 
-classloading, stupid, 
-related, 
 
-binary, maximum, 
-terrible, 
 
-surefire, ugly, 
 
-local, 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+older, 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 annoying, 
-annoying, simple, 
-worthless, 
-good, 
-sequential, ugly, 
-different, small, several, much, 
-
-
-individual, terrible, 
-annoying, only, transitive, 
-nice, ugly, 
-
-little, much, 
-
-same, more, dumb, older, 
-
-
-stupid, 
-basic, 
-
-
-annoying, 
-duplicate, only, much, 
-stupid, 
-ugly, 
-much, 
-new, stupid, 
-same, annoying, 
-
-false, proper, next, much, 
-
-nasty, 
-
-null, 
-annoying, 
-same, unable, 
-
-stupid, 
-long, stupid, 
-vague, enough, stupid, 
-public, worth, 
-incompatible, 
-
-next, lazy, 
-
-correct, 
-key, composite, 
-
-public, 
+unable, 
 
 
 
 
-whole, original, 
-ugly, 
-dumb, 
-
-complete, 
+worth, 
 
 
-stupid, 
-dumb, 
-new, 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 confusing, 
-stupid, 
-stupid, 
-stupid, 
 
 
 
 
 
 
-annoying, same, 
-many, 
-
-stupid, 
-annoying, 
-
-
-nodejs, 
-
-short, useful, 
-
-
-
-several, 
-long, good, 
-
-annoying, 
-unused, non-solr, 
-annoying, 
-broken, 
-plain, 
 
 
 
 
-disturbing, 
-stupid, 
-fun, other, 
-stupid, 
 
 
-current, 
-only, 
-simple, current, annoying, 
-same, annoying, 
 
 
-2nd, 1st, 
-annoying, 
+
+
+
+
+
+
+
+
+
 
 
 annoying, 
 
 
-unchecked, public, 
-nasty, 
-
-empty, 
 
 
-long, good, 
-nasty, 
-horrible, 
 
-special, weird, 
-ugly, big, 
 
-stupid, 
+
+
+
+
+
+
+
+
+
+
+
 annoying, 
-big, exact, 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 scalable, 
@@ -456,268 +456,268 @@ scalable,
 
 
 
-separate, different, ugly, 
+ugly, 
 annoying, 
 fragile, 
-new, 
-
-new, 
-new, annoying, extra, 
-next, 
-
-dumb, 
-enough, hungarian, dumb, modern, big, 
-old, 
-horrible, 
 
 
 
-valid, 
-terrible, 
-stupid, 
-plain, dumb, 
 
-other, 
 
-annoying, 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 confusing, 
 
-more, 
-sorry, 
-dumb, bigger, 
-good, more, different, 
-previous, non-security, 
-good, bad, more, 
-ugly, 
-ugly, same, 
-ugly, overall, 
-ugly, old, 
-stupid, 
-ugly, 
-right, 
-previous, certain, 
-terrible, 
 
 
-good, unreasonable, 
-correct, terrible, 
-horrible, 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 critical, 
-simple, little, 
-ugly, first, next, due, due, 
-first, correct, 
-square, other, 
-disturbing, many, great, hard, 
 
-stupid, 
-annoying, 
-stupid, 
-ugly, 
+next, first, ugly, due, due, 
+
+
+hard, 
 
 
 
-annoying, 
-
-bad, 
 
 
 
-stupid, 
-ugly, new, old, additional, explicit, 
-first, stupid, 
+
+
+
+
+
+
+
+
+
+
+
 unacceptable, 
 
-much, technical, 
-multiple, annoying, 
-
-dumb, 
-
-terrible, 
-horrible, 
-terrible, 
-more, 
-
-dumb, other, 
-
-unrelated, other, 
-original, 
-complex, 
-
-ugly, 
-
-stupid, 
-
-terrible, 
-proper, 
-
-annoying, 
-
-terrible, 
-
-
-ugly, 
-sweeping, 
-dumb, 
-stupid, 
-local, stupid, several, same, 
 
 
 
-personal, interesting, 
 
 
-minimal, complete, hot, 
 
 
-good, 
-top, dumb, 
-much, 
 
-annoying, same, 
-more, ongoing, 
 
-new, ugly, other, 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 total, 
-great, 
-weird, several, terrible, 
-
-dumb, 
-current, annoying, other, 
-ugly, 
-stupid, 
-
-ugly, least, 
-other, 
-
-manifest, extra, 
-
-other, 
-
-bad, 
-silent, 
-stupid, more, pre-httpservletwrapper, 
 
 
-current, few, more, enough, 
-much, 
-stupid, own, 
-ugly, 
-right, stupid, 
-stupid, 
-same, 
-simple, ugly, original, 
-current, stupid, 
-terrible, 
-important, available, 
-more, possible, 
-stupid, 
-
-annoying, 
-
-future, bad, own, 
-
-enough, 
-frequent, harmless, 
-
-ugly, 
-main, 
-few, 
-nice, 
-ugly, 
-
-re-implement, extensive, own, 
-
-stupid, 
-dumb, 
-whole, 
-annoying, 
 
 
-stupid, 
-
-ugly, 
-little, different, 
-stupid, 
 
 
-more, same, 
-dumb, 
-stupid, 
-
-close, such, dumb, 
-other, 
-
-normal, 
-false, stupid, positive, 
 
 
-stupid, 
-horrible, circular, 
-such, stupid, other, 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+possible, 
 
 
 annoying, 
 
-ugly, 
-recent, only, last, unhashable, 
-little, similar, 
-plain, ugly, other, own, 
 
-ugly, additional, 
-super, 
-ugly, 
-stupid, 
-terrible, empty, 
-stupid, more, original, 
-real, 
-stupid, 
-simple, plain, terrible, 
 
-stupid, 
-ugly, aggregate, 
 
-graceful, 
 
-temporary, 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 annoying, 
-much, horrible, better, 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 annoying, 
-stupid, 
-
-ugly, different, 
-
-dfsclient, ugly, few, 
-dumb, 
-other, 
-unreleased, annoying, single, 
-select, necessary, 
-stupid, 
-
-ugly, 
-dumb, 
-best, annoying, 
-stupid, 
-new, only, first, possible, 
-wrong, terrible, 
-dumb, own, 
-
-low, worthless, 
-stupid, 
 
 
-simple, 
-commercial, ugly, only, latter, 
-different, 
-such, broken, 
-stupid, 
-ugly, 
-ugly, 
-
-disturbing, 
 
 
-super, 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

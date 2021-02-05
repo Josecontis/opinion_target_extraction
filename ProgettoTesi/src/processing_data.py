@@ -15,18 +15,18 @@ def csv_to_column_list(file_csv, sentence_col, polarity_col):
 
 # metodo per convertire txt to csv
 def target_to_csv(targets_extracted):
-    t = open(targets_extracted, 'r').readlines()  # apertura file in lettura
+    t = open(targets_extracted, 'r', encoding="utf8").readlines()  # apertura file in lettura
     list = [x.replace('\n', '').replace(',', '') for x in t]
-    df = pd.read_csv('../processing_file_originale/Target_Annotation_Processed.csv', encoding ="ISO-8859-1")  # apre file Targ.csv in scrittura
+    df = pd.read_csv('../processing_file_originale/Target_Annotation_Processed.csv')  # apre file Targ.csv in scrittura
     df['Targets'] = list
     df.to_csv('../csv/Targ.csv', index=False)
 
 
 # metodo per convertire txt to csv
 def opinion_to_csv(opinions_extracted):
-    o = open(opinions_extracted, 'r').readlines()  # apertura file in lettura
+    o = open(opinions_extracted, 'r', encoding="utf8").readlines()  # apertura file in lettura
     list = [x.replace('\n', '').replace(',', '') for x in o]
-    df = pd.read_csv('../processing_file_originale/Target_Annotation_Processed.csv', encoding ="ISO-8859-1")  # apre file Targ.csv in scrittura
+    df = pd.read_csv('../processing_file_originale/Target_Annotation_Processed.csv')  # apre file Targ.csv in scrittura
     df['Opinions'] = list
     df.to_csv('../csv/Opi.csv', index=False)
 
