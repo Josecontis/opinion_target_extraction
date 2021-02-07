@@ -57,7 +57,7 @@ while a == 'y':
     elif choice == "5":
         # evaluation.tf_idf_extracted_words('../opinion.txt', 'TF-opinion-words')
         # evaluation.tf_idf_extracted_words('../target.txt', 'TF-targets')
-        evaluation.diff_files('../csv/Results/TF OW.txt', '../csv/Results/TF 2 OW.txt', '../csv/Results/Op_differences.txt')
+        # evaluation.diff_files('../csv/Results/TF OW.txt', '../csv/Results/TF 2 OW.txt', '../csv/Results/Op_differences.txt')
         evaluation.diff_files('../csv/Results/TF target.txt', '../csv/Results/TF 2 target.txt', '../csv/Results/Tar_differences.txt')
 
     elif choice == "6":

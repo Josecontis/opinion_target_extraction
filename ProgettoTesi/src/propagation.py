@@ -72,6 +72,18 @@ def propagation(sentences, local_corenlp_path):  # questo metodo prende in input
                         lex_opi_r4.write(word_r4)  # scrive nel file la parola di opinione trovate
                         lex_opi_r4.write('\n')  # ritorna a capo per scrivere nuove parole di opinione
 
+        with open('../target.txt', 'a') as file_tar_r5:  # apre il file dei target inizialmente vuoto in append
+            ta = '../Target_nouns.txt'
+            print("REGOLA 5")
+            print('\n')
+            tar_r5 = rule.R5(local_corenlp_path, phrase, ta)  # estrapolazione del target tramite la regola R3, passando
+                                                        # al metodo la libreria, la frase da esaminare e il file dei target singoli estratti prima
+
+            for word_r5 in tar_r5:
+                file_tar_r5.write(word_r5)  # scrive nel file i target trovati
+                file_tar_r5.write(', ')  # scrive uno spazio nel file dopo il target per separlo con un altro alla prossima iterata
+
+
     file_tar_r1.close()  # chiusura del file dei target estratti
     file_tar_r3.close()  # chiusura del file dei target estratti
     file_opi_r2.close()  # chiusura del file delle parole di opinione estratte

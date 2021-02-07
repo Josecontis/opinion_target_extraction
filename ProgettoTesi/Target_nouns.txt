@@ -1,0 +1,723 @@
+
+NaN, 
+
+engineer, 
+
+
+months, 
+
+rule, 
+
+
+
+
+
+days, way, everyone, Windows, Unix, Internet, Linux, 
+hell, 
+
+
+foundations, mid-1990, 
+
+
+apology, Someone, 
+nothing, 
+
+
+patch, idiot, Matt, 
+
+
+nothing, 
+patch, 
+
+Shit, 
+name, 
+
+
+
+
+something, 
+
+
+bug, 
+
+idiot, 
+while, Idiot, hairball, 
+stick, capability, 
+diags.log, mojo, 
+
+
+case, 
+
+
+maven, 
+patch, 
+Jira, 
+
+
+chars, 
+
+way, 
+
+
+
+
+
+autoboxing, shit, reason, 
+
+bug, 
+
+
+Maven, 
+error, 
+design, 
+
+
+Thrift, 
+
+hell, 
+
+
+
+
+
+work, 
+
+IE, 
+
+blocker, blocker, fixes, bug, 
+
+
+Blooper, 
+
+
+
+
+fix, JBSEAM, 
+
+
+
+
+
+
+price, 
+buggy, Bug, 
+
+attempt, 
+
+experinces, 
+
+Derby, 
+strik, 
+
+
+package, encapsulation, 
+groups, 
+
+
+bug, bug, 
+
+format, 
+
+guys, 
+bq, 
+dyslexia, 
+
+
+problem, 
+
+
+tool, plugin, 
+idea, instances, QuorumOpMonitor, 
+
+Ahhh, 
+
+acronyms, acronyms, 
+Explorer, charm, Explorer, 
+
+
+code, name, 
+idiot, 
+
+
+
+
+
+FIRST_SEARCHER, NEW_SEARCHER, static, static, String, 
+attributes, 
+
+
+
+
+Problem, 
+
+comment, Integer.MAX_VALUE, 
+
+mistake, 
+days, 
+years, 
+
+itches, source, users, 
+Vadim, 
+resolution, 
+
+requests, 
+data, cassandra, 
+default, case, 
+
+anything, years, 
+
+
+analysis, idiot, 
+
+
+type, idiot, 
+code, something, 
+
+
+way, 
+nevermind, 
+
+
+script, shell, 
+
+something, 
+
+
+mistake, v2, 
+permissions, 
+PersistentBag.addObject, Object, 
+
+
+
+Whoops, Whoops, 
+values, 
+people, 
+
+Lucene4, migration, 
+commentary, 
+hacks, 
+release, 
+
+model, 
+object, ContainerRequest, 
+config, nmtokens, default, 
+thing, 
+fragmentation, 
+beginRender, Asset, Path, d.find, Workaround, html, prototypeJs.toClientURL, beginRender, Exception, MarkupWriter, Path, prototype.js, tDocument, 
+
+
+
+
+
+loop, death, 
+capability, queries, 
+method, getTerminalIds, annotation, 
+fix, 
+drivers, users, 
+ideas, 
+time, 
+descriptions, BUG, motivations, 
+effect, connection, 
+
+
+
+failures, shame, Linux, 
+4.2.1, 
+
+
+
+regression, containers, bunch, class, cluster, processes, 
+identifier, INVALID, 
+issue, 
+
+annotation, 
+method, method, AbstractService, 
+
+issue, anything, 
+api, 
+system, 
+
+failures, shame, Linux, 
+thing, 
+workaround, change, 
+
+something, 
+methods, files, classpath, Solr, lots, 
+
+
+thing, 
+
+
+looks, 
+time, 
+workaround, term, 
+idea, 
+
+problem, 
+
+Macros, getCharRefcount, fAposRef, 
+thing, 
+code, usecase, 
+transcoder, buffer, characters, length, couple, 
+bug, 
+
+error, 
+bug, 
+version, bug, trunk, J, 
+bug, 
+case, 
+MetaAttribute, 
+stuff, 
+
+support, term, solution, hack, solution, 
+size, 
+Debacle, attention, Debate, Namespace, 
+
+hat, 
+object, performance, Document, 
+fix, 
+check, 
+mistake, 
+environment, 
+-1, 
+
+workaround, hack, workaround, hack, 
+issue, patch, 
+space, 
+
+Selenium, 
+OgnlValueStack, confusion, ActionContext, 
+fix, 
+
+APIs, form, 
+error, 
+people, problem, bugs, BIT, No, MySQL, bug, 
+
+ORM, style, exceptions, situations, 
+
+
+
+XML, 
+name, onField, 
+thing, connection, 
+compatibility, behavior, 
+something, issues, 
+bug, bug, 
+Maven, 
+constraint, value, example, 
+experience, 
+
+part, SNAPSHOT, 
+
+declarations, 
+problems, 
+fix, bug, 
+check, 
+behavior, 
+flag, piece, 
+time, things, days, zones, 
+
+
+keys, way, 
+part, dependencies, 
+nothing, hack, nothing, 
+
+complexity, value, 
+
+thing, implementation, spaces, de-escaping, spaces, 
+
+
+mistake, Part, 
+something, 
+
+
+
+code, option, 
+oversight, 
+exception, 
+
+Animal, c, Cat, Dog, 
+bug, 
+
+time, file, case, fixes, 
+
+bug, 
+
+object, 
+10g, Oracle, 
+problem, Alexandrino, problem, 
+
+idea, 
+JIRA, comment, 
+rule, 
+API, 
+tomorrow, change, 
+
+Basicfetch, time, people, Lob, people, 
+
+result, 
+getters, fields, getters, setters, fields, 
+something, 
+set, kind, field, something, 
+
+
+
+url, url, 
+trace, code, 
+hack, 
+mistake, mistake, 
+
+overhaul, 
+
+Dsrcwss4j_wss108trunkbuild, reports, directory, Dsrcwss4j_wss108trunkbuildtest, ant, 
+sry, 
+proposal, 
+mapping, 
+
+
+
+mistake, 
+modules, gah, 
+diff, 
+
+
+
+Jason, 
+time, code, 
+
+problem, 
+books, 
+way, merge, 
+tiles, mapping, servlet, 
+bug, 
+method, email, 
+
+
+
+detail, 
+
+
+
+times, 
+time, reason, person, quality, engineering, QE, 
+
+
+parsers, project, project, PANGAEA, 
+configuration, 
+patch, 
+
+page, 
+
+
+
+messages, 
+typo, 
+issue, way, 
+tool, 
+
+
+component, 
+ones, 
+behavior, -87, return, 
+problem, 
+
+
+fix, 
+issue, 
+JSP, tag, 
+
+bug, 
+
+
+lines, override, hashcode, hashcode, GetHashCode, int, 
+effect, upload, file, 
+
+tag, tag, 
+XPathAPI, Signature, CanonicalizationMethod, SignedInfo, example, thm, 
+
+time, report, 
+workaround, 
+way, Urghhhhh, way, 
+DOM, data, 
+handling, requirement, 
+component, 
+
+bug, 
+situation, hostname, situation, tunnel, 
+difference, documentation, 
+
+
+thousands, objects, 
+
+
+
+
+
+
+
+workaround, 
+rules, type, 
+
+
+types, 
+
+variants, 
+attachment, work, breaks, form, future, 
+release, issue, state, side, 
+
+proposal, 
+tools, fan, value, notation, editors, C, notation, 
+logic, 
+way, Urghhhhh, way, 
+MMap, shit, 
+
+supporter, 
+paths, 
+mistake, 
+error, 
+tables, region, 
+
+defect, 
+ReassignPartitionsCommand, 
+issues, 
+
+
+
+msecs, 
+duplicate, 
+users, picture, 
+locales, solution, 
+patch, changes, 
+pages, 
+lists, 
+time, components, time, popups, components, 
+results, INFO, Startup, 
+problem, problem, Thrift, Jonathan, 
+mistake, 
+bug, lot, John, 
+one, 
+users, cases, users, 
+time, structure, Gora, ant, 
+
+
+burden, solution, people, message, messages, markup, message, 
+time, patterns, 
+idea, Thomas, 
+AJAX, while, 
+images, bit, Windows, 
+
+RequestProcessor, thing, 
+call, position, call, position, -1, 
+line, operation, 
+NOTHING, 
+number, impls, solvers, bugs, 
+patch, 
+mistake, 
+situation, 
+question, 
+imo, configure, code, configure.ac, code, 
+
+
+API, PropertyState, API, level, 
+time, people, 
+
+characters, 
+pages, 
+
+
+person, 
+classes, way, class, read, flag, 
+suggestion, post, 
+
+shame, 0.10.x, 
+ones, thinking, details, 
+values, values, moment, 
+MemoryIndex, 
+serverAddressToServerInfo, 
+
+twins, twins, Thilo, 
+drain, 
+api, Guys, 
+tests, 
+server, 
+words, solution, solution, sound, 
+
+bug, 
+shame, 
+schemas, 
+Felix, 
+code, 
+
+reply, system, 
+
+mistake, 
+namespace, 
+
+issue, 
+
+documentation, documentation, 
+
+
+block, 
+level, 
+typo, 
+mistake, 
+state, environment, incarnations, something, 
+work, 
+
+
+distraction, dislike, lint, code, source, 
+
+340K, html.tld, 
+keys, patch, explanation, 
+
+committer, committer, 
+idea, one, time, feelings, 
+level, output, level, diff, guess, 
+work, 
+code, 
+level, practice, config.h, practice, 
+branch, overhead, patch, git, fact, branch, list, web, overhead, 
+
+solution, paste, fact, MultipleFormSupport, solution, subclass, fact, FormSupportImpl, 
+total, total, 
+comments, 
+lines, line, luck, 
+
+ss, 
+loop, connection, search, search, 
+hack, 
+typos, 
+
+fix, output, output, 
+Dependency, bundles, 
+
+entries, file, manifest, entries, 
+
+type, 
+
+favor, Jesse, 
+
+days, reason, 
+problem, common/core/ForEachSupport.java, 
+
+time, hours, patch, hours, ApacheCon, 
+code, something, 
+bug, 
+exception, 
+provider, 'Re, Provider, OpenID, 
+Partitioner, 
+issue, DHAVE_INTTYPES_H, Linaro, gcc, automake, GNU, issue, DHAVE_INTTYPES_H, autoconf, 
+line, change, resource, translation, bundle, resource, 
+issue, patch, 
+place, crypter, 
+section, status, 
+
+mistake, filenames, 
+
+
+
+behavior, Robert, 
+
+
+operation, exception, operation, 
+ActionLink, PageLink, 
+log, client, test, 
+complaint, plugin, Maven, reference, Play, 
+weeks, 
+formatter, lack, 
+hack, 
+
+use, application, parts, use, tapestry, 
+
+
+question, 
+code, 
+michael, 
+
+uimaj, textmarker, ep, project, 
+support, fields, compression, GZIP, 
+
+patch, 
+types, portions, voice, 
+desk, mistake, desk, 
+surprises, 
+
+bugfixes, trouble, 
+questions, 
+typos, 
+
+time, call, error, 
+issues, 
+zones, 
+apps, apps, resources, 
+case, mistake, 
+
+
+book, thing, automata, text, 
+dependency, 
+errors, inspite, inspite, 
+
+
+trace, 
+omg, 
+solution, 
+call, File, Traceback, problem, workaround, call, File, d1, TypeError, dict, dicta, 
+ways, shame, testprogramm, 
+result, user, users, profile, ATM, user, admin, 
+
+requirement, code, 
+fault, exception, member, 
+cast, 
+bug, 
+try, practice, try, catch, 
+investigation, bug, email, 
+security, 
+m2eclipse, 
+TOKEN, problems, server, 
+
+X, refusal, 
+client, exception, 
+
+upgrade, 
+4703_20081120_0.18, patch, 
+project, 
+
+JmsTemplate102, help, code, 
+
+hour, 
+mistake, 
+
+versions, pom, structure, listings, 
+
+questions, hack, name, MapReduce, job, 
+azz, 
+sake, 
+version, thing, string, thing, 
+form, object, code, 
+svn, 
+
+setAccessibletrue, 
+mistake, 
+file, 
+book, thing, automata, text, 
+time, issue, one, repo, startup, 
+Synapse, mistake, 
+debug, NPEs, 
+
+bytes, bandwidth, 
+paste, 
+
+error, error, 
+solution, 
+icons, solution, product, way, icons, DIV.t, couple, end, BUTTON, palette, controls, 
+editors, future, Editor, 
+servers, problems, 
+constructors, code, 
+cast, 
+piece, 
+
+issue, 
+
+submission, JavaScript, 
+comments, 

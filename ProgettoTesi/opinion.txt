@@ -90,6 +90,7 @@
 
 
 
+
 stupid, 
 
 
@@ -203,7 +204,7 @@ petty,
 
 
 
-private, approachable, boolean, 
+approachable, private, boolean, 
 
 quick, 
 
@@ -466,7 +467,7 @@ fragile,
 
 
 
-
+enough, modern, hungarian, dumb, big, 
 
 
 
@@ -507,7 +508,7 @@ confusing,
 
 critical, 
 
-next, first, ugly, due, due, 
+due, first, next, ugly, due, 
 
 
 hard, 
@@ -700,7 +701,6 @@ annoying,
 
 
 annoying, 
-
 
 
 
