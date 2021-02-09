@@ -204,7 +204,7 @@ petty,
 
 
 
-approachable, private, boolean, 
+boolean, private, approachable, 
 
 quick, 
 
@@ -467,7 +467,7 @@ fragile,
 
 
 
-enough, modern, hungarian, dumb, big, 
+hungarian, big, modern, dumb, enough, 
 
 
 

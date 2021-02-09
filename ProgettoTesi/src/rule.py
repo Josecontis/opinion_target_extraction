@@ -298,28 +298,44 @@ def R5(local_corenlp_path, input, file_target):  # in input la libreria, la fras
   for item in depe:
     if item[0] == 'obj':
       n = tok[item[2]-1]
+      n = n + ','
       with open(file_target) as myfile:
         if n in myfile.read():
-          t = item[1]
+          H = item[1]
           for item1 in depe:
-            if item1[0] == 'nsubj' and item1[1] == t:
+            if item1[0] == 'nsubj' and item1[1] == H:
               i=item1[2]
               if pos[i-1].__contains__('WP') or pos[i-1].__contains__('PRP') or pos[i-1].__contains__('PRP$'):
                 target = tok[i-1]
                 list_target.append(target)
+
   #R52
   tok = np.array(toke)
   for item in depe:
     if item[0] == 'nsubj':
       n = tok[item[2]-1]
+      n = n + ','
       with open(file_target) as myfile:
         if n in myfile.read():
-          t = item[1]
+          H = item[1]
           for item1 in depe:
-            if item1[0] == 'obj' and item1[1] == t:
+            if item1[0] == 'obj' and item1[1] == H:
               i=item1[2]
               if pos[i-1].__contains__('WP') or pos[i-1].__contains__('PRP') or pos[i-1].__contains__('PRP$'):
                 target = tok[i-1]
                 list_target.append(target)
+
+  #R53
+  tok = np.array(toke)
+  for item in depe:
+    if item[0] == 'nsubj':
+      n = tok[item[1]-1]
+      n=n+','
+      with open(file_target) as myfile:
+        if n in myfile.read():
+          i=item[2]
+          if pos[i-1].__contains__('WP') or pos[i-1].__contains__('PRP') or pos[i-1].__contains__('PRP$'):
+            target = tok[i-1]
+            list_target.append(target)
 
   return set(list_target)  # restituisce la lista dei target estratti per ogni frase (alla seconda chiamata del metodo verranno concatenati altri target)

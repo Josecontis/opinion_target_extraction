@@ -3,7 +3,7 @@
 I, 
 
 
-it, I, 
+I, it, 
 
 you, 
 
@@ -23,17 +23,17 @@ I,
 who, 
 you, 
 
-I, 
+
 I, I, 
 me, 
-
-
+I, 
+I, 
 I, 
 
 I, I, 
 I, 
-
-
+I, 
+I, 
 
 
 I, 
@@ -41,8 +41,8 @@ I,
 
 
 
-
 I, 
+I, I, 
 it, 
 
 I, 
@@ -75,37 +75,7 @@ I,
 
 it, 
 
-it, I, 
-
-
-
-
-
-
-
-
-
-
-
-
-I, 
-
-
-
-
-
-
-
-
-
-
-i, 
-
-him, 
-
-I, 
-
-
+I, it, 
 
 
 
@@ -118,6 +88,7 @@ it,
 
 
 
+I, 
 
 
 
@@ -125,10 +96,39 @@ it,
 
 
 
-we, it, 
+it, 
+
+
+i, 
 
 
 
+I, 
+
+
+
+
+
+it, it, 
+
+
+I, 
+
+
+
+
+
+
+
+
+
+
+
+it, 
+we, 
+
+
+It, 
 
 I, 
 we, 
@@ -137,47 +137,47 @@ you,
 
 
 
+I, 
+I, 
 
 
 
 
 
 
+I, 
 
+I, 
 
-
-
-
-
+me, me, 
 me, 
-me, 
-
-
+I, 
+I, 
 
 
 we, 
-it, I, 
+I, it, 
 
 you, 
 
 
-
+they, 
 
 I, us, 
 
-it, I, 
+I, we, it, 
 
 I, 
+you, we, me, 
 
 
+she, he, 
+It, 
 
-she, 
-
-
-
+we, 
 you, 
-
-
+Me, 
+I, 
 
 
 
@@ -185,16 +185,16 @@ I,
 
 me, 
 
-we, they, 
-me, me, I, 
+they, we, 
+me, I, me, 
+
+
+
+
 it, 
 
-
-i, 
 it, 
-
-
-
+I, 
 who, 
 
 
@@ -203,52 +203,52 @@ who,
 
 
 
+I, 
 
 
 
+you, it, 
+
+
+
+
+
+
+
+I, 
+
+
+
+
+
+
+me, I, 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+me, I, 
+
+
+
+
+
+
+
+I, 
 
 it, 
-
-
-
-
-
-
-
-I, 
-
-
-
-
-
-
-me, I, 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-me, I, 
-
-
-
-
-
-
-
-I, 
-
-
 
 
 I, 
@@ -258,11 +258,11 @@ you,
 
 them, 
 itself, I, 
+It, 
 
 
 
-
-
+It, 
 
 
 
@@ -290,7 +290,7 @@ they,
 
 
 me, 
-I, 
+I, it, 
 
 it, 
 
@@ -306,13 +306,13 @@ you,
 i, 
 
 
-
+It, 
 
 
 
 I, 
 
-
+It, 
 
 
 
@@ -321,12 +321,12 @@ what,
 
 
 
+It, 
 
 
 
-
-
-it, I, 
+it, 
+I, it, 
 they, 
 I, 
 
@@ -343,22 +343,22 @@ I,
 i, 
 
 
-it, I, 
-we, it, 
+I, it, 
+we, 
+
+
+it, 
+
+
+
+
+I, I, It, it, 
 
 
 
 
 
-
-
-I, it, I, 
-
-
-
-
-
-
+I, 
 
 
 
@@ -385,7 +385,7 @@ i,
 
 you, 
 I, 
-i, it, you, 
+you, i, it, 
 we, 
 
 
@@ -397,65 +397,64 @@ I,
 
 
 
-it, I, 
+I, it, 
 
 
 I, 
+
+
+i, we, 
+
+I, it, 
+
+
+
+
+
+
+it, 
+
+
+
+
+
+who, 
+we, 
+
+
+
+
+
+
+
+I, it, 
+me, me, 
+I, 
+
+
+
+I, 
+
+
+
+
+
+we, 
+
+
+
+you, 
+
+we, 
+
+
+I, it, 
+
+I, 
+
 
 
 i, 
-
-it, I, 
-
-
-
-
-
-
-
-
-
-
-
-
-
-we, it, 
-
-
-
-
-
-
-
-it, I, 
-me, 
-I, 
-
-
-
-
-I, 
-
-
-
-
-
-we, 
-
-
-
-you, 
-
-we, 
-
-
-it, I, 
-
-
-
-
-
-
 
 One, 
 
@@ -463,11 +462,11 @@ One,
 I, I, 
 
 
-it, I, 
+I, it, 
+we, 
 
 
-
-it, I, 
+I, it, 
 
 
 
@@ -475,13 +474,13 @@ me,
 
 
 I, 
+It, 
 
 
-
-we, it, 
+we, 
 I, it, 
 I, 
-me, I, me, I, 
+I, me, I, me, me, 
 
 
 
@@ -497,11 +496,11 @@ you,
 I, 
 
 I, 
-
+it, 
 I, 
+you, 
 
-
-
+it, 
 I, 
 I, 
 What, 
@@ -511,12 +510,12 @@ I,
 
 
 
-They, 
+me, They, 
 You, 
 
 
 
-
+it, 
 it, 
 
 
@@ -537,7 +536,7 @@ it,
 
 
 
-
+It, 
 we, we, 
 
 
@@ -545,24 +544,24 @@ we, we,
 it, 
 
 
-you, 
+you, I, 
 I, 
 
 
 I, 
 
 I, 
-it, I, 
+I, it, 
 
 
-
+it, 
 I, 
 
 
 
 
 
-
+it, 
 I, 
 
 
@@ -570,24 +569,24 @@ I,
 It, It, 
 
 
-You, I, 
+I, You, 
 
 he, 
 
 
-
-it, I, 
-it, I, 
-
+It, 
+I, it, 
+I, it, 
+it, 
 
 
 I, 
 
 I, 
 me, 
-
-it, it, you, 
-
+I, 
+it, you, it, 
+it, 
 
 
 
@@ -595,17 +594,17 @@ you,
 me, 
 
 
-you, what, 
+you, 
 
 you, you, 
+we, 
 
 
-
-its, I, it, its, I, 
-it, I, 
+its, I, its, I, it, 
+I, it, 
 I, 
 
-
+I, 
 I, it, 
 I, 
 
@@ -613,30 +612,30 @@ I,
 
 
 
-it, I, 
+I, it, 
 it, it, I, 
 
-it, I, 
+I, it, 
 
 you, 
 them, 
 I, 
-
-
+it, 
+I, 
 I, 
 
-I, 
+
 I, I, 
-it, I, 
+I, it, 
 
-me, it, I, 
+I, it, me, 
 I, 
 me, 
 
 
-i, my, 
+i, my, i, 
 
-
+it, 
 We, 
 
 
@@ -647,7 +646,7 @@ I,
 
 
 I, 
-it, I, 
+I, it, 
 I, 
 myself, 
 
@@ -666,7 +665,7 @@ I,
 they, they, 
 
 
-it, 
+I, it, 
 
 you, 
 
@@ -677,7 +676,7 @@ I,
 
 I, 
 I, I, 
-
+it, 
 
 
 
@@ -688,14 +687,14 @@ I,
 
 
 I, 
-it, I, 
+I, it, 
 
 
 I, 
-
+I, 
 it, 
 
-it, I, 
+I, it, 
 
 
 
@@ -704,19 +703,19 @@ it, I,
 I, 
 
 I, 
-
+it, 
 
 you, 
 
 
+I, 
 
 
 
 
 
 
-
-it, I, 
+I, it, 
 
 
 
