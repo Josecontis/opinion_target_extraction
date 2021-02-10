@@ -13,8 +13,9 @@ local_corenlp_path = '../stanford-corenlp-4.2.0'
 csv = '../processing_file_originale/GOLD_723_processed.csv'
 target = '../target.txt'
 opinion = '../opinion.txt'
-lexicon_positive = '../opinion-lexicon-English/positive-words.txt'
-lexicon_negative = '../opinion-lexicon-English/negative-words.txt'
+original_ss_file = '../opinion-lexicon-English/EmotionLookupTable.txt'
+processed_ss_file = '../opinion-lexicon-English/EmotionLookupTableProcessed.txt'
+opinion_lexicon = '../opinion-lexicon-English/Opinion-lexicon.txt'
 csv_target = '../csv/Targ.csv'
 csv_opinion = '../csv/Opi.csv'
 
@@ -35,7 +36,8 @@ while a == 'y':
 
     if choice == "1":
         # creo il file del lessico di opinione
-        processing_data.merge_txt(lexicon_positive, lexicon_negative)
+        processing_data.clean_sentiStrenght_txt(original_ss_file, processed_ss_file)
+        processing_data.merge_txt(opinion_lexicon, processed_ss_file)
 
     elif choice == "2":
         # processing delle frasi del file csv in input

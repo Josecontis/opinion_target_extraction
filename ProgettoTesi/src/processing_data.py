@@ -113,11 +113,26 @@ def merge_txt(neg_file, pos_file):
     filenames = [neg_file, pos_file]
 
     # apro il file di output in scrittura
-    with open('../opinion-lexicon-English/Opinion-lexicon.txt', 'w') as outfile:
+    with open('../opinion-lexicon-English/Opinion-lexicon-with-ss.txt', 'w') as outfile:
         for names in filenames:
             with open(names) as infile:
                 # leggo il contenuto del primo file di input e lo scrivo nel file di output
                 outfile.write(infile.read())
+
+
+def clean_sentiStrenght_txt(o_file, p_file):
+
+    # apro il file di output in scrittura
+    words=[]
+    with open(o_file, 'r') as op_file:
+        for line in op_file:
+            sep = '\t'
+            stripped = line.split(sep, 1)[0]
+            words.append(stripped)
+    with open(p_file, "w") as file:
+        for e in words:
+          file.write(str(e) + '\n')
+
 
 '''
 # ------ non utilizzato nel main -----

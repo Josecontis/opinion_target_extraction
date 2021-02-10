@@ -41,41 +41,48 @@ def R1(local_corenlp_path, input, op):  # in input la libreria e la frase da esa
 
   val = ['JJ', 'JJS', 'JJR'] # array di vincoli da far rispettare alla parola di opinione (per R1 AGGETTIVI)
   # JJ aggettivo, JJS aggettivo superlativo, JJR aggettivo comparativo
-
+  check=False
   for item in pos:  # scandisce i tag trovati dalla frase
     if item[1] in val:  # se il tag pos dela prima parola è presente nel vettore val
       agg = item[0]  # a agg assegno il termine (l'aggettivo)
-      with open(op) as myfile:  # apre il file on
-        if agg.lower() in myfile.read():  # se l'aggettivo della frase è presente nel lessico di opinione negativo
-          MR = ['amod', 'advmod', 'rcmod']  # MR è l'array delle relazioni modifier [amod aggettivo riferito a un nome,
-          # advmod aggettivo riferito a un avverbio, rcmod aggettivo riferito a un nome ma sottoforma di verbo
-          # (es. il libro è stato scritto -> [libro,scritto])]
-          # R11
-          for items in depe:  # analizzando la i-esima tripla [('amod', 6, 4)]
-            if items[0] in MR:  # se il tag della prima tripla è un MR [amod è in MR]
-              opinion = items[2]  # allora mi salvo la posizione della parola di opinione dalla tripla [opinion=4]
-              target = items[1]  # e mi salvo anche la posizione del target dalla tripla [target=6]
-              # per la regola R11 se il target è un nome allora estrai la parola target [('player', 'NN') in pos[6-1]]
-              if pos[target-1].__contains__('PRP') or pos[target-1].__contains__('PRP$') or pos[target-1].__contains__('WP'):  # verifica che il termine target è un nome [in questo caso lo è]
-                o = tok[opinion-1]  # salvo la parola di opinione tok[3]=best
-                # può essere commentato perchè la R1 non estrae parole di opinione
-                t = tok[target-1]  # salvo la parola target tok[5]=player
-                list_target_r11.append(t)  # concateno alla lista dei target 'player'
-                #O-->O-dep-->T
+      agg = agg.lower()
+      with open(op) as op_file:  # apre il file on
+        for line in op_file:
+          if agg == line:  # se l'aggettivo della frase è presente nel lessico di opinione negativo
+            check = True
+          if line.endswith('*'):
+            if agg.startswith(line):
+              check = True
+      if check:
+        MR = ['amod', 'advmod', 'rcmod']  # MR è l'array delle relazioni modifier [amod aggettivo riferito a un nome,
+        # advmod aggettivo riferito a un avverbio, rcmod aggettivo riferito a un nome ma sottoforma di verbo
+        # (es. il libro è stato scritto -> [libro,scritto])]
+        # R11
+        for items in depe:  # analizzando la i-esima tripla [('amod', 6, 4)]
+          if items[0] in MR:  # se il tag della prima tripla è un MR [amod è in MR]
+            opinion = items[2]  # allora mi salvo la posizione della parola di opinione dalla tripla [opinion=4]
+            target = items[1]  # e mi salvo anche la posizione del target dalla tripla [target=6]
+            # per la regola R11 se il target è un nome allora estrai la parola target [('player', 'NN') in pos[6-1]]
+            if pos[target-1].__contains__('PRP') or pos[target-1].__contains__('PRP$') or pos[target-1].__contains__('WP'):  # verifica che il termine target è un nome [in questo caso lo è]
+              o = tok[opinion-1]  # salvo la parola di opinione tok[3]=best
+              # può essere commentato perchè la R1 non estrae parole di opinione
+              t = tok[target-1]  # salvo la parola target tok[5]=player
+              list_target_r11.append(t)  # concateno alla lista dei target 'player'
+              #O-->O-dep-->T
 
-                # R12
-                for items in depe:  # analizzando la i-esima tripla [('nsubj', 6, 1)]
-                  if items[0] == 'nsubj':  # se il tag della prima tripla è un nsubj [lo è]
-                    if items[1] == target:  # verifica la dipendenza del target ovvero: [6 è uguale a target=6]
-                      target = items[2]  # aggiorna il target con l'altro target collegato poichè nsubj collega 2 target [target=1]
-                      if pos[target-1].__contains__('PRP') or pos[target-1].__contains__('PRP$') or pos[target-1].__contains__('WP'):  # verifica che il termine target è un nome [('iPod', 'NN') lo è]
-                        t = tok[target-1]  # salvo la parola target tok[1-1]
-                        list_target_r12.append(t)  # concateno alla lista dei target 'iPod'
-                        #O-->O-dep-->H<--T-dep<--T
+            # R12
+            for items in depe:  # analizzando la i-esima tripla [('nsubj', 6, 1)]
+              if items[0] == 'nsubj':  # se il tag della prima tripla è un nsubj [lo è]
+                if items[1] == target:  # verifica la dipendenza del target ovvero: [6 è uguale a target=6]
+                  target = items[2]  # aggiorna il target con l'altro target collegato poichè nsubj collega 2 target [target=1]
+                  if pos[target-1].__contains__('PRP') or pos[target-1].__contains__('PRP$') or pos[target-1].__contains__('WP'):  # verifica che il termine target è un nome [('iPod', 'NN') lo è]
+                    t = tok[target-1]  # salvo la parola target tok[1-1]
+                    list_target_r12.append(t)  # concateno alla lista dei target 'iPod'
+                    #O-->O-dep-->H<--T-dep<--T
 
   return set(list_target_r11), set(list_target_r12)  # restituisce la lista dei target estratti per ogni frase (alla seconda chiamata del metodo verranno concatenati altri target)
 
-
+'''
 def R2(local_corenlp_path, input, file_target):  # in input la libreria, la frase da esaminare e il file dei target estratti
 
   toke, pos, depe = SC(local_corenlp_path, input)  # richiamo metodo per tokenizer tag pos e albero delle dipendenze
@@ -137,7 +144,7 @@ def R2(local_corenlp_path, input, file_target):  # in input la libreria, la fras
   return set(list_opinion)  # restituisce la lista delle parole di opinione estratte per ogni frase
                             # (alla seconda chiamata del metodo verranno concatenati altre parole di opinione)
 
-
+'''
 def R3(local_corenlp_path, input, file_target):  # in input la libreria, la frase da esaminare e il file dei target estratti
 
   toke, pos, depe = SC(local_corenlp_path, input)  # richiamo metodo per tokenizer tag pos e albero delle dipendenze
@@ -157,11 +164,12 @@ def R3(local_corenlp_path, input, file_target):  # in input la libreria, la fras
   tok = np.array(toke)
   list_target_r31 = []
   list_target_r32 = []
+
   for item in depe:
     if item[0] == 'conj':
-      n = tok[item[1]-1]
-      with open(file_target) as myfile:
-        if n in myfile.read():
+      w = tok[item[1]-1]
+      with open(file_target) as tar_file:  # apre il file on
+        if w in tar_file.read():  # se l'aggettivo della frase è presente nel lessico di opinione negativo
           t = item[2]
           for item1 in pos:
             if item1[0] == tok[t-1]:
@@ -171,18 +179,21 @@ def R3(local_corenlp_path, input, file_target):  # in input la libreria, la fras
 
   # R32
   for items in depe:  # fisso la 1° tripla e la controllo con le altre
-    for items2 in depe:  # altre triple che scorrono
-      if items[0] == items2[0]:  # se il tag della prima tripla è uguale al tag di una tripla che sto scorrendo
-        if items[1] == items2[1]:  # verifica che le pos. delle parole di opinone delle due triple siano uguali: [es. [item=(mod,3,2) ed item2=(mod,3,6)]]
-          target = items2[2]  # poichè 3=3, aggiorna il target con l'altro collegato da mod [target=6]
-          if (pos[target-1].__contains__('PRP') or pos[target-1].__contains__('PRP$') or pos[target-1].__contains__('WP')) and items != items2:  # verifica che il termine target è un nome e che le due triple siano diverse per evitare falsi
-            t = tok[target-1]  # salvo la parola target tok[6-1]
-            list_target_r32.append(t)  # concateno alla lista il target trovato
-            #Ti-->Ti-Dep-->H<--Tj-Dep<--Tj
+    w = tok[item[1] - 1]
+    with open(file_target) as tar_file:  # apre il file on
+      if w in tar_file.read():  # se l'aggettivo della frase è presente nel lessico di opinione negativo
+        for items2 in depe:  # altre triple che scorrono
+          if items[0] == items2[0]:  # se il tag della prima tripla è uguale al tag di una tripla che sto scorrendo
+            if items[1] == items2[1]:  # verifica che le pos. delle parole di opinone delle due triple siano uguali: [es. [item=(mod,3,2) ed item2=(mod,3,6)]]
+              target = items2[2]  # poichè 3=3, aggiorna il target con l'altro collegato da mod [target=6]
+              if (pos[target-1].__contains__('PRP') or pos[target-1].__contains__('PRP$') or pos[target-1].__contains__('WP')) and items != items2:  # verifica che il termine target è un nome e che le due triple siano diverse per evitare falsi
+                t = tok[target-1]  # salvo la parola target tok[6-1]
+                list_target_r32.append(t)  # concateno alla lista il target trovato
+                #Ti-->Ti-Dep-->H<--Tj-Dep<--Tj
 
   return set(list_target_r31), set(list_target_r32)  # restituisce la lista dei target estratti per ogni frase (alla seconda chiamata del metodo verranno concatenati altri target)
 
-
+'''
 def R4(local_corenlp_path, input, file_opinion):  # in input la libreria, la frase da esaminare e il file dei target estratti
 
   toke, pos, depe = SC(local_corenlp_path, input) # richiamo metodo per tokenizer tag pos e albero delle dipendenze
@@ -230,7 +241,7 @@ def R4(local_corenlp_path, input, file_opinion):  # in input la libreria, la fra
   return set(list_opinion)  # restituisce la lista delle parole di opinione estratte per ogni frase
                             # (alla seconda chiamata del metodo verranno concatenate altre parole di opinione)
 
-
+'''
 def R5(local_corenlp_path, input, file_target):  # in input la libreria, la frase da esaminare e il file dei target estratti
 
   toke, pos, depe = SC(local_corenlp_path, input)  # richiamo metodo per tokenizer tag pos e albero delle dipendenze
@@ -253,10 +264,9 @@ def R5(local_corenlp_path, input, file_target):  # in input la libreria, la fras
   tok = np.array(toke)
   for item in depe:
     if item[0] == 'obj':
-      n = tok[item[2]-1]
-      n = n + ','
-      with open(file_target) as myfile:
-        if n in myfile.read():
+      w = tok[item[2]-1]
+      with open(file_target) as tar_file:
+        if w in tar_file.read():
           H = item[1]
           for item1 in depe:
             if item1[0] == 'nsubj' and item1[1] == H:
@@ -270,13 +280,13 @@ def R5(local_corenlp_path, input, file_target):  # in input la libreria, la fras
   tok = np.array(toke)
   for item in depe:
     if item[0] == 'nsubj':
-      n = tok[item[1]-1]
-      n = n + ','
-      with open(file_target) as myfile:
-        if n in myfile.read():
+      w = tok[item[1]-1]
+      with open(file_target) as tar_file:
+        if w in tar_file.read():
           i=item[2]
           if pos[i-1].__contains__('WP') or pos[i-1].__contains__('PRP') or pos[i-1].__contains__('PRP$'):
             target = tok[i-1]
             list_target_r52.append(target)
   #print("R52: ", list_target)
+
   return set(list_target_r51), set(list_target_r52)  # restituisce la lista dei target estratti per ogni frase (alla seconda chiamata del metodo verranno concatenati altri target)
