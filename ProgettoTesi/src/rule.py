@@ -289,4 +289,4 @@ def R5(local_corenlp_path, input, file_target):  # in input la libreria, la fras
             list_target_r52.append(target)
   #print("R52: ", list_target)
 
-  return set(list_target_r51), set(list_target_r52)  # restituisce la lista dei target estratti per ogni frase (alla seconda chiamata del metodo verranno concatenati altri target)
+  return set(list_target_r51), set(list_target_r52), pos, depe  # restituisce la lista dei target estratti per ogni frase (alla seconda chiamata del metodo verranno concatenati altri target)

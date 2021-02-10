@@ -95,13 +95,17 @@ def propagation(sentences, local_corenlp_path):  # questo metodo prende in input
             ta = '../Target_nouns.txt'
             print("REGOLA 5")
             print('\n')
-            tar_r51, tar_r52 = rule.R5(local_corenlp_path, phrase, ta)  # estrapolazione del target tramite la regola R3, passando
+            tar_r51, tar_r52, pos, dep = rule.R5(local_corenlp_path, phrase, ta)  # estrapolazione del target tramite la regola R3, passando
                                                         # al metodo la libreria, la frase da esaminare e il file dei target singoli estratti prima
             for word_r51 in tar_r51:  # targ è la lista di tutti i target estratti dalla singola frase (ovvero input)
                 df.iloc[row, df.columns.get_loc('R51')] = word_r51 + ' '  # scrive nel file i target trovati
 
             for word_r52 in tar_r52:  # targ è la lista di tutti i target estratti dalla singola frase (ovvero input)
                 df.iloc[row, df.columns.get_loc('R52')] = word_r52 + ' '  # scrive nel file i target trovati
+
+            df.iloc[row, df.columns.get_loc('POS')] = str(pos)  # scrive nel file i target trovati
+
+            df.iloc[row, df.columns.get_loc('DEP')] = str(dep)  # scrive nel file i target trovati
 
             for word_r51 in tar_r51:  # targ è la lista di tutti i target estratti dalla singola frase (ovvero input)
                 file_tar_r5.write(word_r51)  # scrive nel file i target trovati
