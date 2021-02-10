@@ -36,7 +36,8 @@ def R1(local_corenlp_path, input, op):  # in input la libreria e la frase da esa
   print('\n')
 
   tok = np.array(toke)  # tok è l'array di singole parole in una frase
-  list_target = []  # lista vuota che conterrà i target
+  list_target_r11 = []  # lista vuota che conterrà i target
+  list_target_r12 = []  # lista vuota che conterrà i target
 
   val = ['JJ', 'JJS', 'JJR'] # array di vincoli da far rispettare alla parola di opinione (per R1 AGGETTIVI)
   # JJ aggettivo, JJS aggettivo superlativo, JJR aggettivo comparativo
@@ -55,11 +56,11 @@ def R1(local_corenlp_path, input, op):  # in input la libreria e la frase da esa
               opinion = items[2]  # allora mi salvo la posizione della parola di opinione dalla tripla [opinion=4]
               target = items[1]  # e mi salvo anche la posizione del target dalla tripla [target=6]
               # per la regola R11 se il target è un nome allora estrai la parola target [('player', 'NN') in pos[6-1]]
-              if pos[target-1].__contains__('PRP') or pos[target-1].__contains__('PRP$'):  # verifica che il termine target è un nome [in questo caso lo è]
+              if pos[target-1].__contains__('PRP') or pos[target-1].__contains__('PRP$') or pos[target-1].__contains__('WP'):  # verifica che il termine target è un nome [in questo caso lo è]
                 o = tok[opinion-1]  # salvo la parola di opinione tok[3]=best
                 # può essere commentato perchè la R1 non estrae parole di opinione
                 t = tok[target-1]  # salvo la parola target tok[5]=player
-                list_target.append(t)  # concateno alla lista dei target 'player'
+                list_target_r11.append(t)  # concateno alla lista dei target 'player'
                 #O-->O-dep-->T
 
                 # R12
@@ -67,12 +68,12 @@ def R1(local_corenlp_path, input, op):  # in input la libreria e la frase da esa
                   if items[0] == 'nsubj':  # se il tag della prima tripla è un nsubj [lo è]
                     if items[1] == target:  # verifica la dipendenza del target ovvero: [6 è uguale a target=6]
                       target = items[2]  # aggiorna il target con l'altro target collegato poichè nsubj collega 2 target [target=1]
-                      if pos[target-1].__contains__('PRP') or pos[target-1].__contains__('PRP$'):  # verifica che il termine target è un nome [('iPod', 'NN') lo è]
+                      if pos[target-1].__contains__('PRP') or pos[target-1].__contains__('PRP$') or pos[target-1].__contains__('WP'):  # verifica che il termine target è un nome [('iPod', 'NN') lo è]
                         t = tok[target-1]  # salvo la parola target tok[1-1]
-                        list_target.append(t)  # concateno alla lista dei target 'iPod'
+                        list_target_r12.append(t)  # concateno alla lista dei target 'iPod'
                         #O-->O-dep-->H<--T-dep<--T
 
-  return set(list_target)  # restituisce la lista dei target estratti per ogni frase (alla seconda chiamata del metodo verranno concatenati altri target)
+  return set(list_target_r11), set(list_target_r12)  # restituisce la lista dei target estratti per ogni frase (alla seconda chiamata del metodo verranno concatenati altri target)
 
 
 def R2(local_corenlp_path, input, file_target):  # in input la libreria, la frase da esaminare e il file dei target estratti
@@ -153,8 +154,9 @@ def R3(local_corenlp_path, input, file_target):  # in input la libreria, la fras
   print("Dependency Parse: ", depe)
   print('\n')
 
-  list_target=[]
   tok = np.array(toke)
+  list_target_r31 = []
+  list_target_r32 = []
   for item in depe:
     if item[0] == 'conj':
       n = tok[item[1]-1]
@@ -163,9 +165,9 @@ def R3(local_corenlp_path, input, file_target):  # in input la libreria, la fras
           t = item[2]
           for item1 in pos:
             if item1[0] == tok[t-1]:
-              if item1[1].__contains__('PRP') or item1[1].__contains__('PRP$'):
+              if item1[1].__contains__('PRP') or item1[1].__contains__('PRP$') or item1[1].__contains__('WP'):
                 target = tok[t-1]
-                list_target.append(target)
+                list_target_r31.append(target)
 
   # R32
   for items in depe:  # fisso la 1° tripla e la controllo con le altre
@@ -173,60 +175,13 @@ def R3(local_corenlp_path, input, file_target):  # in input la libreria, la fras
       if items[0] == items2[0]:  # se il tag della prima tripla è uguale al tag di una tripla che sto scorrendo
         if items[1] == items2[1]:  # verifica che le pos. delle parole di opinone delle due triple siano uguali: [es. [item=(mod,3,2) ed item2=(mod,3,6)]]
           target = items2[2]  # poichè 3=3, aggiorna il target con l'altro collegato da mod [target=6]
-          if (pos[target-1].__contains__('PRP') or pos[target-1].__contains__('PRP$')) and items != items2:  # verifica che il termine target è un nome e che le due triple siano diverse per evitare falsi
+          if (pos[target-1].__contains__('PRP') or pos[target-1].__contains__('PRP$') or pos[target-1].__contains__('WP')) and items != items2:  # verifica che il termine target è un nome e che le due triple siano diverse per evitare falsi
             t = tok[target-1]  # salvo la parola target tok[6-1]
-            list_target.append(t)  # concateno alla lista il target trovato
+            list_target_r32.append(t)  # concateno alla lista il target trovato
             #Ti-->Ti-Dep-->H<--Tj-Dep<--Tj
 
-  return set(list_target)  # restituisce la lista dei target estratti per ogni frase (alla seconda chiamata del metodo verranno concatenati altri target)
+  return set(list_target_r31), set(list_target_r32)  # restituisce la lista dei target estratti per ogni frase (alla seconda chiamata del metodo verranno concatenati altri target)
 
-
-def R4(local_corenlp_path, input, file_opinion):  # in input la libreria, la frase da esaminare e il file dei target estratti
-
-  toke, pos, depe = SC(local_corenlp_path, input) # richiamo metodo per tokenizer tag pos e albero delle dipendenze
-  # esempio di frase: it is small enough to fit easily in a coat pocket or purse.
-  # Tokeninze:  ['it', 'is', 'small', 'enough', 'to', 'fit', 'easily', 'in', 'a', 'coat', 'pocket', 'or', 'purse', '.']
-  # Part Of Speech:  [('it', 'PRP'), ('is', 'VBZ'), ('small', 'JJ'), ('enough', 'RB'), ('to', 'TO'), ('fit', 'VB'), ('easily', 'RB'), ('in', 'IN'), ('a', 'DT'), ('coat', 'NN'), ('pocket', 'NN'), ('or', 'CC'), ('purse', 'NN'), ('.', '.')]
-  # Dependency Parse:  [('ROOT', 0, 3), ('nsubj', 3, 1), ('cop', 3, 2), ('advmod', 6, 4), ('mark', 6, 5), ('dep', 3, 6), ('advmod', 6, 7), ('case', 11, 8), ('det', 11, 9), ('compound', 11, 10), ('obl', 6, 11), ('cc', 13, 12), ('conj', 11, 13), ('punct', 3, 14)]
-
-  # stampa operazioni fatte
-  print("Tokeninze: ", toke)
-  print('\n')
-  print("Part Of Speech: ", pos)
-  print('\n')
-  print("Dependency Parse: ", depe)
-  print('\n')
-
-  list_opinion = []  # lista vuota che conterrà le parole di opinione
-  tok = np.array(toke)
-  for item in depe:
-    if item[0] == 'conj':
-      a = tok[item[1]-1]
-      with open(file_opinion) as myfile:
-        if a.lower() in myfile.read():
-          o = item[2]
-          for item1 in pos:
-            if item1[0] == tok[o-1]:
-              if item1[1].__contains__('JJ') or item1[1].__contains__('JJS') \
-                      or item1[1].__contains__('JJR'):
-                opinion = tok[o-1]
-                opinion = opinion.lower()
-                list_opinion.append(opinion)
-  # R42
-  for items in depe:  # fisso la 1° tripla e la controllo con le altre
-    for items2 in depe:  # altre triple che scorrono
-      if items[0] == items2[0]:  # se il tag della prima tripla è uguale al tag di una tripla che sto scorrendo
-        if items[2] == items2[2]:  # verifica che le pos. dei target delle due triple siano uguali: [es. [item=(mod,3,2) ed item2=(mod,3,6)]]
-          opinion = items2[1]  # poichè 3=3, aggiorna la parola di opinione con l'altra collegata da mod [opinion=6]
-          if (pos[opinion-1].__contains__('JJ') or pos[opinion-1].__contains__('JJS') or pos[opinion-1].__contains__('JJR'))\
-                  and items != items2:  # verifica che il termine opinione è un aggettivo e che le due triple siano diverse per evitare falsi
-            o = tok[opinion-1]  # salvo la parola di opinione tok[6-1]
-            o = o.lower()
-            list_opinion.append(o)  # concateno alla lista il target trovato
-            #Oi-->Oi-Dep-->H<--Oj-Dep<--Oj
-
-  return set(list_opinion)  # restituisce la lista delle parole di opinione estratte per ogni frase
-                            # (alla seconda chiamata del metodo verranno concatenate altre parole di opinione)
 
 def R4(local_corenlp_path, input, file_opinion):  # in input la libreria, la frase da esaminare e il file dei target estratti
 
@@ -293,7 +248,8 @@ def R5(local_corenlp_path, input, file_target):  # in input la libreria, la fras
   print('\n')
 
   #R51
-  list_target=[]
+  list_target_r51 = []
+  list_target_r52 = []
   tok = np.array(toke)
   for item in depe:
     if item[0] == 'obj':
@@ -307,35 +263,20 @@ def R5(local_corenlp_path, input, file_target):  # in input la libreria, la fras
               i=item1[2]
               if pos[i-1].__contains__('WP') or pos[i-1].__contains__('PRP') or pos[i-1].__contains__('PRP$'):
                 target = tok[i-1]
-                list_target.append(target)
+                list_target_r51.append(target)
+  #print("R51: ", list_target)
 
   #R52
   tok = np.array(toke)
   for item in depe:
     if item[0] == 'nsubj':
-      n = tok[item[2]-1]
-      n = n + ','
-      with open(file_target) as myfile:
-        if n in myfile.read():
-          H = item[1]
-          for item1 in depe:
-            if item1[0] == 'obj' and item1[1] == H:
-              i=item1[2]
-              if pos[i-1].__contains__('WP') or pos[i-1].__contains__('PRP') or pos[i-1].__contains__('PRP$'):
-                target = tok[i-1]
-                list_target.append(target)
-
-  #R53
-  tok = np.array(toke)
-  for item in depe:
-    if item[0] == 'nsubj':
       n = tok[item[1]-1]
-      n=n+','
+      n = n + ','
       with open(file_target) as myfile:
         if n in myfile.read():
           i=item[2]
           if pos[i-1].__contains__('WP') or pos[i-1].__contains__('PRP') or pos[i-1].__contains__('PRP$'):
             target = tok[i-1]
-            list_target.append(target)
-
-  return set(list_target)  # restituisce la lista dei target estratti per ogni frase (alla seconda chiamata del metodo verranno concatenati altri target)
+            list_target_r52.append(target)
+  #print("R52: ", list_target)
+  return set(list_target_r51), set(list_target_r52)  # restituisce la lista dei target estratti per ogni frase (alla seconda chiamata del metodo verranno concatenati altri target)
