@@ -12,7 +12,7 @@ def search_string_in_file(file_name, string_to_search):
 
 def propagation(sentences, local_corenlp_path):  # questo metodo prende in input la lista di frasi e la libreria
     df = pd.read_csv("../processing_file_originale/Target_Annotation_Processed.csv")
-    row=0
+    row = 0
     for phrase in sentences:  # per ogni singola frase nella lista di frasi
 
         with open('../target.txt', 'a') as file_tar_r1:  # apre il file dei target inizialmente vuoto in append
@@ -55,7 +55,7 @@ def propagation(sentences, local_corenlp_path):  # questo metodo prende in input
                         lex_opi_r2.write('\n')  # ritorna a capo per scrivere nuove parole di opinione
         '''
         with open('../target.txt', 'a') as file_tar_r3:  # apre il file dei target inizialmente vuoto in append
-            targe = '../target.txt'
+            targe = '../Target_nouns.txt'
             print("REGOLA 3")
             print('\n')
             tar_r31, tar_r32 = rule.R3(local_corenlp_path, phrase, targe)  # estrapolazione del target tramite la regola R3, passando
