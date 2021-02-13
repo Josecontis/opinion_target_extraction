@@ -1,9 +1,11 @@
 from src import rule
 import pandas as pd
 
+
+# metodo per la ricerca di una stringa: string_to_search, nel file:file_name
 def search_string_in_file(file_name, string_to_search):
     with open(file_name, 'r') as file_op:
-        # For each line, check if line contains the string
+        # per ogni riga del file verifica se la stringa è presente
         for line in file_op:
             if string_to_search+"\n" == line:
                 return True
@@ -11,6 +13,7 @@ def search_string_in_file(file_name, string_to_search):
 
 
 def propagation(sentences, local_corenlp_path):  # questo metodo prende in input la lista di frasi e la libreria
+    #
     df = pd.read_csv("../processing_file_originale/Target_Annotation_Processed.csv")
     row = 0
     for phrase in sentences:  # per ogni singola frase nella lista di frasi
@@ -21,16 +24,12 @@ def propagation(sentences, local_corenlp_path):  # questo metodo prende in input
             print('\n')
             tar_r11, tar_r12 = rule.R1(local_corenlp_path, phrase, opinion)  # estrapolazione del target tramite la regola R1, passando
                                                           # al metodo la libreria e la frase da esaminare
-            for word_r11 in tar_r11:  # targ è la lista di tutti i target estratti dalla singola frase (ovvero input)
-                df.iloc[row, df.columns.get_loc('R11')] = word_r11 + ' '  # scrive nel file i target trovati
-
-            for word_r12 in tar_r12:  # targ è la lista di tutti i target estratti dalla singola frase (ovvero input)
-                df.iloc[row, df.columns.get_loc('R12')] = word_r12+' '  # scrive nel file i target trovati
 
             file_tar_r1.write('\n')  # ritorna a capo per scrivere nuovi target
             for word_r11 in tar_r11:  # targ è la lista di tutti i target estratti dalla singola frase (ovvero input)
                 file_tar_r1.write(word_r11)  # scrive nel file i target trovati
                 file_tar_r1.write(', ')  # scrive uno spazio nel file dopo il target per separlo con un altro alla prossima iterata
+
             for word_r12 in tar_r12:  # targ è la lista di tutti i target estratti dalla singola frase (ovvero input)
                 file_tar_r1.write(word_r12)  # scrive nel file i target trovati
                 file_tar_r1.write(', ')  # scrive uno spazio nel file dopo il target per separlo con un altro alla prossima iterata
@@ -62,14 +61,9 @@ def propagation(sentences, local_corenlp_path):  # questo metodo prende in input
                                                         # al metodo la libreria, la frase da esaminare e il file dei target singoli estratti prima
 
             for word_r31 in tar_r31:  # targ è la lista di tutti i target estratti dalla singola frase (ovvero input)
-                df.iloc[row, df.columns.get_loc('R31')] = word_r31 + ' '  # scrive nel file i target trovati
-
-            for word_r32 in tar_r32:  # targ è la lista di tutti i target estratti dalla singola frase (ovvero input)
-                df.iloc[row, df.columns.get_loc('R32')] = word_r32+' '  # scrive nel file i target trovati
-
-            for word_r31 in tar_r31:  # targ è la lista di tutti i target estratti dalla singola frase (ovvero input)
                 file_tar_r3.write(word_r31)  # scrive nel file i target trovati
                 file_tar_r3.write(', ')  # scrive uno spazio nel file dopo il target per separlo con un altro alla prossima iterata
+
             for word_r32 in tar_r32:  # targ è la lista di tutti i target estratti dalla singola frase (ovvero input)
                 file_tar_r3.write(word_r32)  # scrive nel file i target trovati
                 file_tar_r3.write(', ')  # scrive uno spazio nel file dopo il target per separlo con un altro alla prossima iterata
@@ -91,35 +85,12 @@ def propagation(sentences, local_corenlp_path):  # questo metodo prende in input
                         lex_opi_r4.write(word_r4)  # scrive nel file la parola di opinione trovate
                         lex_opi_r4.write('\n')  # ritorna a capo per scrivere nuove parole di opinione
         '''
-        with open('../target.txt', 'a') as file_tar_r5:  # apre il file dei target inizialmente vuoto in append
-            ta = '../Target_nouns.txt'
-            print("REGOLA 5")
-            print('\n')
-            tar_r51, tar_r52, pos, dep = rule.R5(local_corenlp_path, phrase, ta)  # estrapolazione del target tramite la regola R3, passando
-                                                        # al metodo la libreria, la frase da esaminare e il file dei target singoli estratti prima
-            for word_r51 in tar_r51:  # targ è la lista di tutti i target estratti dalla singola frase (ovvero input)
-                df.iloc[row, df.columns.get_loc('R51')] = word_r51 + ' '  # scrive nel file i target trovati
-
-            for word_r52 in tar_r52:  # targ è la lista di tutti i target estratti dalla singola frase (ovvero input)
-                df.iloc[row, df.columns.get_loc('R52')] = word_r52 + ' '  # scrive nel file i target trovati
-
-            df.iloc[row, df.columns.get_loc('POS')] = str(pos)  # scrive nel file i target trovati
-
-            df.iloc[row, df.columns.get_loc('DEP')] = str(dep)  # scrive nel file i target trovati
-
-            for word_r51 in tar_r51:  # targ è la lista di tutti i target estratti dalla singola frase (ovvero input)
-                file_tar_r5.write(word_r51)  # scrive nel file i target trovati
-                file_tar_r5.write(', ')  # scrive uno spazio nel file dopo il target per separlo con un altro alla prossima iterata
-            for word_r52 in tar_r52:  # targ è la lista di tutti i target estratti dalla singola frase (ovvero input)
-                file_tar_r5.write(word_r52)  # scrive nel file i target trovati
-                file_tar_r5.write(', ')  # scrive uno spazio nel file dopo il target per separlo con un altro alla prossima iterata
 
         row = row + 1
         df.to_csv('../processing_file_originale/Target_Annotation_Processed.csv', index=False)
 
     file_tar_r1.close()  # chiusura del file dei target estratti
     file_tar_r3.close()  # chiusura del file dei target estratti
-    file_tar_r5.close()  # chiusura del file dei target estratti
     '''
     file_opi_r2.close()  # chiusura del file delle parole di opinione estratte
     file_opi_r4.close()  # chiusura del file delle parole di opinione estratte

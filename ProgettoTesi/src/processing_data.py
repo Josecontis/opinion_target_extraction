@@ -1,16 +1,12 @@
 import pandas as pd
-import numpy as np
 import re
 
 
 # metodo per estrapolare le colonne da un file csv
-def csv_to_column_list(file_csv, sentence_col, polarity_col):
+def csv_to_column_list(file_csv, sentence_col):
     dfP = pd.read_csv(file_csv, encoding ='ISO-8859-1')  # lettura file csv delle polarità
     sentence = dfP[sentence_col].tolist()  # sentence contiene una lista di frasi estrapolate
-    target_polarity = dfP[polarity_col].tolist()  # target_polarity contiene una lista di target con polarità estrapolate
-    # per ogni elemento della lista di target con polarità vengono rimpiazzati i valori nan con 'NA1'
-    new_target_polarity = ['NA1' if x is np.nan else x for x in target_polarity]
-    return sentence, new_target_polarity  # restituisce la lista di frasi e la lista di target con polarità di ogni frase
+    return sentence  # restituisce la lista di frasi e la lista di target con polarità di ogni frase
 
 
 # metodo per convertire txt to csv
@@ -106,8 +102,9 @@ def replace_symbols(Original_file, col):
     file[col] = list_output
     file.to_csv('../processing_file_originale/Target_Annotation_Processed.csv', index=False)
 
+
 # metodo per unire il contenuto di due documenti di testo
-def merge_txt(neg_file, pos_file):
+def append_txt(neg_file, pos_file):
 
     # creo la lista dei file da esaminare
     filenames = [neg_file, pos_file]
@@ -119,6 +116,28 @@ def merge_txt(neg_file, pos_file):
                 # leggo il contenuto del primo file di input e lo scrivo nel file di output
                 outfile.write(infile.read())
 
+# metodo per unire il contenuto di due documenti di testo
+def merge_txt(file1, file2):
+    combine = []
+
+    with open(file1) as xh:
+        with open(file2) as yh:
+            with open("../res.txt", "w") as zh:
+                # Read first file
+                xlines = xh.readlines()
+                # Read second file
+                ylines = yh.readlines()
+                # Combine content of both lists
+                # combine = list(zip(ylines,xlines))
+                # Write to third file
+
+                for i in range(len(xlines)):
+                    if ylines[i] == "\n":
+                        line = ylines[i].strip() + '' + xlines[i]
+                        zh.write(line)
+                    else:
+                        line = ylines[i].strip() + ' ' + xlines[i]
+                        zh.write(line)
 
 def clean_sentiStrenght_txt(o_file, p_file):
 
@@ -132,61 +151,4 @@ def clean_sentiStrenght_txt(o_file, p_file):
     with open(p_file, "w") as file:
         for e in words:
           file.write(str(e) + '\n')
-
-
-'''
-# ------ non utilizzato nel main -----
-def rimozione_titoli_t(file_originale_caratteri_rimpiazzati):
-    # rimuove le righe dal file che rappresenano i titoli denominati con [t]
-    file1 = open(file_originale_caratteri_rimpiazzati) # apre file da modificare
-    file2 = open('../processing_file_originale/Nikon coolpix 4300.Copia2.txt', 'w') # crea nuovo file per l'output
-
-    for line in file1.readlines(): # per ogni riga del file da modificare
-        if not (line.startswith('[t]')): # se la linea non inizia con '[t]'
-            file2.write(line) # scrive la linea nel file di output
-    file2.close() # chiude file di output
-    file1.close() # chiude file di input
-
-
-# ------ non utilizzato nel main -----
-def trasforma_in_csv(file_originale_processato):
-    with open(file_originale_processato, 'r') as in_file: # apertura del file come lettura
-        stripped = (line.strip() for line in in_file) # per ogni linea nel txt suddivide i termini in base agli spazi
-        lines = (line.split("##") for line in stripped if line) # separa le frasi in base a '##'
-        with open('../csv/Gold.csv', 'w') as out_file: # apertura in scrittura del file csv delle polarità
-            writer = csv.writer(out_file) # crea l'oggetto writer
-            writer.writerow(('Target-Polarity', 'Sentence')) # scrive la prima riga (nomi di colonne)
-            writer.writerows(lines) # scrive le altre righe ricavate dal txt
-
-
-# ------ non utilizzato nel main -----
-# metodo che scrive le frasi in un .txt da un .csv
-def scrivere_sentence_file(file, file_csv):
-    sentence, target_polarity = csv_to_column_list(file_csv) # estrapola colonna frasi e target con le polarità
-    with open(file, 'w') as f: # con il file .txt aperto in scrittura
-        for item in sentence: # itera sulle frasi
-            f.write("%s\n" % item) # scrive nel file .txt la frase
-
-
-# ------ non utilizzato nel main -----
-def process_file(file_originale_processato):
-    with open(file_originale_processato) as f:
-        with open(file_prova, 'w') as f1:
-            for line in f:
-                f1.write(re.sub(r'([]])([a-z])', r'\1 \2', line))
-
-
-file_Originale = '../processing_file_originale/Nikon coolpix 4300.txt'
-file_originale_caratteri_rimpiazzati = '../processing_file_originale/Nikon coolpix 4300-Copia.txt'
-file_originale_processato = '../processing_file_originale/Nikon coolpix 4300.Copia2.txt'
-file_originale_processato_csv = '../csv/Gold.csv'
-input = '../input.txt'
-file_prova = '../processing_file_originale/Nikon coolpix 4300.Copia2 - Copia.txt'
-
-'''
-
-#rimozione_titoli_t(file_originale_caratteri_rimpiazzati)
-#process_file(file_originale_processato)
-#trasforma_in_csv(file_prova)
-#scrivere_sentence_file(input, file_originale_processato_csv)
 

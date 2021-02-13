@@ -1,7 +1,6 @@
 
-you, 
-I, I, 
-you, 
+I, 
+
 
 I, 
 
@@ -16,7 +15,7 @@ you,
 
 they, 
 
-it, 
+
 
 
 
@@ -24,72 +23,19 @@ who,
 
 
 I, 
-I, I, 
-
-I, 
-I, 
-
-
-I, 
-I, 
-I, 
-I, 
-
-
-I, 
-
-
-
-it, 
-I, 
-I, 
-it, it, 
-
 I, 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+I, 
 I, 
 
 
 
 
-
-I, I, 
-
-
-
-
-
 I, 
-
-
-
-it, 
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -97,20 +43,64 @@ it,
 
 
 it, 
+
+I, 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+I, 
+
+
+
+
+
+I, 
+
+
+
+
+
+I, 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 i, 
 
-him, him, 
-
-I, I, 
-
-
-
-
-
-it, 
-I, 
+him, 
 
 I, 
 
@@ -124,11 +114,14 @@ I,
 
 
 
-it, 
-we, I, 
 
 
-It, 
+
+
+
+
+
+
 
 
 we, 
@@ -137,7 +130,90 @@ we,
 
 
 
+we, 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+we, 
 I, 
+
+
+
+
+
+
+
+
+I, 
+
+I, 
+
+
+
+he, 
+
+
+
+you, 
+
+
+
+
+
+I, 
+
+
+
+we, they, 
+
+it, 
+
+
+i, 
+
+
+
+
+who, 
+
+
+
+
+
+
+
+
+
+
+
+it, 
+
+
+
+
+
+
+
 I, 
 
 
@@ -147,77 +223,88 @@ I,
 
 I, 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 I, 
 
-me, 
+
+
+
+
+
 
 I, 
+
+
+
+
 I, 
 
 
-we, we, 
-I, I, 
+you, 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+I, 
+
+
+
+
+
+I, 
+
+
+I, 
 they, 
 
 
-it, 
-I, we, 
 
-I, I, 
-me, I, we, you, 
+
+
 I, 
 
-she, he, 
-It, 
+it, 
 
-we, 
+I, 
+
+
+I, 
+
+
 you, 
-Me, 
-I, 
-
-we, 
-
-I, 
-
-
-
-they, we, 
-
-it, 
 
 
 i, 
 
 
-it, 
-I, 
-who, 
-you, 
-
-I, 
-
-
-we, 
-
-I, 
-
-
-
-it, it, you, 
-
-
-
-I, 
-
-
-
-I, 
-
-
 
 
 
@@ -225,94 +312,6 @@ I,
 I, 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-I, 
-
-
-
-
-we, 
-you, 
-
-I, 
-
-it, 
-
-
-I, I, 
-
-
-you, 
-
-I, 
-
-It, 
-
-
-
-It, 
-
-
-
-
-
-
-
-
-
-
-
-I, 
-
-
-
-
-
-I, I, 
-
-
-I, 
-they, they, 
-I, 
-
-
-I, 
-
-I, it, I, 
-
-it, 
-
-I, 
-
-
-I, I, 
-
-
-you, 
-
-
-i, i, 
-
-
-It, 
-
-
-
-I, 
-
-It, 
 
 
 
@@ -321,11 +320,11 @@ what,
 
 
 
-It, 
 
 
 
-it, 
+
+
 I, 
 they, 
 
@@ -338,7 +337,7 @@ they,
 
 
 
-I, I, 
+I, 
 
 i, 
 
@@ -347,34 +346,33 @@ I,
 we, 
 
 
-it, 
-
-
-
-
-I, It, 
 
 
 
 
 
 I, 
+
+
+
+
+
+
+
+
+
+I, 
+
 I, 
 
 
 I, 
-
-I, I, 
-
-
-I, I, 
-I, i, 
+I, 
 
 you, 
 
 
 
-me, 
 
 
 
@@ -384,54 +382,34 @@ me,
 
 
 
-I, 
+
+
 i, you, 
 we, 
+
+
 you, 
 
-you, you, 
-
-
-
-I, 
-
-
-
-I, I, 
-I, 
-
-
-
-I, 
-i, we, 
-
-I, 
 
 
 I, 
 
 
 
-it, 
 I, 
+
+
 
 
 
 i, 
-who, 
-we, we, 
-I, 
-
-
-
-
-
 
 I, 
-me, 
-I, 
-I, 
-I, 
+
+
+
+
+
 
 
 
@@ -444,30 +422,51 @@ we,
 
 
 
-you, you, 
+
+
+
+
+I, 
+
+I, 
+
+
+
+
+
+
+
+
+
 
 we, 
 
 
-I, I, 
+
+you, 
+
+we, 
+
+
 I, 
-I, 
 
 
 
-i, 
+
+
+
 
 One, 
 
 
-I, I, 
+I, 
 
 
-I, I, 
-I, we, 
+I, 
 
 
-it, I, it, I, 
+
+I, it, 
 
 
 
@@ -475,53 +474,85 @@ it, I, it, I,
 
 
 I, 
-It, 
+
 
 
 we, 
-it, I, 
-I, 
-me, 
-
-
-
-
-they, They, 
-we, 
-I, 
-
-
-I, 
-
-
-I, 
-
-I, I, 
 it, 
 I, 
+
+
+
+
+
+
+we, 
+I, 
+
+
+I, 
+
+
+I, 
+
+I, 
+
+I, 
+
+
+
+I, 
+
+
+
+
+I, 
+
+
+
+They, 
+You, 
+
+
+
+
+
+
+
+
+it, 
+
+
+
+
+
+
+
+
+
+I, 
+
+
+
+
+
+
+we, 
+
+
+
+
+
+
 you, 
-I, 
-it, 
-I, 
-I, 
 
 
 
-I, I, 
 I, 
 
+I, 
+I, 
 
-They, me, 
-You, it, You, 
-
-
-
-it, 
-
-
-
-
-it, it, 
 
 
 
@@ -535,188 +566,157 @@ I,
 
 
 
-I, 
-
-It, 
-we, 
-I, 
 
 
 
-
-
-you, I, 
-I, 
-
-
-I, 
-
-I, 
-I, 
-
-
-it, 
-
-
-it, 
-
-
-
-it, 
-I, 
-
-
-
-I, 
-
-
-You, I, 
+I, You, 
 
 he, 
 
 
-It, 
-I, I, 
-it, I, I, 
-it, 
-
-
-
-
-I, I, 
 
 I, 
-it, you, you, 
-it, 
-
-
-
-you, you, 
-
-
-
-you, we, you, 
-
-you, you, 
-we, 
-
-
-its, I, it, its, I, 
-I, I, 
-I, I, 
-
-I, 
-
-I, 
+I, it, 
 
 
 
 
 
 I, 
+
+
+it, you, 
+
+
+
+
+you, 
+
+
+
+you, 
+
+you, 
+
+
+
+I, its, 
+I, 
 I, 
 
-I, I, 
+
+
+I, 
+
+
+
+
+
+I, 
+I, 
+
+I, 
+
+
+
+I, 
+
+
+I, 
+
+I, 
+I, 
+I, it, 
+
+I, it, 
+I, 
+
+
+
+
+
+
+We, 
+
+
+
+
+you, 
+I, 
+
+
+I, 
+I, 
+I, 
+
+
+
+
+
+
+I, 
+I, 
+I, 
+
+
+We, 
+
+
 they, 
 
 
-I, 
 it, 
-I, 
-I, 
 
-I, 
-I, 
-it, I, it, I, 
-
-it, I, 
-I, I, 
-
-
-
-i, 
-
-it, I, 
-We, 
-
-
-
-
-you, you, 
-I, 
-
-
-I, It, 
-I, 
-I, 
-
-
-
-
-
-
-I, I, 
-I, I, 
-I, 
-
-
-We, 
-
-
-they, they, 
-
-
-it, I, 
-
-you, you, 
 you, 
 
+
 We, 
-I, I, 
+I, 
+
+
+I, 
+
+
+
+
+
+I, 
+I, 
+
+
+
+
+I, 
+I, 
 
 
 I, 
 
 it, 
 
+I, it, 
+
+
+
 
 
 I, 
-I, I, 
-
-you, 
-
-
-I, 
-I, 
-
-
-I, 
-I, 
-it, I, 
-
-it, I, it, I, 
-
-
-
-
-
-I, I, 
-
-I, 
-it, 
-
-you, 
-
-
-I, 
-
 
 I, 
 
 
 you, 
+
+
+
+
+
+
+
+
+
 I, 
+
 
 
 
