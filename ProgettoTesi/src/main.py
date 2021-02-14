@@ -70,8 +70,8 @@ while a == 'y':
 
         # a partire dal csv restituisce la lista delle frasi, la lista dei target gold e la lista dei target estratti
         sentences, lista_target_gold, lista_target_extracted = processing.column_from_dfT(csv_target)
-        print(lista_target_gold)
-        print(lista_target_extracted)
+        lista_opinion_extracted = processing.column_from_dfO(csv_opinion)
+
 
         # INPUT: lista dei target estratti e lista dei target gold
         # OUTPUT: lista_target_correct è la lista di si e no, numero_corretti = è il numero
@@ -91,6 +91,7 @@ while a == 'y':
         df['Target Gold'] = lista_target_gold
         df['Extracted Target'] = lista_target_extracted
         df['Correct Target'] = lista_target_correct
+        df['Extracted Opinion'] = lista_opinion_extracted
         df['Note'] = ""
         df['Problem Cat.'] = ""
         df['POS'] = ""
