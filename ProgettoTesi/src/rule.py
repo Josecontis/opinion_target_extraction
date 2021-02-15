@@ -48,7 +48,7 @@ def R1(local_corenlp_path, input, op):  # in input la libreria e la frase da esa
       agg = agg.lower()
       with open(op) as op_file:  # apre il file on
         for line in op_file:
-          if agg == line:  # se l'aggettivo della frase è presente nel lessico di opinione negativo
+          if agg+'\n' == line:  # se l'aggettivo della frase è presente nel lessico di opinione negativo
             check = True
           if line.endswith('*'):
             if agg.startswith(line):
@@ -56,8 +56,9 @@ def R1(local_corenlp_path, input, op):  # in input la libreria e la frase da esa
       if check:
         # R11
         for items in depe:  # analizzando la i-esima tripla [('amod', 6, 4)]
-          if items[0] == 'amod' and agg == tok[items[1]-1]:  # se il tag della prima tripla è un MR [amod è in MR]
-            target = items[2]  # e mi salvo anche la posizione del target dalla tripla [target=6]
+          a = tok[items[2]-1]
+          if items[0] == 'amod' and agg == a.lower():  # se il tag della prima tripla è un MR [amod è in MR]
+            target = items[1]  # e mi salvo anche la posizione del target dalla tripla [target=6]
             # per la regola R11 se il target è un nome allora estrai la parola target [('player', 'NN') in pos[6-1]]
             if pos[target-1].__contains__('PRP') or pos[target-1].__contains__('PRP$') or pos[target-1].__contains__('WP'):  # verifica che il termine target è un nome [in questo caso lo è]
               # può essere commentato perchè la R1 non estrae parole di opinione

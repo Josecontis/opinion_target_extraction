@@ -51,7 +51,11 @@ def lista_correct_target(lista_target_estratti, lista_target_gold):
         for j in range(0, len(list_correct_target[i])):
             if list_correct_target[i][j] == 'si':
                 x = x+1
+    size = 0
+    for i in range(0, len(list_correct_target)):
+        if str(lista_target_gold[i]) != 'nan':
+            size = size+1
     # restituisce la lista con si e no, il numero di si nella lista e la lunghezza della lista (ovvero numero di frasi)
-    return list_correct_target, x, list_correct_target.__len__()
+    return list_correct_target, x, size
 
 

@@ -150,7 +150,7 @@ seqn.,myunique_id,myanger_direction,Target,mydeveloper_comment,Targets
 149,795658_1,self,I,'oh ...geez I am an idiot.' ,
 150,124282_2,oth,Engineers,'Or ask their engineers to fix their issue?' ,
 151,819471_2,self,me,'Problem was me being an idiot.' ,Problem 
-152,2219752_1,self,me,'sometimes people can be so blind... Stupid me did not saw that SubClass is not extending SuperClass.' ,
+152,2219752_1,self,me,'sometimes people can be so blind... Stupid me did not saw that SubClass is not extending SuperClass.' ,me 
 153,675944_1,self,I (implicito) oppure comment (se other),'Sorry my last comment was stupid as 1/8 of 8TB is still larger as Integer.MAX_VALUE I was thinking of Long.MAX_VALUE.',comment Integer.MAX_VALUE 
 154,1394914_1,self,I,'Sorry I am an idiot.' ,
 155,376569_1,ob,mistake,'Stupid mistake.' ,mistake 
@@ -186,7 +186,7 @@ seqn.,myunique_id,myanger_direction,Target,mydeveloper_comment,Targets
 185,2120525_2,self,me,'Please close as this is just me being stupid.' ,
 186,1571360,self,that,'Reattaching v2 previous had a stupid mistake sorry about that.',mistake v2 
 187,1184774_1,ob,Java,'So Java sucks when it comes to file perms... even if we unzip or untgz these files they will NOT have the correct permissions. ' ,permissions we they 
-188,121129,self,me,'Stupid me I looked at PersistentBag.addint Object instead of PersistentBag.addObject' ,PersistentBag.addObject Object 
+188,121129,self,me,'Stupid me I looked at PersistentBag.addint Object instead of PersistentBag.addObject' ,PersistentBag.addObject Object me 
 189,826415,ob,this,'This is especially bad because if executing via a Hive Server it will cause the service process to crash. ' ,it 
 190,654611_2,oth,we (fieldnumber se object),'We should not invoke the global synced fieldnumbers shit for every element only when the setting actually changes' ,
 191,654182,oth,who,'who the fuck is asking for scores but not the max score and why does their insanely specialized use case justify all these booleans on a central lucene class. ' ,
@@ -289,7 +289,7 @@ seqn.,myunique_id,myanger_direction,Target,mydeveloper_comment,Targets
 288,313228_1,ob,that uploads are..,'Annoying that uploads are so hard to test even with Selenium.' ,Selenium 
 289,176103_2,ob,confusion,'The confusion and mixup between OgnlValueStack ActionContext ActionInvocation etc is too much.' ,OgnlValueStack confusion ActionContext 
 290,280436_1,ob,it,'Moving out to 2.3.0 I do not think this is an 'urgent' fix but it is annoying .',fix 
-291,2079310_1,self,me,'Stupid me.' ,
+291,2079310_1,self,me,'Stupid me.' ,me 
 292,14355_1,oth,you (implicito) ,'I see you are hacking around our nice APIs and then complain it does not work thanks that helps I will make a test using a free form fieldbridge.' ,APIs form I 
 293,150845_1,ob,that/error,'wow that is a really dumb error!' ,error 
 294,133640_5,ob,bug,'This bug is really annonying because RHEL 5 install version 5 of MySQL No support on MySQL 4 MySQL 4 is at end of his lifecycle in JPA it is so ugly to change our code from boolean to int a search in google 'MySQL 5 boolean BIT problem' shows so many desesperate people credibility of jboss this bug is so annoying that my team does not understand that it could be possible they are afraid that it could have other ugly bugs.. Laurent Mallet CTO of Oxalya ',people problem bugs BIT No MySQL bug it 
@@ -385,7 +385,7 @@ seqn.,myunique_id,myanger_direction,Target,mydeveloper_comment,Targets
 384,243692_7,ob,thing,'The Java 5 thing is annoying I have heard some noise that forrest is working towards a release 'rsn' as part of which the java 5 requirement would be dropped.',
 385,215257_1,oth,you,'Jason you are worthless!' ,Jason 
 386,202245_10,self,I (implicito),'I will do my best to find time tomorow to test your code..I have to find that time just to alow you to forgive my stupid mistake....' ,time code 
-387,287950_2,ob,it/to sign anything…,'but i hate it and really think it is useless to sign anything in this case so i prefer the option of deactivating it if you have such a constraint.' ,i you 
+387,287950_2,ob,it/to sign anything…,'but i hate it and really think it is useless to sign anything in this case so i prefer the option of deactivating it if you have such a constraint.' ,you i 
 388,243870_1,ob,problem,'I did that two days ago and again we have the same annoying problem.' ,problem we 
 389,249531_12,oth,to assume…,'Do not you think it is a little arrogant to assume that if an example 'found in many velocity books' does not work for you that the problem is with Velocity rather than with your use of it?' ,books 
 390,299276_12,ob,to put Jukka into…,'But I would hate to put Jukka into n-way merge hell.' ,way merge 
@@ -428,7 +428,7 @@ seqn.,myunique_id,myanger_direction,Target,mydeveloper_comment,Targets
 427,289243_3,ob,way,'The way the JSP tag overloads the 'type' attribute to allow specifying an instance is ugly.' ,JSP tag 
 428,293322_2,ob,solution,'But ... this solution is really ugly The flickering at the and of the string.' ,
 429,294350_1,ob,this/bug,'This is indeed a annoying bug I have replicated it locally in a test case.' ,bug I 
-430,194909_1,self,me,'Yeap stupid little me should check the FAQ now and then .' ,
+430,194909_1,self,me,'Yeap stupid little me should check the FAQ now and then .' ,me 
 431,316850_1,ob,experimentation,'I have been doing a lot of experimentation with Maven and have come to hate it.' ,I 
 432,301966_7,ob,that I get warnings…,'What is really annoying is that I get warnings at generated lines like these public override int GetHashCode int hashcode = 0 unchecked hashcode = hashcode 397 .Value == null ?',lines override hashcode hashcode GetHashCode int 
 433,207730_3,ob,effect,'I think the file upload docs should point out this nasty nasty side effect.' ,effect upload file 
@@ -467,7 +467,7 @@ seqn.,myunique_id,myanger_direction,Target,mydeveloper_comment,Targets
 466,211330_4,ob,this,'While this is annoying and could potentially be an issue which is why I suggest we block the 'session' parameter in the next release it does not allow any method execution or server-side state change and therefore I do not consider it a security hole.' ,release issue state side 
 467,237893_1,self,me,'Thanks a lot igor and... shame on me for this mistake.' ,
 468,310077_1,ob,proposal (For WildCard types),'For WildCard types in C++ a dumb proposal.' ,proposal 
-469,420147_6,ob,editors,'I was a big fan of Hungarian notation in C when I was using dumb text editors ... it does not add enough value in an O-O language with modern tools to make up for the fact that my eye stutters over it every time I see it.' ,tools fan value notation editors C notation I it 
+469,420147_6,ob,editors,'I was a big fan of Hungarian notation in C when I was using dumb text editors ... it does not add enough value in an O-O language with modern tools to make up for the fact that my eye stutters over it every time I see it.' ,tools fan value notation editors C notation it I 
 470,1692069_1,ob,logic,'The old logic had no hope of working.' ,logic 
 471,251716_1,ob,way (the javascript validators…),'Urghhhhh yes this is a problem and all down to the horrible way the javascript validators are structured to 'call back'.' ,way Urghhhhh way 
 472,689788_1,ob,Mmap (ambiguo),'Oh shit on windows a very lot of tests are failing with MMap.' ,MMap shit 
@@ -577,7 +577,7 @@ seqn.,myunique_id,myanger_direction,Target,mydeveloper_comment,Targets
 576,1035454_3,ob,it,'My guess is that its dumb and explains output of git diff at top-level of hbase checkout.' ,level output level diff guess 
 577,320192_9,ob,work,'It is too much work.' ,work 
 578,2075144_2,ob,it,'While I prefer it when I write code it is really worthless on generated code the more I think about it.' ,code I 
-579,305018_7,ob,to re-use config.h,'to re-use config.h and define HAVE_CONFIG_H I find it in practice annoying because it assumes 'config.h' is at the same level of 'Thrift.h'.' ,level practice config.h practice I it 
+579,305018_7,ob,to re-use config.h,'to re-use config.h and define HAVE_CONFIG_H I find it in practice annoying because it assumes 'config.h' is at the same level of 'Thrift.h'.' ,level practice config.h practice it I 
 580,310678_11,ob,tools,'In fact these tools are far better than trying to post patches to this list for the ongoing branch and having people review them that way not only it is a lot more overhead on my part the tools for reviewing a patch here just are not as good as the git web tools are.' ,branch overhead patch git fact branch list web overhead 
 581,251055_2,ob,it,'It is definitely annoying.' ,
 582,314809_1,ob,MultipleFormSupport,'BTW the 'new' MultipleFormSupport is an ugly copy-paste of 'FormSupportImpl' mostly due to the fact that _cycle is private in FormSupportImpl Making it protected saves more that 750 lines... the other solution is for the subclass to also keep a copy of that field when it is passed in the contructor still ugly!',solution paste fact MultipleFormSupport solution subclass fact FormSupportImpl 
@@ -592,7 +592,7 @@ seqn.,myunique_id,myanger_direction,Target,mydeveloper_comment,Targets
 591,756748_2,self,I (implicito),'Aaarrggh how stupid of mine to have a System.out again!' ,
 592,395283_3,ob,this/fix,'This is somewhat an ugly fix but at least the output is better for me.' ,fix output output 
 593,1327878_18,ob,,'If you just use Embed-Dependency then you are telling BND to add the contents of the jar or the jar itself but do not say which packages should be made public so you can leave out exportcontents but then you wo not be exporting any packages this is ok if you are not expecting other bundles to use the packages Also is ugly.' ,Dependency bundles you 
-594,807428_1,self,me,'Stupid me!' ,
+594,807428_1,self,me,'Stupid me!' ,me 
 595,257786_4,ob,the user editing…,'So unless we wanted to ship the plugin with extra entries in its manifest this would require the user editing the manifest file which is pretty ugly.' ,entries file manifest entries 
 596,308814_1,ob,bug,'This bug is really annoying.' ,
 597,1442905_1,oth,you,'I wo not resolve this until you comment further in case you can offer some idea of what we can do with an element with no type other than to complain. ' ,type you 
@@ -601,7 +601,7 @@ seqn.,myunique_id,myanger_direction,Target,mydeveloper_comment,Targets
 600,305641_3,ob,catches,'If we are going to put a finally block in TNonblockingServer is run method we should probably at least log whatever gets thrown I hate silent catches.' ,
 601,405316_9,ob,reason,'Having a buffer per ContentData dates way back before Apache Sling and has probably cannot remember any more sorry done for some stupid reason in the pre-HttpServletWrapper days.....' ,days reason 
 602,334844_3,ob,that this is ultimately…,' common/core/ForEachSupport.java?rev=1.6&view=markup Also of course that this is ultimately a problem of broken tag pooling implementations is annoying.',problem common/core/ForEachSupport.java 
-603,684056_2,ob,it,'I think it looks kinda dumb but if its useful I will commit it. ' ,I its 
+603,684056_2,ob,it,'I think it looks kinda dumb but if its useful I will commit it. ' ,its I 
 604,1200782_13,ob,attribute,'The more I look at that attribute the more I hate it so I guess I am motivated Since I will be leaving for ApacheCon in a few hours I may not have enough time to finish applying the current patch.' ,time hours patch hours ApacheCon I 
 605,485049_1,ob,code,'Hi I am a bit wary of moving code changes around too much I always end up forgetting or missing something.' ,code something I 
 606,733717_3,self,I (implicito),'Details are fixed my own stupid typo bug in AbstractReferralPlugin.' ,bug 
@@ -627,11 +627,11 @@ seqn.,myunique_id,myanger_direction,Target,mydeveloper_comment,Targets
 626,317376_1,ob,that the main complaint,'What is annoying is that the main complaint is that the artifact ca not be found even though the POM contains the repository reference maven-play-plugin Maven Play Plugin ' ,complaint plugin Maven reference Play 
 627,338289_1,self,I,'I am stupid and forgot what file this bug was talking about I wrote up the description for this in an email a few weeks back.' ,weeks I 
 628,734624_1,self,me,'Shame on me lack of a nice formatter I made an error with getting the month Date.getMonth returns 0 to 11 not 1 to 12.',formatter lack I 
-629,1024732_5,ob,hack,'I did it previously but it was an ugly hack something I would not like to repeat.' ,hack I it 
+629,1024732_5,ob,hack,'I did it previously but it was an ugly hack something I would not like to repeat.' ,hack it I 
 630,254491_3,ob,(implicito),'Really annoying...' ,
-631,320389_2,ob,to re-implement,'I am developing my own application over 1 year in tapestry 5 with extensive use of javascript and it drives me really mad to re-implement parts of my javascripts each time when tapestry updates from 5.1.0.x to 5.1.0.x+1.',use application parts use tapestry I it 
+631,320389_2,ob,to re-implement,'I am developing my own application over 1 year in tapestry 5 with extensive use of javascript and it drives me really mad to re-implement parts of my javascripts each time when tapestry updates from 5.1.0.x to 5.1.0.x+1.',use application parts use tapestry it I 
 632,309786_3,ob,(‘comment) fix’,'I will check the modeline because I do hate the 'comment fix'.' ,I 
-633,811834_5,self,me,'Obviously there are no params for the state stupid me.' ,
+633,811834_5,self,me,'Obviously there are no params for the state stupid me.' ,me 
 634,329492_1,ob,question,'So dumb question.' ,question 
 635,316192_2,ob,this,'This is really ugly because it requires to 'copy' the whole code and make some additions.' ,code 
 636,689482_1,ob,junit (implicito),'michael i guess junit from my eclipse != junit from ant because it passes in eclipse...annoying I will fix the test so it runs correctly from ant.' ,michael 
@@ -695,7 +695,7 @@ seqn.,myunique_id,myanger_direction,Target,mydeveloper_comment,Targets
 694,419548_1,self,,'Oops I am a dumb azz!' ,azz 
 695,1726741_2,self,,'I feel like this patch I am providing is really dumb because it introduces another profile for no sake other than the name.' ,sake it 
 696,331018_2,ob,,'And the annoying thing is that to support catalog/name lookups either need two properties or an unreleased version of chain which has a syntax for splitting a single string 'catalogcommand'.' ,version thing string thing 
-697,320831_4,ob,,'That is very ugly since I had to hardcode the event link in order to make it send the event to the Select object because it has the necessary code to inject any input tag to its containing form in the onChange method or otherwise I would get the 'component must be enclosed by a Form component' error.' ,form object code I it 
+697,320831_4,ob,,'That is very ugly since I had to hardcode the event link in order to make it send the event to the Select object because it has the necessary code to inject any input tag to its containing form in the onChange method or otherwise I would get the 'component must be enclosed by a Form component' error.' ,form object code it I 
 698,965843_2,ob,,'That was me with stupid svn.' ,svn 
 699,411734_2,ob,,'Those were annoying!' ,
 700,250458_2,ob,,' In order to bypass that some ugly setAccessibletrue will be needed.',setAccessibletrue 

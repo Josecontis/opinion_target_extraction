@@ -19,7 +19,7 @@ def propagation(sentences, local_corenlp_path):  # questo metodo prende in input
     for phrase in sentences:  # per ogni singola frase nella lista di frasi
 
         with open('../target.txt', 'a') as file_tar_r1:  # apre il file dei target inizialmente vuoto in append
-            opinion = '../opinion-lexicon-English/Opinion-lexicon.txt'  # lessico di opinione delle parole positive
+            opinion = '../opinion-lexicon-English/Opinion-lexicon-with-ss.txt'  # lessico di opinione delle parole positive
             print("REGOLA 1")
             print('\n')
             tar_r11, tar_r12 = rule.R1(local_corenlp_path, phrase, opinion)  # estrapolazione del target tramite la regola R1, passando
