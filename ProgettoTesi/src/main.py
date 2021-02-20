@@ -7,6 +7,7 @@ pd.set_option('display.max_rows', 2000)
 pd.set_option('display.max_columns', 2000)
 pd.set_option('display.width', 2000)
 
+# variabili path
 local_corenlp_path = '../stanford-corenlp-4.2.0'
 csv = '../processing_file_originale/GOLD_723_processed.csv'
 target = '../target.txt'
@@ -97,6 +98,7 @@ while a == 'y':
         df['POS'] = ""
         df['DEP'] = ""
 
+        # scrivo nel csv i risultati ottenuti
         df.to_csv('../csv/Final.csv', index=False)
 
     elif choice == "7":

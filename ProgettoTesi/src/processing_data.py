@@ -2,11 +2,11 @@ import pandas as pd
 import re
 
 
-# metodo per estrapolare le colonne da un file csv
+# metodo per estrapolare la colonna delle frasi da un file csv
 def csv_to_column_list(file_csv, sentence_col):
-    dfP = pd.read_csv(file_csv, encoding ='ISO-8859-1')  # lettura file csv delle polarità
-    sentence = dfP[sentence_col].tolist()  # sentence contiene una lista di frasi estrapolate
-    return sentence  # restituisce la lista di frasi e la lista di target con polarità di ogni frase
+    dfP = pd.read_csv(file_csv, encoding ='ISO-8859-1')  # lettura file csv
+    sentence = dfP[sentence_col].tolist()  # sentence contiene una lista di frasi prelevate
+    return sentence  # restituisce la lista di frasi
 
 
 # metodo per convertire txt to csv
@@ -34,7 +34,7 @@ def replace_symbols(Original_file, col):
     list_output = []
     for x in file[col]:
         list_input.append(str(x))
-    print(list_input)
+    #print(list_input)
     for phrase in list_input:
         m = re.findall(r'[@]\w+', phrase)  # trova i termini con il tag @
         for i in m:
@@ -103,7 +103,7 @@ def replace_symbols(Original_file, col):
     file.to_csv('../processing_file_originale/Target_Annotation_Processed.csv', index=False)
 
 
-# metodo per unire il contenuto di due documenti di testo
+# metodo per unire il contenuto in append di due documenti di testo
 def append_txt(neg_file, pos_file):
 
     # creo la lista dei file da esaminare
@@ -116,7 +116,8 @@ def append_txt(neg_file, pos_file):
                 # leggo il contenuto del primo file di input e lo scrivo nel file di output
                 outfile.write(infile.read())
 
-# metodo per unire il contenuto di due documenti di testo
+
+# metodo per unire il contenuto in unione riga per riga di due documenti di testo
 def merge_txt(file1, file2):
     combine = []
 
@@ -139,6 +140,7 @@ def merge_txt(file1, file2):
                         line = ylines[i].strip() + ' ' + xlines[i]
                         zh.write(line)
 
+# metodo che preleva i termini dal lessico di sentistrenght per inserirli nel lessico di opinione
 def clean_sentiStrenght_txt(o_file, p_file):
 
     # apro il file di output in scrittura

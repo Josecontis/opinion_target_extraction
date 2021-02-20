@@ -11,9 +11,8 @@ def search_string_in_file(file_name, string_to_search):
                 return True
     return False
 
-
+# decommentare R2 e R4 se si vuole estrarre parole di opinione
 def propagation(sentences, local_corenlp_path):  # questo metodo prende in input la lista di frasi e la libreria
-    #
     df = pd.read_csv("../processing_file_originale/Target_Annotation_Processed.csv")
     row = 0
     for phrase in sentences:  # per ogni singola frase nella lista di frasi
@@ -23,16 +22,16 @@ def propagation(sentences, local_corenlp_path):  # questo metodo prende in input
             print("REGOLA 1")
             print('\n')
             tar_r11, tar_r12 = rule.R1(local_corenlp_path, phrase, opinion)  # estrapolazione del target tramite la regola R1, passando
-                                                          # al metodo la libreria e la frase da esaminare
+                                                          # al metodo la libreria la frase da esaminare e il lessico di opinione
 
             file_tar_r1.write('\n')  # ritorna a capo per scrivere nuovi target
-            for word_r11 in tar_r11:  # targ è la lista di tutti i target estratti dalla singola frase (ovvero input)
+            for word_r11 in tar_r11:  # tar_r11 è la lista di tutti i target estratti dalla singola frase (ovvero input)
                 file_tar_r1.write(word_r11)  # scrive nel file i target trovati
-                file_tar_r1.write(', ')  # scrive uno spazio nel file dopo il target per separlo con un altro alla prossima iterata
+                file_tar_r1.write(', ')  # scrive una , nel file dopo il target per separlo con un altro alla prossima iterata
 
-            for word_r12 in tar_r12:  # targ è la lista di tutti i target estratti dalla singola frase (ovvero input)
+            for word_r12 in tar_r12:  # tar_r12 è la lista di tutti i target estratti dalla singola frase (ovvero input)
                 file_tar_r1.write(word_r12)  # scrive nel file i target trovati
-                file_tar_r1.write(', ')  # scrive uno spazio nel file dopo il target per separlo con un altro alla prossima iterata
+                file_tar_r1.write(', ')  # scrive una , nel file dopo il target per separlo con un altro alla prossima iterata
 
         '''
         with open('../opinion.txt', 'a') as file_opi_r2:
@@ -60,13 +59,13 @@ def propagation(sentences, local_corenlp_path):  # questo metodo prende in input
             tar_r31, tar_r32 = rule.R3(local_corenlp_path, phrase, targe)  # estrapolazione del target tramite la regola R3, passando
                                                         # al metodo la libreria, la frase da esaminare e il file dei target singoli estratti prima
 
-            for word_r31 in tar_r31:  # targ è la lista di tutti i target estratti dalla singola frase (ovvero input)
+            for word_r31 in tar_r31:  # tar_31 è la lista di tutti i target estratti dalla singola frase (ovvero input)
                 file_tar_r3.write(word_r31)  # scrive nel file i target trovati
-                file_tar_r3.write(', ')  # scrive uno spazio nel file dopo il target per separlo con un altro alla prossima iterata
+                file_tar_r3.write(', ')  # scrive una , nel file dopo il target per separlo con un altro alla prossima iterata
 
-            for word_r32 in tar_r32:  # targ è la lista di tutti i target estratti dalla singola frase (ovvero input)
+            for word_r32 in tar_r32:  # tar_r32 è la lista di tutti i target estratti dalla singola frase (ovvero input)
                 file_tar_r3.write(word_r32)  # scrive nel file i target trovati
-                file_tar_r3.write(', ')  # scrive uno spazio nel file dopo il target per separlo con un altro alla prossima iterata
+                file_tar_r3.write(', ')  # scrive una , nel file dopo il target per separlo con un altro alla prossima iterata
         '''
         with open('../opinion.txt', 'a') as file_opi_r4:
             with open('../opinion-lexicon-English/Opinion-lexicon.txt', 'a+') as lex_opi_r4:

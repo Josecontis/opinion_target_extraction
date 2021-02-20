@@ -1,5 +1,4 @@
 from stanfordcorenlp import StanfordCoreNLP
-import logging
 import numpy as np
 
 
@@ -16,7 +15,6 @@ def SC(local_corenlp_path, input):  # in input la libreria e la frase da esamina
   # Tokenize ['il', 'pc', 'è', 'performante']
   # POS [('il', 'DT'), ('pc', 'NN'), ('è', 'VRB'), ('performante', 'JJ')]
   # Dependency [('il', 'DT'), ('pc', 'NN'), ('è', 'VRB'), ('performante', 'JJ')]
-
 
 
 def R1(local_corenlp_path, input, op):  # in input la libreria e la frase da esaminare
@@ -50,10 +48,10 @@ def R1(local_corenlp_path, input, op):  # in input la libreria e la frase da esa
         for line in op_file:
           if agg+'\n' == line:  # se l'aggettivo della frase è presente nel lessico di opinione negativo
             check = True
-          if line.endswith('*'):
-            if agg.startswith(line):
+          if line.endswith('*'):  # se la linea del documento termina con un * allora basta considerare come base di una parola quel termine
+            if agg.startswith(line):  # e quindi vero anche se l'aggettivo inizia per quel termine con il simbolo *
               check = True
-      if check:
+      if check:  # se check è vero vado avanti
         # R11
         for items in depe:  # analizzando la i-esima tripla [('amod', 6, 4)]
           a = tok[items[2]-1]
@@ -141,6 +139,8 @@ def R2(local_corenlp_path, input, file_target):  # in input la libreria, la fras
                             # (alla seconda chiamata del metodo verranno concatenati altre parole di opinione)
 
 '''
+
+
 def R3(local_corenlp_path, input, file_target):  # in input la libreria, la frase da esaminare e il file dei target estratti
 
   toke, pos, depe = SC(local_corenlp_path, input)  # richiamo metodo per tokenizer tag pos e albero delle dipendenze
@@ -161,30 +161,30 @@ def R3(local_corenlp_path, input, file_target):  # in input la libreria, la fras
   list_target_r31 = []
   list_target_r32 = []
 
-  for item in depe:
-    if item[0] == 'conj':
-      w_r31 = tok[item[2]-1]
-      with open(file_target) as tar_file:  # apre il file on
-        if w_r31 in tar_file.read():  # se l'aggettivo della frase è presente nel lessico di opinione negativo
-          t = item[1]
+  for item in depe:  # fisso la 1° tripla e la controllo con le altre
+    if item[0] == 'conj':  # se trovo una relazione di tipo conj
+      w_r31 = tok[item[2]-1]  # mi salvo il primo termine che partecipa alla relazione
+      with open(file_target) as tar_file:  # apre il file dei target
+        if w_r31 in tar_file.read():  # se il target della frase è presente nel lessico dei target
+          t = item[1]  # salvo il suo collegato da una forma di conj
           for item1 in pos:
-            if item1[0] == tok[t-1]:
+            if item1[0] == tok[t-1]:  # verifico la presenza nel vettore dei tag POS per verificarne il tag
               if item1[1].__contains__('PRP') or item1[1].__contains__('PRP$') or item1[1].__contains__('WP'):
-                target = tok[t-1]
-                list_target_r31.append(target)
+                target = tok[t-1]  # salvo il target estratto
+                list_target_r31.append(target)  # concateno alla lista il target trovato
 
   # R32
   for items in depe:  # fisso la 1° tripla e la controllo con le altre
-    if items[0] == 'obj':
-      w_r32 = tok[items[2] - 1]
+    if items[0] == 'obj':  # se trovo una relazione di tipo obj
+      w_r32 = tok[items[2] - 1]  # mi salvo il primo termine che partecipa alla relazione
       with open(file_target) as tar_file:  # apre il file on
         if w_r32 in tar_file.read():  # se l'aggettivo della frase è presente nel lessico di opinione negativo
-          H = items[1]
+          H = items[1] # salvo il suo collegato da una forma di conj
           for items2 in depe:  # altre triple che scorrono
-            if items2[0] == 'nsubj' and items2[1] == H:  # se il tag della prima tripla è uguale al tag di una tripla che sto scorrendo
-              target = items2[2]  # poichè 3=3, aggiorna il target con l'altro collegato da mod [target=6]
+            if items2[0] == 'nsubj' and items2[1] == H:  # se trovo una relazione di nsubj che ha come primo termine che partecipa alla relazione = H
+              target = items2[2]  # aggiorna il target con l'altro collegato da nsubj
               if (pos[target-1].__contains__('WP') or pos[target-1].__contains__('PRP') or pos[target-1].__contains__('PRP$')) and items != items2:  # verifica che il termine target è un nome e che le due triple siano diverse per evitare falsi
-                t = tok[target-1]  # salvo la parola target tok[6-1]
+                t = tok[target-1]  # salvo la parola target estratto
                 list_target_r32.append(t)  # concateno alla lista il target trovato
                 #Ti-->Ti-Dep-->H<--Tj-Dep<--Tj
 

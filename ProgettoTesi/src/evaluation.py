@@ -1,11 +1,13 @@
 import difflib
 
+
+# questo metodo di valutazione è legato alle frequenze ovvero conta quanti termini sono stati estratti
 def tf_idf_extracted_words(file, title):
     t = open(file, 'r').readlines()  # apertura file in lettura
-    list = [x.replace('\n', '').replace(',', '') for x in t]
+    list = [x.replace('\n', '').replace(',', '') for x in t]  # rimpiazza caratteri inutili dal file e inserisce il contenuto in una lista
     l = [words for segments in list for words in segments.split()]
 
-    # Creating an empty dictionary
+    # crea un dizionario dove va ad inserire termine come chiave e frequenza come valore
     freq = {}
     for item in l:
         if (item in freq):
@@ -17,6 +19,7 @@ def tf_idf_extracted_words(file, title):
         print("% s : % d" % (key, value))
 
 
+# questo metodo di valutazione confronta due file di frequenze di termini e restituisce i risultati in un nuovo file
 def diff_files(files1, files2, output):
 
     text1 = open(files1).readlines()
